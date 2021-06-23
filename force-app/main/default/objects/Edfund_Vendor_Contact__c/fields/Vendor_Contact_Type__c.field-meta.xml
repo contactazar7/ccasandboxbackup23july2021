@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Contact_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Vendor Contact Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>Admissions Counselor</fullName>
+                <default>false</default>
+                <label>Admissions Counselor</label>
+            </value>
+            <value>
+                <fullName>Assistant Director</fullName>
+                <default>false</default>
+                <label>Assistant Director</label>
+            </value>
+            <value>
+                <fullName>Business Office Manager</fullName>
+                <default>false</default>
+                <label>Business Office Manager</label>
+            </value>
+            <value>
+                <fullName>Director of Admissions</fullName>
+                <default>false</default>
+                <label>Director of Admissions</label>
+            </value>
+            <value>
+                <fullName>Executive Director</fullName>
+                <default>false</default>
+                <label>Executive Director</label>
+            </value>
+            <value>
+                <fullName>President</fullName>
+                <default>false</default>
+                <label>President</label>
+            </value>
+            <value>
+                <fullName>Program Director/Nurse Consultant</fullName>
+                <default>false</default>
+                <label>Program Director/Nurse Consultant</label>
+            </value>
+            <value>
+                <fullName>Student Support Representative</fullName>
+                <default>false</default>
+                <label>Student Support Representative</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

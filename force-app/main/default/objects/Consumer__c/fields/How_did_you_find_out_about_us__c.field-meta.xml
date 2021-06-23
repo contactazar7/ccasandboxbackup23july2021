@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_did_you_find_out_about_us__c</fullName>
+    <externalId>false</externalId>
+    <label>How did you find out about us?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Employer/Consumer</fullName>
+                <default>false</default>
+                <label>Employer/Consumer</label>
+            </value>
+            <value>
+                <fullName>Provider</fullName>
+                <default>false</default>
+                <label>Provider</label>
+            </value>
+            <value>
+                <fullName>SEIU ULTCW / Local 2015</fullName>
+                <default>false</default>
+                <label>SEIU ULTCW / Local 2015</label>
+            </value>
+            <value>
+                <fullName>Phone Call</fullName>
+                <default>false</default>
+                <label>Phone Call</label>
+            </value>
+            <value>
+                <fullName>Health Plan/Insurance</fullName>
+                <default>false</default>
+                <label>Health Plan/Insurance</label>
+            </value>
+            <value>
+                <fullName>House Visit</fullName>
+                <default>false</default>
+                <label>House Visit</label>
+            </value>
+            <value>
+                <fullName>Community Presentation</fullName>
+                <default>false</default>
+                <label>Community Presentation</label>
+            </value>
+            <value>
+                <fullName>Media</fullName>
+                <default>false</default>
+                <label>Media</label>
+            </value>
+            <value>
+                <fullName>Letter</fullName>
+                <default>false</default>
+                <label>Letter</label>
+            </value>
+            <value>
+                <fullName>Friend/Another Consumer</fullName>
+                <default>false</default>
+                <label>Friend/Another Consumer</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Flyer</fullName>
+                <default>false</default>
+                <label>Flyer</label>
+            </value>
+            <value>
+                <fullName>Community</fullName>
+                <default>false</default>
+                <label>Community</label>
+            </value>
+            <value>
+                <fullName>Presentation</fullName>
+                <default>false</default>
+                <label>Presentation</label>
+            </value>
+            <value>
+                <fullName>Friend/Another IHSS Caregiver</fullName>
+                <default>false</default>
+                <label>Friend/Another IHSS Caregiver</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

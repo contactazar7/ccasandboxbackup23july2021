@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Secondary__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Status of the Provider with the specified Secondary Edfund Facility</inlineHelpText>
+    <label>Status - Secondary</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Current</fullName>
+                <default>false</default>
+                <label>Current</label>
+            </value>
+            <value>
+                <fullName>Former</fullName>
+                <default>false</default>
+                <label>Former</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

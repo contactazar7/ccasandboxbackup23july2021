@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Contact_Type_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Facility Contact Type Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Facility_Contact_Types__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Facility</fullName>
+                <default>false</default>
+                <label>Facility</label>
+            </value>
+            <value>
+                <fullName>Union</fullName>
+                <default>false</default>
+                <label>Union</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Human Resources Business Partner</controllingFieldValue>
+            <controllingFieldValue>CPO</controllingFieldValue>
+            <controllingFieldValue>DSD Assistant</controllingFieldValue>
+            <controllingFieldValue>Legal Counsel</controllingFieldValue>
+            <controllingFieldValue>Director of Nursing</controllingFieldValue>
+            <controllingFieldValue>Infection Preventionist</controllingFieldValue>
+            <controllingFieldValue>Director of Operations</controllingFieldValue>
+            <controllingFieldValue>Nurse Practice Educator (NPE)</controllingFieldValue>
+            <controllingFieldValue>HCSG Supervisor</controllingFieldValue>
+            <controllingFieldValue>Staff Development Coordinator (SDC)</controllingFieldValue>
+            <controllingFieldValue>Business Office Manager</controllingFieldValue>
+            <controllingFieldValue>Administrator Assistant</controllingFieldValue>
+            <controllingFieldValue>Receptionist</controllingFieldValue>
+            <controllingFieldValue>NPE</controllingFieldValue>
+            <controllingFieldValue>Kitchen Assistant</controllingFieldValue>
+            <controllingFieldValue>Maintenance Manager</controllingFieldValue>
+            <controllingFieldValue>HR Director</controllingFieldValue>
+            <controllingFieldValue>Payroll Manager</controllingFieldValue>
+            <controllingFieldValue>Regional Vice President of Operations</controllingFieldValue>
+            <controllingFieldValue>Administrator</controllingFieldValue>
+            <controllingFieldValue>DSD</controllingFieldValue>
+            <controllingFieldValue>DON</controllingFieldValue>
+            <controllingFieldValue>Kitchen Supervisor</controllingFieldValue>
+            <controllingFieldValue>Executive Director</controllingFieldValue>
+            <controllingFieldValue>President</controllingFieldValue>
+            <controllingFieldValue>Talent Acquisition Manager</controllingFieldValue>
+            <controllingFieldValue>Vice President of Human Resources</controllingFieldValue>
+            <valueName>Facility</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Executive Vice-President</controllingFieldValue>
+            <controllingFieldValue>Test Contact Type</controllingFieldValue>
+            <controllingFieldValue>Steward PM</controllingFieldValue>
+            <controllingFieldValue>Steward NOC</controllingFieldValue>
+            <controllingFieldValue>Lead</controllingFieldValue>
+            <controllingFieldValue>Regional Director</controllingFieldValue>
+            <controllingFieldValue>Steward AM</controllingFieldValue>
+            <controllingFieldValue>Activist</controllingFieldValue>
+            <controllingFieldValue>Organizer/Union Rep</controllingFieldValue>
+            <controllingFieldValue>Steward</controllingFieldValue>
+            <valueName>Union</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

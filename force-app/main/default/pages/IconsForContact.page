@@ -1,0 +1,16 @@
+<apex:page standardController="contact" extensions="IconsForContact1">
+<apex:slds />
+    
+<apex:form > 
+              <apex:image url="{!$Resource.ScreeningIcon}" width="53" height="53" rendered="{!conrec.SQCheck__c=true}" />
+                <apex:image url="{!$Resource.AD8Icon}" width="53" height="53" rendered="{!conrec.AD8Check__c=true}" />
+             <apex:image url="{!$Resource.PPFIcon}" width="53" height="53" rendered="{!conrec.Participation_form_submitted__c=true}" />
+    <apex:image url="{!$Resource.AssesmentIcon}" width="53" height="53" rendered="{!conrec.Consumer_Participation_form_submitted__c=true}" />
+    <apex:image url="{!$Resource.EnrollIcon}" width="53" height="53" rendered="{!conrec.Enrollment_Check__c=true}" />
+     <apex:image url="{!$Resource.SingleAff}" width="53" height="53" rendered="{!conrec.Single_ConsAffiliate__c=true}" />
+    <apex:image url="{!$Resource.MultipleAff}" width="53" height="53" rendered="{!conrec.Multi_ConsAffiliate__c=true}" />
+        <apex:image url="{!$Resource.NoAffiliation}" width="53" height="53" rendered="{!conrec.No_Affiliation__c=true}" />
+    
+
+</apex:form>
+</apex:page>

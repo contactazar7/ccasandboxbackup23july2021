@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>County__c</fullName>
+    <externalId>false</externalId>
+    <label>County</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alameda County</fullName>
+                <default>false</default>
+                <label>Alameda County</label>
+            </value>
+            <value>
+                <fullName>Alpine County</fullName>
+                <default>false</default>
+                <label>Alpine County</label>
+            </value>
+            <value>
+                <fullName>Amador County</fullName>
+                <default>false</default>
+                <label>Amador County</label>
+            </value>
+            <value>
+                <fullName>Butte County</fullName>
+                <default>false</default>
+                <label>Butte County</label>
+            </value>
+            <value>
+                <fullName>Calaveras County</fullName>
+                <default>false</default>
+                <label>Calaveras County</label>
+            </value>
+            <value>
+                <fullName>Colusa County</fullName>
+                <default>false</default>
+                <label>Colusa County</label>
+            </value>
+            <value>
+                <fullName>Contra Costa County</fullName>
+                <default>false</default>
+                <label>Contra Costa County</label>
+            </value>
+            <value>
+                <fullName>Del Norte County</fullName>
+                <default>false</default>
+                <label>Del Norte County</label>
+            </value>
+            <value>
+                <fullName>El Dorado County</fullName>
+                <default>false</default>
+                <label>El Dorado County</label>
+            </value>
+            <value>
+                <fullName>Fresno County</fullName>
+                <default>false</default>
+                <label>Fresno County</label>
+            </value>
+            <value>
+                <fullName>Glenn County</fullName>
+                <default>false</default>
+                <label>Glenn County</label>
+            </value>
+            <value>
+                <fullName>Humboldt County</fullName>
+                <default>false</default>
+                <label>Humboldt County</label>
+            </value>
+            <value>
+                <fullName>Imperial County</fullName>
+                <default>false</default>
+                <label>Imperial County</label>
+            </value>
+            <value>
+                <fullName>Inyo County</fullName>
+                <default>false</default>
+                <label>Inyo County</label>
+            </value>
+            <value>
+                <fullName>Kern County</fullName>
+                <default>false</default>
+                <label>Kern County</label>
+            </value>
+            <value>
+                <fullName>Kings County</fullName>
+                <default>false</default>
+                <label>Kings County</label>
+            </value>
+            <value>
+                <fullName>Lake County</fullName>
+                <default>false</default>
+                <label>Lake County</label>
+            </value>
+            <value>
+                <fullName>Lassen County</fullName>
+                <default>false</default>
+                <label>Lassen County</label>
+            </value>
+            <value>
+                <fullName>Los Angeles County</fullName>
+                <default>false</default>
+                <label>Los Angeles County</label>
+            </value>
+            <value>
+                <fullName>Madera County</fullName>
+                <default>false</default>
+                <label>Madera County</label>
+            </value>
+            <value>
+                <fullName>Marin County</fullName>
+                <default>false</default>
+                <label>Marin County</label>
+            </value>
+            <value>
+                <fullName>Mariposa County</fullName>
+                <default>false</default>
+                <label>Mariposa County</label>
+            </value>
+            <value>
+                <fullName>Mendocino County</fullName>
+                <default>false</default>
+                <label>Mendocino County</label>
+            </value>
+            <value>
+                <fullName>Merced County</fullName>
+                <default>false</default>
+                <label>Merced County</label>
+            </value>
+            <value>
+                <fullName>Modoc County</fullName>
+                <default>false</default>
+                <label>Modoc County</label>
+            </value>
+            <value>
+                <fullName>Mono County</fullName>
+                <default>false</default>
+                <label>Mono County</label>
+            </value>
+            <value>
+                <fullName>Monterey County</fullName>
+                <default>false</default>
+                <label>Monterey County</label>
+            </value>
+            <value>
+                <fullName>Napa County</fullName>
+                <default>false</default>
+                <label>Napa County</label>
+            </value>
+            <value>
+                <fullName>Nevada County</fullName>
+                <default>false</default>
+                <label>Nevada County</label>
+            </value>
+            <value>
+                <fullName>Orange County</fullName>
+                <default>false</default>
+                <label>Orange County</label>
+            </value>
+            <value>
+                <fullName>Placer County</fullName>
+                <default>false</default>
+                <label>Placer County</label>
+            </value>
+            <value>
+                <fullName>Plumas County</fullName>
+                <default>false</default>
+                <label>Plumas County</label>
+            </value>
+            <value>
+                <fullName>Riverside County</fullName>
+                <default>false</default>
+                <label>Riverside County</label>
+            </value>
+            <value>
+                <fullName>Sacramento County</fullName>
+                <default>false</default>
+                <label>Sacramento County</label>
+            </value>
+            <value>
+                <fullName>San Benito County</fullName>
+                <default>false</default>
+                <label>San Benito County</label>
+            </value>
+            <value>
+                <fullName>San Bernardino County</fullName>
+                <default>false</default>
+                <label>San Bernardino County</label>
+            </value>
+            <value>
+                <fullName>San Diego County</fullName>
+                <default>false</default>
+                <label>San Diego County</label>
+            </value>
+            <value>
+                <fullName>San Francisco County</fullName>
+                <default>false</default>
+                <label>San Francisco County</label>
+            </value>
+            <value>
+                <fullName>San Joaquin County</fullName>
+                <default>false</default>
+                <label>San Joaquin County</label>
+            </value>
+            <value>
+                <fullName>San Luis Obispo County</fullName>
+                <default>false</default>
+                <label>San Luis Obispo County</label>
+            </value>
+            <value>
+                <fullName>San Mateo County</fullName>
+                <default>false</default>
+                <label>San Mateo County</label>
+            </value>
+            <value>
+                <fullName>Santa Barbara County</fullName>
+                <default>false</default>
+                <label>Santa Barbara County</label>
+            </value>
+            <value>
+                <fullName>Santa Clara County</fullName>
+                <default>false</default>
+                <label>Santa Clara County</label>
+            </value>
+            <value>
+                <fullName>Santa Cruz County</fullName>
+                <default>false</default>
+                <label>Santa Cruz County</label>
+            </value>
+            <value>
+                <fullName>Shasta County</fullName>
+                <default>false</default>
+                <label>Shasta County</label>
+            </value>
+            <value>
+                <fullName>Sierra County</fullName>
+                <default>false</default>
+                <label>Sierra County</label>
+            </value>
+            <value>
+                <fullName>Siskiyou County</fullName>
+                <default>false</default>
+                <label>Siskiyou County</label>
+            </value>
+            <value>
+                <fullName>Solano County</fullName>
+                <default>false</default>
+                <label>Solano County</label>
+            </value>
+            <value>
+                <fullName>Sonoma County</fullName>
+                <default>false</default>
+                <label>Sonoma County</label>
+            </value>
+            <value>
+                <fullName>Stanislaus County</fullName>
+                <default>false</default>
+                <label>Stanislaus County</label>
+            </value>
+            <value>
+                <fullName>Sutter County</fullName>
+                <default>false</default>
+                <label>Sutter County</label>
+            </value>
+            <value>
+                <fullName>Tehama County</fullName>
+                <default>false</default>
+                <label>Tehama County</label>
+            </value>
+            <value>
+                <fullName>Trinity County</fullName>
+                <default>false</default>
+                <label>Trinity County</label>
+            </value>
+            <value>
+                <fullName>Tulare County</fullName>
+                <default>false</default>
+                <label>Tulare County</label>
+            </value>
+            <value>
+                <fullName>Tuolumne County</fullName>
+                <default>false</default>
+                <label>Tuolumne County</label>
+            </value>
+            <value>
+                <fullName>Ventura County</fullName>
+                <default>false</default>
+                <label>Ventura County</label>
+            </value>
+            <value>
+                <fullName>Yolo County</fullName>
+                <default>false</default>
+                <label>Yolo County</label>
+            </value>
+            <value>
+                <fullName>Yuba County</fullName>
+                <default>false</default>
+                <label>Yuba County</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

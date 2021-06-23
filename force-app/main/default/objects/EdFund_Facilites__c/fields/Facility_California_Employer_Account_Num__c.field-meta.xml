@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_California_Employer_Account_Num__c</fullName>
+    <description>Facility California Employer Account Number (CEAN)</description>
+    <externalId>false</externalId>
+    <label>Facility California Employer Account Num</label>
+    <length>100</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

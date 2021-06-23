@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_describes_your_connection_to_CCA__c</fullName>
+    <externalId>false</externalId>
+    <label>What describes your connection to CCA?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SEIU-ULTCW / Local 2015 Flyer</fullName>
+                <default>false</default>
+                <label>SEIU-ULTCW / Local 2015 Flyer</label>
+            </value>
+            <value>
+                <fullName>CUHW</fullName>
+                <default>false</default>
+                <label>CUHW</label>
+            </value>
+            <value>
+                <fullName>Ticket-To-Work</fullName>
+                <default>false</default>
+                <label>Ticket-To-Work</label>
+            </value>
+            <value>
+                <fullName>EDD/WorkSource</fullName>
+                <default>false</default>
+                <label>EDD/WorkSource</label>
+            </value>
+            <value>
+                <fullName>HealthNet Health Plan</fullName>
+                <default>false</default>
+                <label>HealthNet Health Plan</label>
+            </value>
+            <value>
+                <fullName>Self</fullName>
+                <default>false</default>
+                <label>Self</label>
+            </value>
+            <value>
+                <fullName>Other Health Plan</fullName>
+                <default>false</default>
+                <label>Other Health Plan</label>
+            </value>
+            <value>
+                <fullName>LA County Provider</fullName>
+                <default>false</default>
+                <label>LA County Provider</label>
+            </value>
+            <value>
+                <fullName>Contra Costa County Provider</fullName>
+                <default>false</default>
+                <label>Contra Costa County Provider</label>
+            </value>
+            <value>
+                <fullName>San Mateo County Provider</fullName>
+                <default>false</default>
+                <label>San Mateo County Provider</label>
+            </value>
+            <value>
+                <fullName>SEIU-UHW</fullName>
+                <default>false</default>
+                <label>SEIU-UHW</label>
+            </value>
+            <value>
+                <fullName>ULTCW Other</fullName>
+                <default>false</default>
+                <label>ULTCW Other</label>
+            </value>
+            <value>
+                <fullName>LA Care Health Plan</fullName>
+                <default>false</default>
+                <label>LA Care Health Plan</label>
+            </value>
+            <value>
+                <fullName>Contra Costa County Consumer</fullName>
+                <default>false</default>
+                <label>Contra Costa County Consumer</label>
+            </value>
+            <value>
+                <fullName>Decline to state</fullName>
+                <default>false</default>
+                <label>Decline to state</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

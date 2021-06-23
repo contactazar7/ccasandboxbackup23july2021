@@ -1,0 +1,16 @@
+<aura:component controller="customclass" implements="force:hasRecordId,lightning:hasPageReference,lightning:actionOverride,flexipage:availableForAllPageTypes,lightning:isUrlAddressable"  access="global">
+	 <aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+    <aura:attribute name="selectedRecordId" type="Id" />
+         <aura:attribute name="isModalOpen" type="boolean" />
+
+ <aura:handler name="init" value="{!this}" action="{!c.init}" access="public"/>
+    <aura:attribute name="recordTypes" type="String[]" access="public"/>
+     
+    <!--Declare Handler-->
+<aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
+    <aura:if isTrue="{!v.selectedRecordId!=null}">
+
+    <c:Custom objectAPIName="SFDC_Class__c" IconName="standard:account" selectedRecord="{!v.selectedLookUpRecord}" label="Instructor ID 1" selectedRecordId="{!v.selectedRecordId}" />
+    </aura:if>
+
+</aura:component>

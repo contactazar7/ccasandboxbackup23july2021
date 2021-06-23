@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruitment_Assessment__c</fullName>
+    <externalId>false</externalId>
+    <label>Recruitment Assessment</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Already took CMMI Class</fullName>
+                <default>false</default>
+                <label>Already took CMMI Class</label>
+            </value>
+            <value>
+                <fullName>Bad / Disconnected Number</fullName>
+                <default>false</default>
+                <label>Bad / Disconnected Number</label>
+            </value>
+            <value>
+                <fullName>Bad Address Caring for family member cannot attend training</fullName>
+                <default>false</default>
+                <label>Bad Address Caring for family member cannot attend training</label>
+            </value>
+            <value>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+                <label>Do Not Contact</label>
+            </value>
+            <value>
+                <fullName>Follow-Up</fullName>
+                <default>false</default>
+                <label>Follow-Up</label>
+            </value>
+            <value>
+                <fullName>IC Signed / Enrolled Interested</fullName>
+                <default>false</default>
+                <label>IC Signed / Enrolled Interested</label>
+            </value>
+            <value>
+                <fullName>Left a Message</fullName>
+                <default>false</default>
+                <label>Left a Message</label>
+            </value>
+            <value>
+                <fullName>No Childcare</fullName>
+                <default>false</default>
+                <label>No Childcare</label>
+            </value>
+            <value>
+                <fullName>No Consumer Care</fullName>
+                <default>false</default>
+                <label>No Consumer Care</label>
+            </value>
+            <value>
+                <fullName>No Longer Provider / Consumer</fullName>
+                <default>false</default>
+                <label>No Longer Provider / Consumer</label>
+            </value>
+            <value>
+                <fullName>No Money No Time (but would not specify)</fullName>
+                <default>false</default>
+                <label>No Money No Time (but would not specify)</label>
+            </value>
+            <value>
+                <fullName>No Transportation</fullName>
+                <default>false</default>
+                <label>No Transportation</label>
+            </value>
+            <value>
+                <fullName>Not Available (at the moment, but for the future)</fullName>
+                <default>false</default>
+                <label>Not Available (at the moment, but for the future)</label>
+            </value>
+            <value>
+                <fullName>Not Current On Union Dues</fullName>
+                <default>false</default>
+                <label>Not Current On Union Dues</label>
+            </value>
+            <value>
+                <fullName>Not Home</fullName>
+                <default>false</default>
+                <label>Not Home</label>
+            </value>
+            <value>
+                <fullName>Not Interested / Declined</fullName>
+                <default>false</default>
+                <label>Not Interested / Declined</label>
+            </value>
+            <value>
+                <fullName>Not Qualified/Eligible</fullName>
+                <default>false</default>
+                <label>Not Qualified/Eligible</label>
+            </value>
+            <value>
+                <fullName>Not Union Member</fullName>
+                <default>false</default>
+                <label>Not Union Member</label>
+            </value>
+            <value>
+                <fullName>Outdated IC form (need new IC)</fullName>
+                <default>false</default>
+                <label>Outdated IC form (need new IC)</label>
+            </value>
+            <value>
+                <fullName>Refused To Pay</fullName>
+                <default>false</default>
+                <label>Refused To Pay</label>
+            </value>
+            <value>
+                <fullName>Refused w/o conversation</fullName>
+                <default>false</default>
+                <label>Refused w/o conversation</label>
+            </value>
+            <value>
+                <fullName>Scheduled Appointment</fullName>
+                <default>false</default>
+                <label>Scheduled Appointment</label>
+            </value>
+            <value>
+                <fullName>Special Project</fullName>
+                <default>false</default>
+                <label>Special Project</label>
+            </value>
+            <value>
+                <fullName>Too Far Undecided</fullName>
+                <default>false</default>
+                <label>Too Far Undecided</label>
+            </value>
+            <value>
+                <fullName>Decline to state</fullName>
+                <default>false</default>
+                <label>Decline to state</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

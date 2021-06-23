@@ -1,0 +1,17 @@
+<apex:page standardController="Contact">
+ <apex:includeLightning />
+
+<div class="slds-grid slds-wrap" id="AssignedClass" />
+  
+ <script>
+ $Lightning.use("c:AssignedComponentApp", function() {
+ $Lightning.createComponent("c:AssignedClassComp",
+ {},
+ "AssignedClass",
+ function(component) {
+     
+     component.set("v.contactId",'{!$CurrentPage.parameters.id}');
+ });
+ });
+ </script>
+</apex:page>

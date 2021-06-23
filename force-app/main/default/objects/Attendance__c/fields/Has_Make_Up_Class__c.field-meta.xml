@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Make_Up_Class__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field has created to find the Attendance records that&apos;s belong to Make-Up Class for Students.</description>
+    <externalId>false</externalId>
+    <label>Belongs to MakeUp Class?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

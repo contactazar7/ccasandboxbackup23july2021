@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Regional_Field_Coordinator__c</fullName>
+    <externalId>false</externalId>
+    <label>Facility Regional Field Coordinator</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Katiana Adorno Rodriguez</fullName>
+                <default>false</default>
+                <label>Katiana Adorno Rodriguez</label>
+            </value>
+            <value>
+                <fullName>Education Fund Assistant</fullName>
+                <default>false</default>
+                <label>Education Fund Assistant</label>
+            </value>
+            <value>
+                <fullName>Operations Assistant</fullName>
+                <default>false</default>
+                <label>Operations Assistant</label>
+            </value>
+            <value>
+                <fullName>Jasmine Basulto</fullName>
+                <default>false</default>
+                <label>Jasmine Basulto</label>
+            </value>
+            <value>
+                <fullName>Ernesto Castillo</fullName>
+                <default>false</default>
+                <label>Ernesto Castillo</label>
+            </value>
+            <value>
+                <fullName>Danielle Eisenstaedt</fullName>
+                <default>false</default>
+                <label>Danielle Eisenstaedt</label>
+            </value>
+            <value>
+                <fullName>Corinne Eldridge</fullName>
+                <default>false</default>
+                <label>Corinne Eldridge</label>
+            </value>
+            <value>
+                <fullName>Sonia Escobedo</fullName>
+                <default>false</default>
+                <label>Sonia Escobedo</label>
+            </value>
+            <value>
+                <fullName>Leah Harden</fullName>
+                <default>false</default>
+                <label>Leah Harden</label>
+            </value>
+            <value>
+                <fullName>Julia Alicia Hernandez</fullName>
+                <default>false</default>
+                <label>Julia Alicia Hernandez</label>
+            </value>
+            <value>
+                <fullName>Angelica Hinds</fullName>
+                <default>false</default>
+                <label>Angelica Hinds</label>
+            </value>
+            <value>
+                <fullName>Marianne Lyons</fullName>
+                <default>false</default>
+                <label>Marianne Lyons</label>
+            </value>
+            <value>
+                <fullName>Ashley Mangum</fullName>
+                <default>false</default>
+                <label>Ashley Mangum</label>
+            </value>
+            <value>
+                <fullName>Marlene Tester lv1 Miranda-Saavedra</fullName>
+                <default>false</default>
+                <label>Marlene Tester lv1 Miranda-Saavedra</label>
+            </value>
+            <value>
+                <fullName>Marlene Tester lv2 Miranda-Saavedra</fullName>
+                <default>false</default>
+                <label>Marlene Tester lv2 Miranda-Saavedra</label>
+            </value>
+            <value>
+                <fullName>Claire Montgomerie</fullName>
+                <default>false</default>
+                <label>Claire Montgomerie</label>
+            </value>
+            <value>
+                <fullName>Pia Orense</fullName>
+                <default>false</default>
+                <label>Pia Orense</label>
+            </value>
+            <value>
+                <fullName>Syuzanna Petrosyan</fullName>
+                <default>false</default>
+                <label>Syuzanna Petrosyan</label>
+            </value>
+            <value>
+                <fullName>Brenda Pineda</fullName>
+                <default>false</default>
+                <label>Brenda Pineda</label>
+            </value>
+            <value>
+                <fullName>Adi Quezada</fullName>
+                <default>false</default>
+                <label>Adi Quezada</label>
+            </value>
+            <value>
+                <fullName>Sandra Rodriguez</fullName>
+                <default>false</default>
+                <label>Sandra Rodriguez</label>
+            </value>
+            <value>
+                <fullName>Kenneth-Tester-2 Stollenwerk</fullName>
+                <default>false</default>
+                <label>Kenneth-Tester-2 Stollenwerk</label>
+            </value>
+            <value>
+                <fullName>Kenneth Stollenwerk</fullName>
+                <default>false</default>
+                <label>Kenneth Stollenwerk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

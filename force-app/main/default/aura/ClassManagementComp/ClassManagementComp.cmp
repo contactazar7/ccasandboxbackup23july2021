@@ -1,0 +1,775 @@
+<aura:component controller="ClassManagementController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:html tag="style">
+        .transfer label
+        {
+        display: block !important;
+        color: #6b6d70;
+        }
+        .transfer input
+        {
+        height: 31px;
+        position: relative;
+        top: 5px;
+        border: var(--lwc-borderWidthThin,1px) solid var(--sds-c-input-color-border, var(--lwc-colorBorderInput,rgb(217, 219, 221)));
+        border-radius: var(--sds-c-input-radius-border, var(--lwc-borderRadiusMedium,0.25rem));
+        background-color: var(--sds-c-input-color-background, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)));
+        color: var(--sds-c-input-text-color);
+        box-shadow: var(--sds-c-input-shadow);
+        transition: border var(--lwc-durationQuickly,0.1s) linear,background-color var(--lwc-durationQuickly,0.1s) linear;
+        }
+        .slds-scope .slds-form-element__label
+        {
+        font-size: 11px;
+        }
+        .Relationship .slds-truncate
+        {
+        position: relative;
+        left: 30px;
+        }
+        [data-value ="Relationship"]
+        {
+        position: relative !important;
+        left: 30px !important;
+        }
+        
+        [lightning-input_input-host]
+        {
+        display: inline-block;
+        }
+        .slds-scope .slds-text-color_error
+        {
+        display: inline-block;
+        padding: 5px;
+        }
+        .slds-scope .slds-table_fixed-layout
+        {
+        font-size: 12px !important;
+        white-space: nowrap !important;
+        }
+        .slds-scope .slds-table_fixed-layout
+        {
+        table-layout: auto !important;
+        }
+        .cClassManagementComp .slds-modal__container 
+        {
+        width: 99% !important;
+        max-width: 100% !important;        
+        }
+        #container
+        {
+        width: 99% !important;
+        max-width: 100% !important;       
+        }
+        .student-details .slds-truncate
+        {
+        position: relative !important;
+        left: 0px !important;
+        }
+    </aura:html>
+    <aura:attribute name="title" type="String" default="Enrollment"/>    
+    <aura:attribute type="SFDC_Enrollment__c[]" name="enrollmentList"/>
+    <aura:attribute type="SFDC_Class__c[]" name="classList"/>
+    <aura:attribute type="Consumer_Enrollment__c[]" name="viewconsumerList"/>
+    <aura:attribute type="Contact[]" name="contactList"/>
+    <aura:attribute type="Provider_Consumer_Affiliation__c[]" name="consumerList"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="contactId" type="String" />
+    <aura:attribute name="consumerContactId" type="String" />
+    <aura:attribute name="enrollmentId" type="String" />
+    <aura:attribute name="ViewconsumerId" type="String" />
+    <aura:attribute name="searchClassName" type="String" />
+    <aura:attribute name="transferDescription" type="String" />
+    <aura:attribute name="transferReasonCategory" type="String" />
+    <aura:attribute name="removeReasonCategory" type="String" />    
+    <aura:attribute name="removeReasonDescription" type="String" />
+    <aura:attribute name="searchClassCourse" type="String" />
+    <aura:attribute name="openmodal" type="boolean"/>
+    <aura:attribute name="classId" type="String" />
+    <aura:attribute name="selectedClassId" type="String" />
+    <aura:attribute name="selectedContacts" type="List" />
+    <aura:attribute name="selectedConsumers" type="List" />
+    <aura:attribute name="selectedClasses" type="List" />
+    <aura:attribute name="customURL" type="String" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isConsumerModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isClassModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="ViewConsumerModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isRemoveReason" type="boolean" default="false"/>
+    <aura:attribute name="isTransferReason" type="boolean" default="false"/>
+    <aura:attribute name="isTransferDescription" type="String" />
+    <aura:attribute name="radio1" type="boolean" />
+    <aura:attribute name="searchName" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchCity" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchPostalCode" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchEdFundPrimary" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchEdFundSecondary" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchRolodexID" type="String" description="use for store user search input"/>
+    <aura:attribute name="searchStudentID" type="String" description="use for store user search input"/>
+    <aura:attribute name="transferReasonPickListMap" type="Map"/>
+    
+    <!-- <div class="slds-m-around_xx-large" > -->
+    <div class="slds-table_edit_container slds-is-relative">
+    </div>   
+    
+    <div class="slds-form-element buttons slds-text-align_center">
+        <lightning:button variant="brand"  label="Add New Student" title="Add NeW Student" onclick="{! c.openModal }" />
+        <lightning:button variant="brand"  label="Back to Class" title="Back to Class" onclick="{! c.backtoClass }" />
+    </div>
+    <br/>
+    <aura:if isTrue="{!v.isModalOpen}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">STUDENT DETAILS</h2>
+                    <center><p>
+                        
+                        <lightning:layout >
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchName}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="name"
+                                                     label="Name"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchCity}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="mailingCity"
+                                                     label="Mailing City"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchPostalCode}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="postalCode"
+                                                     label="Mailing PostalCode"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchRolodexID}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="RolodexID"
+                                                     label="Rolodex ID"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchStudentID}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="StudentID"
+                                                     label="Student ID"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem   padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchEdFundPrimary}"                                                     
+                                                     placeholder="Search .."
+                                                     aura:id="EdFundPrimary"
+                                                     label="EdFund Facility-Primary"
+                                                     onchange="{!c.Search}"/></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem   padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">                                    
+                                    <lightning:input value="{!v.searchEdFundSecondary}"                                                     
+                                                     placeholder="Search .."
+                                                     aura:id="EdFundSecondary"
+                                                     label="EdFundFacility-Secondary"
+                                                     onchange="{!c.Search}" /></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem  padding="around-small">
+                                
+                                <p class="field-title " title="Field 1" ></p>
+                                <div style = "position:relative; bottom:-23.5px;">
+                                    <p><lightning:button onclick="{!c.Clear}"
+                                                         variant="brand"
+                                                         label="Clear"
+                                                         iconName="utility:search"/></p></div>
+                            </lightning:layoutItem>
+                        </lightning:layout> 
+                        </p></center>
+                    
+                </header>                
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.contactList.length>0}">
+                        
+                        <table aria-multiselectable="true" class="student-details cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th></th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:auto;text-align:center;">Name</th>
+                                    </th>                                   
+                                    
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width: auto;text-align:center;">#Enrolled(incl.Removal) </th>
+                                    </th>
+                                    <th scope="col"> 
+                                        <th scope="col" style="Text-align:center;width:200px;max-width:80px;text-align:center;">#Qualified</th>
+                                    </th> 
+                                 <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:auto;text-align:center;">#Consumer's</th>
+                                </th> 
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Postal Code</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;"> City</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">RolodexID</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">StudentID</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:auto;text-align:center;">CCAProviderID</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:auto;text-align:center;">EdFundFacility-Primary</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:auto;text-align:center;">EdFundFacility-Secondary</th>
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.contactList}" var="con">
+                                    <tr>
+                                        <td>
+                                            <ui:inputCheckbox aura:id="checkbox" click="{!c.handleCheck}" name="{!con.Id}"/>
+                                        </td>
+                                        <td data-label="Name">
+                                            <a href="{!v.customURL+con.Id+'/view'}" target="_blank" ><div class="slds-truncate" title="Name">{!con.Name} </div></a>
+                                        </td>
+                                        
+                                        <td data-label="Enrolled">
+                                            <div class="slds-truncate" title="# of Enrolled">{!con.Total_number_of_Enrolled__c}</div>
+                                        </td>
+                                        
+                                        <td data-label="Qualifed">
+                                            <div class="slds-truncate" title="# of Qualifed">{!con.Total_number_of_Qualified__c}</div>
+                                        </td>
+                                        <td data-label="Qualifed">
+                                            <div class="slds-truncate" title="# of Consumer's">{!con.Current_Consumer_Count__c}</div>
+                                        </td>
+                                        
+                                        
+                                        <td data-label="Mailing PostalCode">
+                                            <div class="slds-truncate" title="Mailing PostalCode">{!con.MailingPostalCode}</div>
+                                        </td>
+                                        <td data-label="Mailing City">
+                                            <div class="slds-truncate" title="Mailing City">{!con.MailingCity}</div>
+                                        </td>
+                                        <td data-label="Rolodex ID">
+                                            <div class="slds-truncate" title="Rolodex ID">{!con.Rolodex_ID__c}</div>
+                                        </td>
+                                        
+                                        <td data-label="Student ID">
+                                            <div class="slds-truncate" title="Student ID">{!con.Student_ID__c}</div>
+                                        </td>
+                                        
+                                        <td data-label="CCA Provider ID">
+                                            <div class="slds-truncate" title="CCA Provider ID">{!con.CCA_Provider_ID__c}</div>
+                                        </td>
+                                        <td data-label="EdFund Facility-Primary">
+                                            <div class="slds-truncate" title="EdFund Facility-Primary">{!con.EdFund_Facility_Primary__r.Name}</div>
+                                        </td>
+                                        
+                                        <td data-label="EdFund Facility-Secondary">
+                                            <div class="slds-truncate" title="EdFund Facility-Secondary">{!con.EdFund_Facility_Secondary__r.Name}</div>
+                                        </td>
+                                        
+                                        
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                            
+                        </table>
+                        <aura:set attribute="else">
+                            <h2>No Records Found</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeModal}"/>
+                    <lightning:button variant="brand" name="class" label="Add to Class" title="Add to Class" onclick="{!c.createRecords}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    <!-- </div> -->
+    
+    <aura:if isTrue="{!v.isRemoveReason}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeRemoveModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"> UNASSIGN DETAILS</h2>
+                </header>                   
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                        
+                        <div class="slds-form-element slds-size_1-of-1 transfer">
+                            
+                            <lightning:select name="removeReasonCategory" label="Unassign Reason Category" 
+                                              value="{!v.removeReasonCategory}" aura:id="removeReasonCtgry" >                               
+                                <aura:iteration items="{!v.transferReasonPickListMap}" var="i" indexVar="key">
+                                    <option text="{!i.value}" value="{!i.key}"/>
+                                </aura:iteration>
+                            </lightning:select> 
+                            
+                            <ui:inputTextArea label="Unassign Reason" required="true" aura:id="removeReason" value="{!v.removeReasonDescription}"  cols="216" rows="6"/></div>
+                        
+                    </table>
+                    
+                </div>
+                
+                <footer class="slds-modal__footer" text-align="center"  >
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeRemoveModal}"/>
+                    <lightning:button variant="brand" label="Unassign" title="Unassign" onclick="{! c.removeStudent }" />
+                </footer>
+                
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+        <aura:if isTrue="{!v.isTransferReason}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeTransferModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">TRANSFER DETAILS</h2>
+                </header>                   
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                        
+                        <div class="slds-form-element slds-size_1-of-1 transfer">
+                            
+                            <lightning:select name="transferReasonCategory" label="Transfer Reason Category" 
+                                              value="{!v.transferReasonCategory}" aura:id="transferReasonCtgry" >                               
+                                <aura:iteration items="{!v.transferReasonPickListMap}" var="i" indexVar="key">
+                                    <option text="{!i.value}" value="{!i.key}"/>
+                                </aura:iteration>
+                            </lightning:select> 
+                            
+                            <ui:inputTextArea label="Transfer Reason" required="true" aura:id="transferReason" value="{!v.transferDescription}" cols="215" rows="6"/></div>
+                        
+                    </table>
+                </div>
+                
+                <footer class="slds-modal__footer" text-align="center"  >
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeTransferModal}"/>
+                    <lightning:button variant="brand" label="Transfer" title="Transfer" onclick="{! c.transferStudent }" />
+                </footer>
+                
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>    
+    
+    <aura:if isTrue="{!v.isConsumerModalOpen}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeConsumerModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">CONSUMER DETAILS</h2>
+                </header>                   
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.consumerList.length>0}">
+                        <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Name</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Relationship</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Is Consumer a relative of Provider?</th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.consumerList}" var="consumer">
+                                    <tr>
+                                        <td>
+                                            <ui:inputCheckbox aura:id="checkbox1" click="{!c.handleConsumerCheck}" name="{!consumer.Home_Care_Consumer__c}"/>
+                                        </td>
+                                        <td data-label="Name">
+                                            <div class="slds-truncate" title="Name">{!consumer.Home_Care_Consumer__r.Name}</div>
+                                        </td>
+                                        <td data-label="Relationship">
+                                            <div class="slds-truncate relationship" title="Relationship" style="position: relative; left: 30px;">{!consumer.Relationship__c}</div>
+                                        </td>
+                                        <td data-label="Is Consumer a relative of Provider?">
+                                            <div class="slds-truncate" title="Is Consumer a relative of Provider?">{!consumer.Is_Consumer_a_relative_of_Provider__c}</div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <aura:set attribute="else">
+                            <h2>No Records Found</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeConsumerModal}"/>
+                    <lightning:button variant="brand" name="consumer" label="Add to Class" title="Add to Class" onclick="{!c.createRecords}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    <aura:if isTrue="{!v.ViewConsumerModalOpen}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeViewConsumerModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">CONSUMER DETAILS</h2>
+                </header>                   
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.viewconsumerList.length>0}"> 
+                        
+                        <p class="provider-class"><span class="provider"> Provider Name :  {!v.viewconsumerList[0].Enrollment__r.Provider_Name__c}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                            <span>  Class Name  :  {!v.viewconsumerList[0].Enrollment__r.Class_Name__c}</span></p> 
+                        
+                        <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th></th>
+                                    <th scope="col">
+                                        <th scope="col" style="padding: 5px; position: relative; left: 5px; width:80px;max-width:90px;text-align:center;"> Consumer Name</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="padding: 5px; position: relative; left: -5px; width:80px;max-width:90px;text-align:center;"> Age </th>
+                                    </th> 
+                                    <th scope="col">
+                                        <th scope="col" style="padding: 5px; position: relative; left: 15px; width:80px;max-width:90px;text-align:center;"> MediCal ID # </th>
+                                    </th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.viewconsumerList}" var="viewconsumer">
+                                    <tr>
+                                        <td>
+                                            <ui:inputCheckbox aura:id="consumerCheckbox" click="{!c.handleRemoveConsumers}" name="{!viewconsumer.Id}"/>
+                                        </td>
+                                        <td data-label="Name">
+                                            <a href="{!v.customURL+viewconsumer.Home_Care_Consumer__r.Id+'/view'}" target="_blank"><div class="slds-truncate" title="Name">{!viewconsumer.Home_Care_Consumer__r.Name}
+                                                </div></a>
+                                        </td>
+                                        <td data-label="Relationship">
+                                            <div class="slds-truncate" title="Age">{!viewconsumer.Home_Care_Consumer__r.Age__c}
+                                            </div>
+                                        </td> 
+                                        <td data-label="Relationship">
+                                            <div class="slds-truncate" title="Medical ID">{!viewconsumer.Home_Care_Consumer__r.MediCal_ID__c}
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <aura:set attribute="else">
+                            <h2>No Records Found</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.viewconsumerList.length>0}"> 
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeViewConsumerModal}"/>
+                        <lightning:button variant="brand" name="Remove Consumer" label="Remove Consumer" title="Remove Consumer" onclick="{!c.removeConsumers}" /> 
+                    </footer>
+                </aura:if>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    
+    <aura:if isTrue="{!v.isClassModalOpen}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">               
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeClassModal}" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">CLASS DETAILS</h2>
+                    <center><p>
+                        <lightning:layout >
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchClassName}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="className"
+                                                     label="Name"
+                                                     onchange="{!c.classSearch}"/></div>
+                                
+                                
+                                <!--<p class="field-title " title="Field 1" ></p>
+                                      <lightning:button onclick="{!c.Clear}"
+                                                         variant="brand"
+                                                         label="Clear"
+                                                         iconName="utility:search"/>-->
+                            </lightning:layoutItem>
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchClassCourse}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="classCourse"
+                                                     label="Class Course"
+                                                     onchange="{!c.classSearch}"/></div>
+                            </lightning:layoutItem>
+                            <!--<lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1 transfer">
+                                    <ui:inputText label="Transfer Reason" required="true" aura:id="transferDesc" value="{!v.transferDescription}"/></div>
+                            </lightning:layoutItem>-->
+                        </lightning:layout>
+                        </p></center>
+                </header>  
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.classList.length>0}">
+                        <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Name</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">RecordType Name</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Course</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Status</th>
+                                    </th>
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;"> Language</th>
+                                    </th>                                     
+                                    
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">Start Date</th>
+                                    </th> 
+                                    <th scope="col">
+                                        <th scope="col" style="width:50px;max-width:60px;text-align:center;">End Date</th>
+                                    </th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.classList}" var="cl">
+                                    <tr>
+                                        <td>
+                                            <ui:inputRadio name ="classRadio" aura:id="radio1" change="{!c.handleClassCheck}" text="{!cl.Id}"/>
+                                        </td>
+                                        <td data-label="Name">
+                                            <a href="{!v.customURL+cl.Id+'/view'}" target="_blank">   <div class="slds-truncate" title="Name">{!cl.Name}</div></a>
+                                        </td>
+                                        <td data-label=" RecordType">
+                                            <div class="slds-truncate" title=" RecordType">{!cl.RecordType.Name}</div>
+                                        </td>   
+                                        <td data-label="Class Course">
+                                            <div class="slds-truncate" title="Class Course">{!cl.Class_Course__r.Name}</div>
+                                        </td>
+                                        <td data-label="Class Status">
+                                            <div class="slds-truncate" title="Class Status">{!cl.Class_Status__c}</div>
+                                        </td>   
+                                        
+                                        <td data-label="Language">
+                                            <div class="slds-truncate" title="Language">{!cl.Language__c}</div>
+                                        </td> 
+                                        
+                                        <td data-label="Start Date">
+                                            <div class="slds-truncate" title="Start Date">{!cl.Start_Date__c}</div>
+                                        </td>  
+                                        
+                                        <td data-label="End Date">
+                                            <div class="slds-truncate" title="End Date">{!cl.End_Date__c}</div>
+                                        </td>  
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <aura:set attribute="else">
+                            <h2>No Records Found</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closeClassModal}"/>
+                    <lightning:button variant="brand" name="class" label="Transfer Class" title="Transfer Class" onclick="{!c.openTransferModal}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    <aura:handler name="init"  value="{!this}"  action="{!c.doInit}"/>
+    
+    <!-- <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"> -->
+    <lightning:card variant="Narrow" title="Enrollment"  iconName="custom:custom51" >
+        
+        <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer">        
+            
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="S.No">S.No</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Enrollment #">Enrollment</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Enrollment #">Enrollment Count</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Provider Name">Provider Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Enrollment #">Consumer Count</div>
+                    </th>
+                    <!-- <th scope="col">
+                        <div class="slds-truncate" title="Consumer Name">Consumer Name</div>
+                    </th> -->
+                    <th scope="col">
+                        <div class="slds-truncate" title="Class Name" type="Url">Class Name</div>
+                    </th>
+                    <th scope="col">
+                        <div  title="Status">Status</div>
+                    </th>
+                    
+                    <th scope="col">
+                        <div class="slds-truncate" title="Remove">Actions</div>
+                    </th>
+                    <!--<th scope="col">
+                    <div class="slds-truncate" title="Remove">Remove</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Transfer">Transfer</div>
+                </th>-->
+                    <!-- <th scope="col">
+                        <div class="slds-truncate" title="Upload">Upload</div>
+                    </th>  -->
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.enrollmentList}" var="a"  indexVar="i">
+                    
+                    <tr>
+                        <td data-label="S.No">
+                            {!i+1}                            
+                        </td>
+                        <td data-label="Student Name">
+                            <a href="{!v.customURL+a.Id+'/view'}" target="_blank" ><div class="slds-truncate" title="">{!a.Enrollment__c}</div></a>
+                        </td>
+                        <td data-label="Enrollment Count">
+                            <div class="slds-truncate" title="">{!a.Consumer_Count__c}</div>
+                        </td>
+                        <td data-label="Student Name">
+                            <a href="{!v.customURL+a.Contact__r.Id+'/view'}" target="_blank" ><div class="slds-truncate" title="">{!a.Contact__r.Name}</div></a>
+                        </td>
+                        <td data-label="Consumer Count">
+                            <div class="slds-truncate" title="">{!a.Contact__r.Affiliated_Consumer_Count__c}</div>
+                        </td>
+                        <!-- <td data-label="Class Name">
+                            <a href="{!v.customURL+a.Consumer_Name__r.Id+'/view'}" target="_blank"> <div class="slds-truncate" title="">{!a.Consumer_Name__r.Name}</div></a>
+                        </td> -->
+                        <td data-label="Class Name">
+                            <div class="slds-truncate" title="">{!a.Class__r.Name}</div>
+                        </td>
+                        <td data-label="Status">
+                            <div  title="">{!a.Status__c}</div>
+                        </td>
+                        
+                        <td>
+                            
+                            <lightning:button variant="base" label="Unassign" title="Unassign" onclick="{! c.remove }" value="{!a.Id}"/> || 
+                            
+                            <!-- <lightning:button variant="base" label="Remove" title="Remove" onclick="{! c.removeReason }" value="{!a.Id}"/> || -->
+                            <!--<aura:if isTrue="{! a.Status__c != 'Request Student Transfer'}">
+                                <lightning:button variant="base" label="Transfer" title="Transfer " onclick="{! c.transfer }" value="{!a.Id}" /> || 
+                                <aura:set attribute="else">
+                                    <lightning:button variant="base" label="Transfer" title="Transfer" disabled="true" /> || 
+                                </aura:set>
+                            </aura:if>-->
+                            
+                            <lightning:button variant="base" label="Class Transfer" title="Class Transfer" onclick="{!c.openClass}" value="{!a.Id}" name="{!a.Contact__c}" />||
+                            <lightning:button variant="base" label="Add Consumer" title="Add Consumer" onclick="{!c.consumer}" name="{!a.Id}" value="{!a.Contact__c}"/>||
+                            
+                            <!--   <c:fileUploader aura:id="fileUploaderID" parentId="{!a.Id}"/> -->
+                            
+                            <!--<lightning:button variant="base" label="Upload" title="Upload " onclick="{! c.upload }"/>-->
+                            
+                            <lightning:button variant="base" label="View Consumer" title="View Consumer" onclick="{!c.Viewconsumer}" name="{!a.Id}" value="{!a.Name}"/>
+                            
+                        </td>
+                        <!--<td>
+                        
+                        <aura:if  isTrue="{!(a.Status__c !='Request Student Removal')}" >
+                            <lightning:button variant="base" label="Remove" title="Remove" onclick="{! c.remove }" value="{!a.Id}"/>
+                            <aura:set attribute="else">
+                                <lightning:button variant="base" label="Remove" title="Remove" disabled="true"/>
+                                
+                            </aura:set>
+                        </aura:if>
+                    </td>
+                    <td>
+                        <aura:if  isTrue="{!(a.Status__c !='Request Student Transfer')}" >
+                            <lightning:button variant="base" label="Transfer" title="Transfer " onclick="{! c.transfer }" value="{!a.Id}" />
+                            <aura:set attribute="else">
+                                <lightning:button variant="base" label="Transfer" t`itle="Transfer" disabled="true"/>
+                                
+                            </aura:set>
+                        </aura:if>
+                    </td>-->
+                        <!--   <c:fileUploader aura:id="fileUploaderID"/> 
+                    <td>
+                          <lightning:button variant="base" label="Upload" title="Upload " onclick="{! c.upload }"/>
+                    </td>  -->
+                    </tr>
+                    
+                </aura:iteration>    
+            </tbody>
+        </table></lightning:card>
+    <br/><br/>
+    <!--  <lightning:button variant="base" label="Add Student" title="Add Student" onclick="{! c.addStudent }" /> -->
+</aura:component>

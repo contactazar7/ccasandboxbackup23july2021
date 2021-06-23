@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>School_drop_out_rate_in_percentage__c</fullName>
+    <description>School drop - out rate (in percentage)</description>
+    <externalId>false</externalId>
+    <label>School drop - out rate (in percentage)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

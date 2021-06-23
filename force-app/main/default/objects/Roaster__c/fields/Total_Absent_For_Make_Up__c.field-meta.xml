@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Absent_For_Make_Up__c</fullName>
+    <description>This field will calculate the total absent from the class type &quot;Make-Up&quot; from the attendance records.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will calculate the total absent from the class type &quot;Make-Up&quot; from the attendance records.</inlineHelpText>
+    <label>Total Absent For Make-Up</label>
+    <summaryFilterItems>
+        <field>Attendance__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Absent</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Attendance__c.Class_Type__c</field>
+        <operation>equals</operation>
+        <value>Make-up</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Attendance__c.Roaster__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

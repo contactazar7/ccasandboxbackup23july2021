@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>State_exam_passing_success_rate_in_perc__c</fullName>
+    <description>State exam passing success rate (in percentage)</description>
+    <externalId>false</externalId>
+    <label>State exam passing success rate (in perc</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

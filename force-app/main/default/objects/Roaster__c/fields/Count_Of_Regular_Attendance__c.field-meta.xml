@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Of_Regular_Attendance__c</fullName>
+    <description>Count Of Regular Attendance used in the View Roster component in order to show the Regular Attendance Component from the Roster page - Mark Attendance usually are two types. 1)  Regular Attendance 2) Make-Up Class Attendance. This field should be used in backened not in Record page</description>
+    <externalId>false</externalId>
+    <label>Count Of Regular Attendance</label>
+    <summaryFilterItems>
+        <field>Attendance__c.Class_Type__c</field>
+        <operation>equals</operation>
+        <value>Regular</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Attendance__c.Roaster__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

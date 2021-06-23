@@ -1,0 +1,218 @@
+<aura:component controller = "MarkCompetencyController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:actionOverride" access="global">
+      <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+      <aura:attribute name="parentdata" type="String"/>
+     <aura:attribute name="sNo" type="string" />
+        <aura:attribute name="objInfoForPicklistValues" type="Competency_Check__c" default="{sobjectType : 'Competency_Check__c'}" description="object information to fetch picklist values"/>
+     <aura:attribute name="showSaveCancelBtn" type="boolean"/>
+     <aura:attribute name="singleRec" type="List" />
+    <aura:attribute name="startdateEditMode" type="boolean" default="false" /> 
+     <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+    <aura:attribute name="showErrorClass1" type="boolean" default="false"/>
+    
+   <aura:attribute name="washPicklistOpts" type="string[]" description="store picklist options values"/>  
+     <aura:attribute name="washEditMode" type="boolean" default="false" /> 
+   
+   <aura:attribute name="AvoidingBurnoutvals" type="string[]" description="store picklist options values"/>  
+     <aura:attribute name="AvoidingBurnoutEditMode" type="boolean" default="false" /> 
+ 
+    <aura:attribute name="CompleteDocumentationFormvals" type="string[]" description="store picklist options values"/>  
+  <aura:attribute name="CompleteDocumentationFormEditMode" type="boolean" default="false" /> 
+    
+     <aura:attribute name="DressingUndressingvals" type="string[]" description="store picklist options values"/>  
+  <aura:attribute name="DressingUndressingEditMode" type="boolean" default="false" /> 
+   
+  <aura:attribute name="managehallvals" type="string[]" description="store picklist options values"/>  
+  <aura:attribute name="managehallEditMode" type="boolean" default="false" /> 
+    
+     <aura:attribute name="homsafvals" type="string[]" description="store picklist options values"/>  
+  <aura:attribute name="homsafeEditMode" type="boolean" default="false" /> 
+    
+    <td ondblclick="{!c.inlineEditcontract}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.washEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Responding_to_Dementia_Behaviour__c}</span>
+                    <button onclick="{!c.inlineEditcontract}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Responding to Dementia Behaviour</label>
+                                        <ui:inputSelect aura:id="acccontract"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onWashChange}"
+                                                        value="{!v.singleRec.CDPH_Responding_to_Dementia_Behaviour__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+
+    
+     <td ondblclick="{!c.inlineEditAvoidingBurnout}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.AvoidingBurnoutEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Home_Safety__c}</span>
+                    <button onclick="{!c.inlineEditAvoidingBurnout}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Home Safety</label>
+                                        <ui:inputSelect aura:id="burnout"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onburnoutChange}"
+                                                        value="{!v.singleRec.CDPH_Home_Safety__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+    
+    
+    <td ondblclick="{!c.inlineEditCompleteDocumentationForm}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.CompleteDocumentationFormEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Handwashing__c}</span>
+                    <button onclick="{!c.inlineEditCompleteDocumentationForm}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Handwashing</label>
+                                        <ui:inputSelect aura:id="compdocout"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onCompDocFormChange}"
+                                                        value="{!v.singleRec.CDPH_Handwashing__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+    
+    <td ondblclick="{!c.inlineEditdressingUundressing}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.DressingUndressingEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Medication_Safety__c}</span>
+                    <button onclick="{!c.inlineEditdressingUundressing}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Medication Safety</label>
+                                        <ui:inputSelect aura:id="dress"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onDressUndressChange}"
+                                                        value="{!v.singleRec.CDPH_Medication_Safety__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+    
+    
+    <td ondblclick="{!c.inlineEdithelpmanage}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.managehallEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Urgent_Care_vs_Emergency_Care__c}</span>
+                    <button onclick="{!c.inlineEdithelpmanage}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Urgent Care vs Emergency Care</label>
+                                        <ui:inputSelect aura:id="helpmanage"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onhelpmanageChange}"
+                                                        value="{!v.singleRec.CDPH_Urgent_Care_vs_Emergency_Care__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+    
+     <td ondblclick="{!c.inlineEdithomsafe}">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag -->
+                <aura:if isTrue="{!v.homsafeEditMode == false}">
+                    <span class="slds-truncate" title="Status">{!v.singleRec.CDPH_Model_of_Care__c}</span>
+                    <button onclick="{!c.inlineEdithomsafe}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px;width:80%">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">CDPH-Model of Care</label>
+                                        <ui:inputSelect aura:id="homesafe"
+                                                        class="slds-select inputRatingWidth"
+                                                        blur="{!c.closecontrBox}"
+                                                        change="{!c.onsafehomeChange}"
+                                                        value="{!v.singleRec.CDPH_Model_of_Care__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>
+                </aura:if>
+            </span>
+        </td>
+</aura:component>

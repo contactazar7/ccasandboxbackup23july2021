@@ -1,0 +1,5 @@
+<apex:page standardController="Roaster__c" extensions="Attendance_for_roster" action="{!createAttendance}">
+    <apex:form >
+        <apex:inputHidden value="{!Roaster__c.Id}"/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Class_Locations__c</fullName>
+    <externalId>false</externalId>
+    <label>Preferred Class Locations</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>American Legion Post 335 - South Gate</fullName>
+                <default>false</default>
+                <label>American Legion Post 335 - South Gate</label>
+            </value>
+            <value>
+                <fullName>Anoush Banquet Hall - Glendale</fullName>
+                <default>false</default>
+                <label>Anoush Banquet Hall - Glendale</label>
+            </value>
+            <value>
+                <fullName>Beverly Tower - Montebello</fullName>
+                <default>false</default>
+                <label>Beverly Tower - Montebello</label>
+            </value>
+            <value>
+                <fullName>Boys and Girls Club of San Fernando Valley</fullName>
+                <default>false</default>
+                <label>Boys and Girls Club of San Fernando Valley</label>
+            </value>
+            <value>
+                <fullName>Brotherhood Crusade</fullName>
+                <default>false</default>
+                <label>Brotherhood Crusade</label>
+            </value>
+            <value>
+                <fullName>Building Skills Partnership</fullName>
+                <default>false</default>
+                <label>Building Skills Partnership</label>
+            </value>
+            <value>
+                <fullName>Care First - Monterey Park</fullName>
+                <default>false</default>
+                <label>Care First - Monterey Park</label>
+            </value>
+            <value>
+                <fullName>Chimbole Cultural Center</fullName>
+                <default>false</default>
+                <label>Chimbole Cultural Center</label>
+            </value>
+            <value>
+                <fullName>Chinatown Service Center</fullName>
+                <default>false</default>
+                <label>Chinatown Service Center</label>
+            </value>
+            <value>
+                <fullName>CITY OF Compton Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Compton Interest List</label>
+            </value>
+            <value>
+                <fullName>CITY OF Downey Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Downey Interest List</label>
+            </value>
+            <value>
+                <fullName>CITY OF Glendale Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Glendale Interest List</label>
+            </value>
+            <value>
+                <fullName>CITY OF Inglewood Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Inglewood Interest List</label>
+            </value>
+            <value>
+                <fullName>CITY OF Los Angeles Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Los Angeles Interest List</label>
+            </value>
+            <value>
+                <fullName>CITY OF Santa Clara Interest List</fullName>
+                <default>false</default>
+                <label>CITY OF Santa Clara Interest List</label>
+            </value>
+            <value>
+                <fullName>Colonia Corona Apartment Building</fullName>
+                <default>false</default>
+                <label>Colonia Corona Apartment Building</label>
+            </value>
+            <value>
+                <fullName>Compton Library</fullName>
+                <default>false</default>
+                <label>Compton Library</label>
+            </value>
+            <value>
+                <fullName>Contra Costa County Adult and Aging Services</fullName>
+                <default>false</default>
+                <label>Contra Costa County Adult and Aging Services</label>
+            </value>
+            <value>
+                <fullName>De Anza Community &amp; Teen Center</fullName>
+                <default>false</default>
+                <label>De Anza Community &amp; Teen Center</label>
+            </value>
+            <value>
+                <fullName>Diamond Bar - Diamond Bar Center</fullName>
+                <default>false</default>
+                <label>Diamond Bar - Diamond Bar Center</label>
+            </value>
+            <value>
+                <fullName>Dibble Campus - Hacienda La Puente Adult Education</fullName>
+                <default>false</default>
+                <label>Dibble Campus - Hacienda La Puente Adult Education</label>
+            </value>
+            <value>
+                <fullName>Eastmont Community Center</fullName>
+                <default>false</default>
+                <label>Eastmont Community Center</label>
+            </value>
+            <value>
+                <fullName>El Monte - Longo Toyota-Scion-Lexus</fullName>
+                <default>false</default>
+                <label>El Monte - Longo Toyota-Scion-Lexus</label>
+            </value>
+            <value>
+                <fullName>El Nido Family Center</fullName>
+                <default>false</default>
+                <label>El Nido Family Center</label>
+            </value>
+            <value>
+                <fullName>Fontana - Don Day Neighborhood Center</fullName>
+                <default>false</default>
+                <label>Fontana - Don Day Neighborhood Center</label>
+            </value>
+            <value>
+                <fullName>Goodwill</fullName>
+                <default>false</default>
+                <label>Goodwill</label>
+            </value>
+            <value>
+                <fullName>Happy ADHC - Brea</fullName>
+                <default>false</default>
+                <label>Happy ADHC - Brea</label>
+            </value>
+            <value>
+                <fullName>Highland Park Skilled Nursing and Wellness</fullName>
+                <default>false</default>
+                <label>Highland Park Skilled Nursing and Wellness</label>
+            </value>
+            <value>
+                <fullName>Hollywood Worksource Center</fullName>
+                <default>false</default>
+                <label>Hollywood Worksource Center</label>
+            </value>
+            <value>
+                <fullName>Inglewood - Rogers Park</fullName>
+                <default>false</default>
+                <label>Inglewood - Rogers Park</label>
+            </value>
+            <value>
+                <fullName>Jackie Robinson Center - Pasadena</fullName>
+                <default>false</default>
+                <label>Jackie Robinson Center - Pasadena</label>
+            </value>
+            <value>
+                <fullName>Krikor&amp; Mariam Karamanoukian Glendale Youth Center</fullName>
+                <default>false</default>
+                <label>Krikor&amp; Mariam Karamanoukian Glendale Youth Center</label>
+            </value>
+            <value>
+                <fullName>La Puente Library</fullName>
+                <default>false</default>
+                <label>La Puente Library</label>
+            </value>
+            <value>
+                <fullName>Lancaster Office-Local2015</fullName>
+                <default>false</default>
+                <label>Lancaster Office-Local2015</label>
+            </value>
+            <value>
+                <fullName>Langley Senior Citizens Center</fullName>
+                <default>false</default>
+                <label>Langley Senior Citizens Center</label>
+            </value>
+            <value>
+                <fullName>Los Angeles - St.John&apos;s Well Child Family Center</fullName>
+                <default>false</default>
+                <label>Los Angeles - St.John&apos;s Well Child Family Center</label>
+            </value>
+            <value>
+                <fullName>Los Angeles CLTCEC</fullName>
+                <default>false</default>
+                <label>Los Angeles CLTCEC</label>
+            </value>
+            <value>
+                <fullName>Lynwood - SEIU Local 99</fullName>
+                <default>false</default>
+                <label>Lynwood - SEIU Local 99</label>
+            </value>
+            <value>
+                <fullName>Lynwood Library</fullName>
+                <default>false</default>
+                <label>Lynwood Library</label>
+            </value>
+            <value>
+                <fullName>Nairi Banquet Hall</fullName>
+                <default>false</default>
+                <label>Nairi Banquet Hall</label>
+            </value>
+            <value>
+                <fullName>PAMC-China Town LA</fullName>
+                <default>false</default>
+                <label>PAMC-China Town LA</label>
+            </value>
+            <value>
+                <fullName>Pico Rivera - Saint Francis Xavier Church</fullName>
+                <default>false</default>
+                <label>Pico Rivera - Saint Francis Xavier Church</label>
+            </value>
+            <value>
+                <fullName>PUSD - Pomona Adult &amp; Career Education</fullName>
+                <default>false</default>
+                <label>PUSD - Pomona Adult &amp; Career Education</label>
+            </value>
+            <value>
+                <fullName>PUSD - Village at Indian Hill</fullName>
+                <default>false</default>
+                <label>PUSD - Village at Indian Hill</label>
+            </value>
+            <value>
+                <fullName>San Fernando Valley</fullName>
+                <default>false</default>
+                <label>San Fernando Valley</label>
+            </value>
+            <value>
+                <fullName>South El Monte- Schabarum MSC</fullName>
+                <default>false</default>
+                <label>South El Monte- Schabarum MSC</label>
+            </value>
+            <value>
+                <fullName>St. Mark&apos;s Episcopal Church</fullName>
+                <default>false</default>
+                <label>St. Mark&apos;s Episcopal Church</label>
+            </value>
+            <value>
+                <fullName>Sunny Cal ADHC, Rosemead</fullName>
+                <default>false</default>
+                <label>Sunny Cal ADHC, Rosemead</label>
+            </value>
+            <value>
+                <fullName>Teamsters Local 166</fullName>
+                <default>false</default>
+                <label>Teamsters Local 166</label>
+            </value>
+            <value>
+                <fullName>Teri G. Muse Family Service Center Balwin Park</fullName>
+                <default>false</default>
+                <label>Teri G. Muse Family Service Center Balwin Park</label>
+            </value>
+            <value>
+                <fullName>Vic Alicia Broadous-Duncan Center</fullName>
+                <default>false</default>
+                <label>Vic Alicia Broadous-Duncan Center</label>
+            </value>
+            <value>
+                <fullName>Whittier Senior Center</fullName>
+                <default>false</default>
+                <label>Whittier Senior Center</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

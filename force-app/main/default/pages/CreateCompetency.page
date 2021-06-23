@@ -1,0 +1,5 @@
+<apex:page standardController="SFDC_Class__c" extensions="competency_automate" action="{!createCompetencyRecs}">
+    <apex:form >
+        <apex:inputHidden value="{!SFDC_Class__c.Id}"/>
+    </apex:form>
+</apex:page>

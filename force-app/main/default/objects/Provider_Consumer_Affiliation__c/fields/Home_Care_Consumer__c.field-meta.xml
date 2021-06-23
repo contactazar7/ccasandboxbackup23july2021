@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Home_Care_Consumer__c</fullName>
+    <externalId>false</externalId>
+    <label>Home Care Consumer</label>
+    <referenceTo>Consumer__c</referenceTo>
+    <relationshipLabel>Affiliated Providers</relationshipLabel>
+    <relationshipName>Provider_Consumer_Affiliations</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

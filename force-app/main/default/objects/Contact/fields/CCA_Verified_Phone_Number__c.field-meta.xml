@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCA_Verified_Phone_Number__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is to capture the Phone number which the CCA team used to reach out to the Provider and if it&apos;s different from the Phone number provided by the Union</inlineHelpText>
+    <label>CCA Verified Phone Number</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Phone</type>
+</CustomField>

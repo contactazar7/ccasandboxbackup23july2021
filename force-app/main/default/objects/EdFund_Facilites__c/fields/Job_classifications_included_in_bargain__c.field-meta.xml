@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_classifications_included_in_bargain__c</fullName>
+    <description>Job classifications included in the bargaining unit</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Appendix A lists wage increases for 3 job classification only.</inlineHelpText>
+    <label>Job classifications included in bargain</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activities</fullName>
+                <default>false</default>
+                <label>Activities</label>
+            </value>
+            <value>
+                <fullName>Activities Aides</fullName>
+                <default>false</default>
+                <label>Activities Aides</label>
+            </value>
+            <value>
+                <fullName>Activities Assistant</fullName>
+                <default>false</default>
+                <label>Activities Assistant</label>
+            </value>
+            <value>
+                <fullName>Activity Aide</fullName>
+                <default>false</default>
+                <label>Activity Aide</label>
+            </value>
+            <value>
+                <fullName>Activity Assistant</fullName>
+                <default>false</default>
+                <label>Activity Assistant</label>
+            </value>
+            <value>
+                <fullName>Beautician</fullName>
+                <default>false</default>
+                <label>Beautician</label>
+            </value>
+            <value>
+                <fullName>Bus Person</fullName>
+                <default>false</default>
+                <label>Bus Person</label>
+            </value>
+            <value>
+                <fullName>C.N.A.</fullName>
+                <default>false</default>
+                <label>C.N.A.</label>
+            </value>
+            <value>
+                <fullName>C.N.A. (RCFE)</fullName>
+                <default>false</default>
+                <label>C.N.A. (RCFE)</label>
+            </value>
+            <value>
+                <fullName>C.N.A. (SNF)</fullName>
+                <default>false</default>
+                <label>C.N.A. (SNF)</label>
+            </value>
+            <value>
+                <fullName>C.N.A. (Traditional)</fullName>
+                <default>false</default>
+                <label>C.N.A. (Traditional)</label>
+            </value>
+            <value>
+                <fullName>Care Partner</fullName>
+                <default>false</default>
+                <label>Care Partner</label>
+            </value>
+            <value>
+                <fullName>Care Partners Uncertified Assistive Personnel</fullName>
+                <default>false</default>
+                <label>Care Partners Uncertified Assistive Personnel</label>
+            </value>
+            <value>
+                <fullName>Caregivers</fullName>
+                <default>false</default>
+                <label>Caregivers</label>
+            </value>
+            <value>
+                <fullName>Casual and per diem Certified Nursing Assistants</fullName>
+                <default>false</default>
+                <label>Casual and per diem Certified Nursing Assistants</label>
+            </value>
+            <value>
+                <fullName>Casual employees</fullName>
+                <default>false</default>
+                <label>Casual employees</label>
+            </value>
+            <value>
+                <fullName>Central Service Tech</fullName>
+                <default>false</default>
+                <label>Central Service Tech</label>
+            </value>
+            <value>
+                <fullName>Central Supplies Coordinator</fullName>
+                <default>false</default>
+                <label>Central Supplies Coordinator</label>
+            </value>
+            <value>
+                <fullName>Central Supply</fullName>
+                <default>false</default>
+                <label>Central Supply</label>
+            </value>
+            <value>
+                <fullName>Central Supply Aide/Function</fullName>
+                <default>false</default>
+                <label>Central Supply Aide/Function</label>
+            </value>
+            <value>
+                <fullName>Central Supply Clerk</fullName>
+                <default>false</default>
+                <label>Central Supply Clerk</label>
+            </value>
+            <value>
+                <fullName>Central Supply Employees</fullName>
+                <default>false</default>
+                <label>Central Supply Employees</label>
+            </value>
+            <value>
+                <fullName>Certified Aide</fullName>
+                <default>false</default>
+                <label>Certified Aide</label>
+            </value>
+            <value>
+                <fullName>Certified Nursing</fullName>
+                <default>false</default>
+                <label>Certified Nursing</label>
+            </value>
+            <value>
+                <fullName>Certified Nursing Assistants &amp; Best Friends</fullName>
+                <default>false</default>
+                <label>Certified Nursing Assistants &amp; Best Friends</label>
+            </value>
+            <value>
+                <fullName>Clerical</fullName>
+                <default>false</default>
+                <label>Clerical</label>
+            </value>
+            <value>
+                <fullName>Clerk</fullName>
+                <default>false</default>
+                <label>Clerk</label>
+            </value>
+            <value>
+                <fullName>CNA/Medication</fullName>
+                <default>false</default>
+                <label>CNA/Medication</label>
+            </value>
+            <value>
+                <fullName>CNA/Restorative</fullName>
+                <default>false</default>
+                <label>CNA/Restorative</label>
+            </value>
+            <value>
+                <fullName>Concierge</fullName>
+                <default>false</default>
+                <label>Concierge</label>
+            </value>
+            <value>
+                <fullName>Cook (Dietary Cook)</fullName>
+                <default>false</default>
+                <label>Cook (Dietary Cook)</label>
+            </value>
+            <value>
+                <fullName>Cook Helper</fullName>
+                <default>false</default>
+                <label>Cook Helper</label>
+            </value>
+            <value>
+                <fullName>Cook</fullName>
+                <default>false</default>
+                <label>Cook</label>
+            </value>
+            <value>
+                <fullName>Diet Aides</fullName>
+                <default>false</default>
+                <label>Diet Aides</label>
+            </value>
+            <value>
+                <fullName>Diet Clerk</fullName>
+                <default>false</default>
+                <label>Diet Clerk</label>
+            </value>
+            <value>
+                <fullName>Dietary</fullName>
+                <default>false</default>
+                <label>Dietary</label>
+            </value>
+            <value>
+                <fullName>Dietary Aide</fullName>
+                <default>false</default>
+                <label>Dietary Aide</label>
+            </value>
+            <value>
+                <fullName>Dietary Assistants</fullName>
+                <default>false</default>
+                <label>Dietary Assistants</label>
+            </value>
+            <value>
+                <fullName>Dietary Driver</fullName>
+                <default>false</default>
+                <label>Dietary Driver</label>
+            </value>
+            <value>
+                <fullName>Dietary Employee</fullName>
+                <default>false</default>
+                <label>Dietary Employee</label>
+            </value>
+            <value>
+                <fullName>Dietary Workers</fullName>
+                <default>false</default>
+                <label>Dietary Workers</label>
+            </value>
+            <value>
+                <fullName>Dishwasher</fullName>
+                <default>false</default>
+                <label>Dishwasher</label>
+            </value>
+            <value>
+                <fullName>Drivers</fullName>
+                <default>false</default>
+                <label>Drivers</label>
+            </value>
+            <value>
+                <fullName>Environmental Services</fullName>
+                <default>false</default>
+                <label>Environmental Services</label>
+            </value>
+            <value>
+                <fullName>Food Service Assistants</fullName>
+                <default>false</default>
+                <label>Food Service Assistants</label>
+            </value>
+            <value>
+                <fullName>Food Service Worker</fullName>
+                <default>false</default>
+                <label>Food Service Worker</label>
+            </value>
+            <value>
+                <fullName>Full Time Employee</fullName>
+                <default>false</default>
+                <label>Full Time Employee</label>
+            </value>
+            <value>
+                <fullName>Gardeners</fullName>
+                <default>false</default>
+                <label>Gardeners</label>
+            </value>
+            <value>
+                <fullName>Head Cook</fullName>
+                <default>false</default>
+                <label>Head Cook</label>
+            </value>
+            <value>
+                <fullName>Head Housekeeper</fullName>
+                <default>false</default>
+                <label>Head Housekeeper</label>
+            </value>
+            <value>
+                <fullName>Head/Relief Waiter/Waitress</fullName>
+                <default>false</default>
+                <label>Head/Relief Waiter/Waitress</label>
+            </value>
+            <value>
+                <fullName>Health Information Coordinator</fullName>
+                <default>false</default>
+                <label>Health Information Coordinator</label>
+            </value>
+            <value>
+                <fullName>Health Unit</fullName>
+                <default>false</default>
+                <label>Health Unit</label>
+            </value>
+            <value>
+                <fullName>Housekeeper</fullName>
+                <default>false</default>
+                <label>Housekeeper</label>
+            </value>
+            <value>
+                <fullName>Housekeeping</fullName>
+                <default>false</default>
+                <label>Housekeeping</label>
+            </value>
+            <value>
+                <fullName>Housekeeping Aides</fullName>
+                <default>false</default>
+                <label>Housekeeping Aides</label>
+            </value>
+            <value>
+                <fullName>Housekeeping Employees</fullName>
+                <default>false</default>
+                <label>Housekeeping Employees</label>
+            </value>
+            <value>
+                <fullName>Housekeeping Lead</fullName>
+                <default>false</default>
+                <label>Housekeeping Lead</label>
+            </value>
+            <value>
+                <fullName>Janitor</fullName>
+                <default>false</default>
+                <label>Janitor</label>
+            </value>
+            <value>
+                <fullName>Janitorial</fullName>
+                <default>false</default>
+                <label>Janitorial</label>
+            </value>
+            <value>
+                <fullName>Janitorial Employees</fullName>
+                <default>false</default>
+                <label>Janitorial Employees</label>
+            </value>
+            <value>
+                <fullName>Kitchen Assistants</fullName>
+                <default>false</default>
+                <label>Kitchen Assistants</label>
+            </value>
+            <value>
+                <fullName>Kitchen Helper</fullName>
+                <default>false</default>
+                <label>Kitchen Helper</label>
+            </value>
+            <value>
+                <fullName>Kitchen Workers</fullName>
+                <default>false</default>
+                <label>Kitchen Workers</label>
+            </value>
+            <value>
+                <fullName>L.V.N.</fullName>
+                <default>false</default>
+                <label>L.V.N.</label>
+            </value>
+            <value>
+                <fullName>Laundry</fullName>
+                <default>false</default>
+                <label>Laundry</label>
+            </value>
+            <value>
+                <fullName>Laundry Aide</fullName>
+                <default>false</default>
+                <label>Laundry Aide</label>
+            </value>
+            <value>
+                <fullName>Laundry Employees</fullName>
+                <default>false</default>
+                <label>Laundry Employees</label>
+            </value>
+            <value>
+                <fullName>Laundry Lead</fullName>
+                <default>false</default>
+                <label>Laundry Lead</label>
+            </value>
+            <value>
+                <fullName>Laundry Staff</fullName>
+                <default>false</default>
+                <label>Laundry Staff</label>
+            </value>
+            <value>
+                <fullName>Laundry Workers</fullName>
+                <default>false</default>
+                <label>Laundry Workers</label>
+            </value>
+            <value>
+                <fullName>Lead Certified Nursing Assistant</fullName>
+                <default>false</default>
+                <label>Lead Certified Nursing Assistant</label>
+            </value>
+            <value>
+                <fullName>Lead Concierge</fullName>
+                <default>false</default>
+                <label>Lead Concierge</label>
+            </value>
+            <value>
+                <fullName>Lead Cook</fullName>
+                <default>false</default>
+                <label>Lead Cook</label>
+            </value>
+            <value>
+                <fullName>Lead Receptionists</fullName>
+                <default>false</default>
+                <label>Lead Receptionists</label>
+            </value>
+            <value>
+                <fullName>Lead Wait Staff</fullName>
+                <default>false</default>
+                <label>Lead Wait Staff</label>
+            </value>
+            <value>
+                <fullName>Licensed Psychiatric Technicians</fullName>
+                <default>false</default>
+                <label>Licensed Psychiatric Technicians</label>
+            </value>
+            <value>
+                <fullName>Maintenance</fullName>
+                <default>false</default>
+                <label>Maintenance</label>
+            </value>
+            <value>
+                <fullName>Maintenance (Associate)</fullName>
+                <default>false</default>
+                <label>Maintenance (Associate)</label>
+            </value>
+            <value>
+                <fullName>Maintenance 1</fullName>
+                <default>false</default>
+                <label>Maintenance 1</label>
+            </value>
+            <value>
+                <fullName>Maintenance 2</fullName>
+                <default>false</default>
+                <label>Maintenance 2</label>
+            </value>
+            <value>
+                <fullName>Maintenance 3</fullName>
+                <default>false</default>
+                <label>Maintenance 3</label>
+            </value>
+            <value>
+                <fullName>Maintenance Aides</fullName>
+                <default>false</default>
+                <label>Maintenance Aides</label>
+            </value>
+            <value>
+                <fullName>Maintenance Assistant</fullName>
+                <default>false</default>
+                <label>Maintenance Assistant</label>
+            </value>
+            <value>
+                <fullName>Maintenance Employees</fullName>
+                <default>false</default>
+                <label>Maintenance Employees</label>
+            </value>
+            <value>
+                <fullName>Maintenance Helper</fullName>
+                <default>false</default>
+                <label>Maintenance Helper</label>
+            </value>
+            <value>
+                <fullName>Maintenance HVAC</fullName>
+                <default>false</default>
+                <label>Maintenance HVAC</label>
+            </value>
+            <value>
+                <fullName>Maintenance Lead</fullName>
+                <default>false</default>
+                <label>Maintenance Lead</label>
+            </value>
+            <value>
+                <fullName>Maintenance Technician</fullName>
+                <default>false</default>
+                <label>Maintenance Technician</label>
+            </value>
+            <value>
+                <fullName>Maintenance Worker</fullName>
+                <default>false</default>
+                <label>Maintenance Worker</label>
+            </value>
+            <value>
+                <fullName>Medi-Cal Eligibility</fullName>
+                <default>false</default>
+                <label>Medi-Cal Eligibility</label>
+            </value>
+            <value>
+                <fullName>Medi-Cal Eligibility Coordinator</fullName>
+                <default>false</default>
+                <label>Medi-Cal Eligibility Coordinator</label>
+            </value>
+            <value>
+                <fullName>Medical Records</fullName>
+                <default>false</default>
+                <label>Medical Records</label>
+            </value>
+            <value>
+                <fullName>Medical Records Assistant</fullName>
+                <default>false</default>
+                <label>Medical Records Assistant</label>
+            </value>
+            <value>
+                <fullName>Medical Records Clerk</fullName>
+                <default>false</default>
+                <label>Medical Records Clerk</label>
+            </value>
+            <value>
+                <fullName>Medication Assistant</fullName>
+                <default>false</default>
+                <label>Medication Assistant</label>
+            </value>
+            <value>
+                <fullName>Medication Technician</fullName>
+                <default>false</default>
+                <label>Medication Technician</label>
+            </value>
+            <value>
+                <fullName>Mental Health Counselors</fullName>
+                <default>false</default>
+                <label>Mental Health Counselors</label>
+            </value>
+            <value>
+                <fullName>Mental Health Workers</fullName>
+                <default>false</default>
+                <label>Mental Health Workers</label>
+            </value>
+            <value>
+                <fullName>N.A (Uncertified)</fullName>
+                <default>false</default>
+                <label>N.A (Uncertified)</label>
+            </value>
+            <value>
+                <fullName>N.A.</fullName>
+                <default>false</default>
+                <label>N.A.</label>
+            </value>
+            <value>
+                <fullName>Nurses</fullName>
+                <default>false</default>
+                <label>Nurses</label>
+            </value>
+            <value>
+                <fullName>Nurses Aid</fullName>
+                <default>false</default>
+                <label>Nurses Aid</label>
+            </value>
+            <value>
+                <fullName>Nursing Assistant</fullName>
+                <default>false</default>
+                <label>Nursing Assistant</label>
+            </value>
+            <value>
+                <fullName>Nursing Employees</fullName>
+                <default>false</default>
+                <label>Nursing Employees</label>
+            </value>
+            <value>
+                <fullName>Nutrition Aide/Dietary Aide</fullName>
+                <default>false</default>
+                <label>Nutrition Aide/Dietary Aide</label>
+            </value>
+            <value>
+                <fullName>On-Call Employee</fullName>
+                <default>false</default>
+                <label>On-Call Employee</label>
+            </value>
+            <value>
+                <fullName>Orderlies</fullName>
+                <default>false</default>
+                <label>Orderlies</label>
+            </value>
+            <value>
+                <fullName>Pantry Worker</fullName>
+                <default>false</default>
+                <label>Pantry Worker</label>
+            </value>
+            <value>
+                <fullName>Per Diem</fullName>
+                <default>false</default>
+                <label>Per Diem</label>
+            </value>
+            <value>
+                <fullName>Personal Trainer</fullName>
+                <default>false</default>
+                <label>Personal Trainer</label>
+            </value>
+            <value>
+                <fullName>Physical Therapy Aides</fullName>
+                <default>false</default>
+                <label>Physical Therapy Aides</label>
+            </value>
+            <value>
+                <fullName>Physical Therapy Helper</fullName>
+                <default>false</default>
+                <label>Physical Therapy Helper</label>
+            </value>
+            <value>
+                <fullName>Primary Counselors</fullName>
+                <default>false</default>
+                <label>Primary Counselors</label>
+            </value>
+            <value>
+                <fullName>PT Aide</fullName>
+                <default>false</default>
+                <label>PT Aide</label>
+            </value>
+            <value>
+                <fullName>R.N.A</fullName>
+                <default>false</default>
+                <label>R.N.A</label>
+            </value>
+            <value>
+                <fullName>RCFE Caregiver</fullName>
+                <default>false</default>
+                <label>RCFE Caregiver</label>
+            </value>
+            <value>
+                <fullName>Records Assistant</fullName>
+                <default>false</default>
+                <label>Records Assistant</label>
+            </value>
+            <value>
+                <fullName>Regular Part Time Employee</fullName>
+                <default>false</default>
+                <label>Regular Part Time Employee</label>
+            </value>
+            <value>
+                <fullName>Rehabilitation aides</fullName>
+                <default>false</default>
+                <label>Rehabilitation aides</label>
+            </value>
+            <value>
+                <fullName>Relief Cook</fullName>
+                <default>false</default>
+                <label>Relief Cook</label>
+            </value>
+            <value>
+                <fullName>Relief Host/Hostess</fullName>
+                <default>false</default>
+                <label>Relief Host/Hostess</label>
+            </value>
+            <value>
+                <fullName>Relief Prep Cook</fullName>
+                <default>false</default>
+                <label>Relief Prep Cook</label>
+            </value>
+            <value>
+                <fullName>Resident Assistants</fullName>
+                <default>false</default>
+                <label>Resident Assistants</label>
+            </value>
+            <value>
+                <fullName>Resident Services Assistant</fullName>
+                <default>false</default>
+                <label>Resident Services Assistant</label>
+            </value>
+            <value>
+                <fullName>Respiratory Therapists</fullName>
+                <default>false</default>
+                <label>Respiratory Therapists</label>
+            </value>
+            <value>
+                <fullName>Restorative Aide</fullName>
+                <default>false</default>
+                <label>Restorative Aide</label>
+            </value>
+            <value>
+                <fullName>Restorative Nursing</fullName>
+                <default>false</default>
+                <label>Restorative Nursing</label>
+            </value>
+            <value>
+                <fullName>Senior Resident Services Assistant</fullName>
+                <default>false</default>
+                <label>Senior Resident Services Assistant</label>
+            </value>
+            <value>
+                <fullName>Short hour</fullName>
+                <default>false</default>
+                <label>Short hour</label>
+            </value>
+            <value>
+                <fullName>Social Service Designee</fullName>
+                <default>false</default>
+                <label>Social Service Designee</label>
+            </value>
+            <value>
+                <fullName>Social Services</fullName>
+                <default>false</default>
+                <label>Social Services</label>
+            </value>
+            <value>
+                <fullName>Social Services Assistant</fullName>
+                <default>false</default>
+                <label>Social Services Assistant</label>
+            </value>
+            <value>
+                <fullName>Social Services Designee Assistant</fullName>
+                <default>false</default>
+                <label>Social Services Designee Assistant</label>
+            </value>
+            <value>
+                <fullName>Social Worker Assistant</fullName>
+                <default>false</default>
+                <label>Social Worker Assistant</label>
+            </value>
+            <value>
+                <fullName>Social Worker Director</fullName>
+                <default>false</default>
+                <label>Social Worker Director</label>
+            </value>
+            <value>
+                <fullName>Special Care</fullName>
+                <default>false</default>
+                <label>Special Care</label>
+            </value>
+            <value>
+                <fullName>Staffing Coordinator</fullName>
+                <default>false</default>
+                <label>Staffing Coordinator</label>
+            </value>
+            <value>
+                <fullName>Sterilization Workers</fullName>
+                <default>false</default>
+                <label>Sterilization Workers</label>
+            </value>
+            <value>
+                <fullName>Storeroom Person</fullName>
+                <default>false</default>
+                <label>Storeroom Person</label>
+            </value>
+            <value>
+                <fullName>Supply Clerks</fullName>
+                <default>false</default>
+                <label>Supply Clerks</label>
+            </value>
+            <value>
+                <fullName>Supply/Staffing Clerk</fullName>
+                <default>false</default>
+                <label>Supply/Staffing Clerk</label>
+            </value>
+            <value>
+                <fullName>Temporary Employees</fullName>
+                <default>false</default>
+                <label>Temporary Employees</label>
+            </value>
+            <value>
+                <fullName>Traditions Caregiver</fullName>
+                <default>false</default>
+                <label>Traditions Caregiver</label>
+            </value>
+            <value>
+                <fullName>Tray Line</fullName>
+                <default>false</default>
+                <label>Tray Line</label>
+            </value>
+            <value>
+                <fullName>Tray Line Workers</fullName>
+                <default>false</default>
+                <label>Tray Line Workers</label>
+            </value>
+            <value>
+                <fullName>Trayliners</fullName>
+                <default>false</default>
+                <label>Trayliners</label>
+            </value>
+            <value>
+                <fullName>Utility</fullName>
+                <default>false</default>
+                <label>Utility</label>
+            </value>
+            <value>
+                <fullName>Utility Position</fullName>
+                <default>false</default>
+                <label>Utility Position</label>
+            </value>
+            <value>
+                <fullName>Wait Staff</fullName>
+                <default>false</default>
+                <label>Wait Staff</label>
+            </value>
+            <value>
+                <fullName>Waiter/Waitress</fullName>
+                <default>false</default>
+                <label>Waiter/Waitress</label>
+            </value>
+            <value>
+                <fullName>Ward Clerks</fullName>
+                <default>false</default>
+                <label>Ward Clerks</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

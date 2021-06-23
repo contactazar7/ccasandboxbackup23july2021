@@ -1,0 +1,60 @@
+<aura:component controller="Mark_Enrollment_CPR" implements="force:appHostable,lightning:isUrlAddressable" access="global">
+    <aura:html tag="style">
+        .slds-template__container
+        {
+        background-color: #FAFAF9;
+        border-radius: 35px;
+        }
+    </aura:html>
+    <aura:attribute name="id" type="String" />
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="TotalNumberOfRecord" type="integer" default="0" description="use for display Number of records"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChange}"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="selectedRecords" type="Object"/>
+    
+    <div class="slds-template__container">
+        <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+        <div class="slds-m-around_medium" style="font-family:verdana;courier">
+            <div>
+                <h1 style="text-align:center;font-stretch:expanded;font-family:Monospace;font-size:30px;">CREATE ATTENDANCE FOR ENROLLMENT</h1>
+            </div>
+        </div>
+        <div style="margin-left:100px;"> 
+            <lightning:layout >
+                <lightning:layoutItem size="4" padding="around-large" flexibility="auto">
+                    <P style="margin-left:15px;"><b>Count of Records : <lightning:badge label="{!v.TotalNumberOfRecord}"/></b></P>
+                    <P style="margin-left:15px;"><b><h1>Selected Records : {! v.selectedRowsCount }</h1></b></P>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="8" padding="around-large" flexibility="auto">
+                    <div class="slds-clearfix slds-m-around_small">
+                        <div class="slds-clearfix">
+                            <div class="slds-float_right">
+                                <p style="text-align:right;"> <lightning:button variant="brand"
+                                                                                label="Create Attendance"
+                                                                                onclick="{! c.createAttendance }"
+                                                                                disabled="{! v.selectedRowsCount == 0}"/>
+                                    <lightning:button onclick="{!c.navigate}"
+                                                      variant="brand"
+                                                      class="slds-button slds-button_brand"
+                                                      label="Back to Roster"
+                                                      />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <div>
+            <lightning:datatable columns="{!v.columns}" data="{!v.data}" keyField="id"  onrowselection="{!c.updateSelectedRows }"/>
+        </div>
+    </div>
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading.." variant="brand"/>
+    </aura:if> 
+</aura:component>

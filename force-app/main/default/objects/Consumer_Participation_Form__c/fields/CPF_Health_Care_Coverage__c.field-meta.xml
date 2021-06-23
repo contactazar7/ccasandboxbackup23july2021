@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPF_Health_Care_Coverage__c</fullName>
+    <externalId>false</externalId>
+    <label>Health Care Coverage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Medicaid</fullName>
+                <default>false</default>
+                <label>Medicaid</label>
+            </value>
+            <value>
+                <fullName>Medicare</fullName>
+                <default>false</default>
+                <label>Medicare</label>
+            </value>
+            <value>
+                <fullName>Private/Health Insurance/Health Plan</fullName>
+                <default>false</default>
+                <label>Private/Health Insurance/Health Plan</label>
+            </value>
+            <value>
+                <fullName>Indian Health Service</fullName>
+                <default>false</default>
+                <label>Indian Health Service</label>
+            </value>
+            <value>
+                <fullName>VA Health System (Veterans of Armed Forces)</fullName>
+                <default>false</default>
+                <label>VA Health System (Veterans of Armed Forces)</label>
+            </value>
+            <value>
+                <fullName>Tricare (Armed Forces)</fullName>
+                <default>false</default>
+                <label>Tricare (Armed Forces)</label>
+            </value>
+            <value>
+                <fullName>Care 1st</fullName>
+                <default>false</default>
+                <label>Care 1st</label>
+            </value>
+            <value>
+                <fullName>Care More</fullName>
+                <default>false</default>
+                <label>Care More</label>
+            </value>
+            <value>
+                <fullName>Health Net</fullName>
+                <default>false</default>
+                <label>Health Net</label>
+            </value>
+            <value>
+                <fullName>LA Care</fullName>
+                <default>false</default>
+                <label>LA Care</label>
+            </value>
+            <value>
+                <fullName>Molina</fullName>
+                <default>false</default>
+                <label>Molina</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Kaiser</fullName>
+                <default>false</default>
+                <label>Kaiser</label>
+            </value>
+            <value>
+                <fullName>Alameda Alliance</fullName>
+                <default>false</default>
+                <label>Alameda Alliance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

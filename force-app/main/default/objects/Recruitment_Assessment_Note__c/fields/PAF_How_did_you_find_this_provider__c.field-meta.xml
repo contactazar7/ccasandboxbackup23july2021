@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAF_How_did_you_find_this_provider__c</fullName>
+    <description>(Assessment List)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>(Assessment List)</inlineHelpText>
+    <label>How did you find this provider?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Union list</fullName>
+                <default>false</default>
+                <label>Union list</label>
+            </value>
+            <value>
+                <fullName>Union Meeting</fullName>
+                <default>false</default>
+                <label>Union Meeting</label>
+            </value>
+            <value>
+                <fullName>Referral from Union</fullName>
+                <default>false</default>
+                <label>Referral from Union</label>
+            </value>
+            <value>
+                <fullName>Waiting List</fullName>
+                <default>false</default>
+                <label>Waiting List</label>
+            </value>
+            <value>
+                <fullName>Senior Activity Centers</fullName>
+                <default>false</default>
+                <label>Senior Activity Centers</label>
+            </value>
+            <value>
+                <fullName>Referral from former student</fullName>
+                <default>false</default>
+                <label>Referral from former student</label>
+            </value>
+            <value>
+                <fullName>Other (Use notes area below)</fullName>
+                <default>false</default>
+                <label>Other (Use notes area below)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

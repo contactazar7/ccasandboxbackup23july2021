@@ -1,0 +1,231 @@
+<aura:component controller="inlineEditCtrlForRoaster" implements="force:lightningQuickAction,force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride" access="global">
+    <!-- on component load, fetch picklist values dynamically from apex controller -->   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--declare aura attributes-->
+    <lightning:navigation aura:id="MarkAttendanceService" />
+    <lightning:navigation aura:id="AddMakeupService" />
+    <aura:attribute name="showModal" type="boolean" default="false"/>
+    <aura:attribute name="chooseRecdate" type="string" description="use to store the value in Date Format for Make-Up Class"/>
+    <aura:attribute name="chooseRecStartTime" type="string" description="use to store the value in Start Time Format for Make-Up Class"/>
+    <aura:attribute name="chooseRecEndTime" type="string" description="use to store the value in End Time Format for Make-Up Class"/>
+
+    <aura:attribute name="objInfoForPicklistValues" type="Roaster__c" default="{sobjectType : 'Roaster__c'}" description="object information to fetch picklist values"/>
+    <aura:attribute name="ratingPicklistOpts" type="string[]" description="store picklist options values"/> 
+    <aura:attribute name="showSaveCancelBtn" type="boolean"/>
+    <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+    <aura:attribute name="sNo" type="string" />
+    <aura:attribute name="startTimeEditMode" type="boolean" default="false" />
+    <aura:attribute name="statusEditMode" type="boolean" default="false" />
+    <aura:attribute name="moduleEditMode" type="boolean" default="false" />   
+    <aura:attribute name="TotalNumberOfAttendanceRecords" type="Integer" />
+    <aura:attribute name="singleRec" type="sobject" default="{'sobjectType' : 'Roaster__c',
+                                                             'Name' : '',
+                                                             'Class_Scheduled_Date__c' : '',
+                                                             'Module__r.Name' :'',
+                                                             'Start_Time__c': '',
+                                                             'End_Time__c': '',
+                                                             'Status__c': ''
+                                                             }"/>
+    
+    <aura:attribute name="nameEditMode" type="boolean" default="false" />
+    <aura:attribute name="ratingEditMode" type="boolean" default="false" />
+    <!--Table Row Start-->  
+    
+    <tr>
+       
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                <a target="_blank" href="{!'/'+v.singleRec.Id}">  {!v.singleRec.Name}</a>	
+            </div>  
+        </td>
+      <!--  <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                {!v.singleRec.Class_Scheduled_Date__c}	
+            </div>  
+        </td>
+        <td ondblclick="{!c.inlineEditModule}" class="slds-cell-edit">
+            <span class="slds-grid slds-grid_align-spread">  -->
+                <!-- show input and output section based on boolean flag --> 
+              <!--  <aura:if isTrue="{!v.moduleEditMode == false}">
+                    <span class="slds-truncate" title="Rating">{!v.singleRec.Module__r.Name}</span>
+                    <button onclick="{!c.inlineEditModule}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button> -->
+                    <!-- Inline Edit Section in else case-->  
+                  <!--  <aura:set attribute="else">
+                        <lightning:recordEditForm  recordId="{!v.singleRec.Id}" aura:id="form" objectApiName="Roaster__c"  onload="{!c.onload}"   >
+                            <lightning:messages />
+                            <lightning:inputField fieldName="Module__c"   aura:id="module"      
+                                                  value="{!v.singleRec.Module__c}" onchange="{!c.onmoduleChange}"/>
+                        </lightning:recordEditForm>
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        <td>
+            <span class="slds-truncate" title="Rating"><lightning:formattedDateTime value="{!v.singleRec.Start_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                                                                    timeZoneName="short" /></span>    
+        </td>
+        <td>
+            <span class="slds-truncate" title="Rating"><lightning:formattedDateTime value="{!v.singleRec.End_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                                                                    timeZoneName="short" /></span> 
+        </td> -->
+        <td ondblclick="{!c.inlineEditStatus}" class="slds-cell-edit">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.statusEditMode == false}">
+                    <span class="slds-truncate" title="Rating">{!v.singleRec.Status__c}</span>
+                    <button onclick="{!c.inlineEditStatus}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Rating">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <label class="slds-form-element__label">Status</label>
+                                        <ui:inputSelect aura:id="accStatus"
+                                                        class="slds-select inputFieldWidth"
+                                                        blur="{!c.closeRatingBox}"
+                                                        change="{!c.onRatingChange}"
+                                                        value="{!v.singleRec.Status__c}"
+                                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                Enr - {!v.singleRec.Count_of_Enrollment__c}	- - 	
+
+                Combined {!(v.singleRec.Total_Present_For_Regular__c + v.singleRec.Total_Present_For_Make_Up__c ) }
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                TP - {!v.singleRec.Total_Present__c} 	
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                TA - {!v.singleRec.Total_Absent__c} 	
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                PR - {!v.singleRec.Total_Present_For_Regular__c} 	
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                PM - {!v.singleRec.Total_Present_For_Make_Up__c}		
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                {!v.singleRec.Count_Of_Regular_Attendance__c}		
+            </div>  
+        </td>
+       <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                {!v.singleRec.Total_Absent_For_Regular__c}		
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                {!v.singleRec.Total_Absent_For_Make_Up__c}		
+            </div>  
+        </td>
+        <td data-label="File Name">
+            <div class="slds-truncate" title="File Name">
+                {!v.singleRec.Make_Up_Count__c}				
+            </div>  
+        </td>
+        <td>
+            <span class="slds-truncate" title="Button">
+                <lightning:button variant="base" label="Create Attendance" title="Base action" onclick="{! c.createAttendance}" disabled="{!v.singleRec.Count_Of_Regular_Attendance__c > 0}"/> <br/>
+				<lightning:button variant="base" label="Mark Attendance" title="Base action" onclick="{! c.markregularAttendance}" disabled="{!(v.singleRec.Total_Present_For_Regular__c + v.singleRec.Total_Absent_For_Regular__c ) == (v.singleRec.Count_Of_Regular_Attendance__c)}"/> 
+            </span>
+        </td>
+        <td>
+            <span class="slds-truncate" title="Button">
+                <lightning:button variant="base" label="Create Make-Up Class" title="Base action" onclick="{! c.createMakeUpClass}" disabled="{!((v.singleRec.Total_Absent__c == 0) ||  (v.singleRec.Total_Present__c == v.singleRec.Count_of_Enrollment__c))}" /> <br/>
+                <!--<lightning:button variant="base" label="Create Make-Up Class" title="Base action" onclick="{! c.createMakeUpClass}" disabled="{! (v.singleRec.Count_of_Enrollment__c) == (v.singleRec.Total_Present_For_Regular__c+v.singleRec.Total_Present_For_Make_Up__c )}" /> 
+                    disabled="{!(v.singleRec.Total_Present_For_Regular__c + v.singleRec.Total_Present_For_Make_Up__c ) == (v.singleRec.Count_of_Enrollment__c)}" 
+                    <br/> -->
+				<lightning:button variant="base" label="Add To Make-Up Class" title="Base action" onclick="{! c.addmakeupAttendance}" disabled="{!((v.singleRec.Total_Absent__c == 0) ||  (v.singleRec.Total_Present__c == v.singleRec.Count_of_Enrollment__c))}" /> 
+            </span>
+        </td>
+    </tr>
+    <aura:if isTrue="{!v.showModal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" >
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">CREATE MAKE-UP CLASS FOR ABSENTEES</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="height: 250px;">
+                    <lightning:layout >
+                        <lightning:layoutItem flexibility="auto" padding="around-small" >
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <div class="custom-box">
+                                <lightning:input value="{!v.chooseRecdate}"                                                     
+                                                placeholder="Search..."
+                                                aura:id="searchdate"
+                                                type="date"
+                                                dateStyle="short" 
+                                                label="Class Scheduled"
+                            /> 
+                            </div>
+                        </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.chooseRecStartTime}"                                                     
+                                            placeholder="Search..."
+                                            aura:id="searchStartTime"
+                                            type="Time"
+                                            dateStyle="short" 
+                                            label="Class Start Time"
+                            />
+                            </div>
+                        </lightning:layoutItem>   
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.chooseRecEndTime}"                                                     
+                                            placeholder="Search..."
+                                            aura:id="searchEndTime"
+                                            type="Time"
+                                            dateStyle="short" 
+                                            label="Class End Time"
+                            />  
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" 
+                                      label="Cancel"
+                                      title="Cancel"
+                                      onclick="{! c.closeModel }"/>
+                    <lightning:button variant="brand" 
+                                      label="Save"
+                                      title="Save"
+                                      onclick="{! c.savemakeup }"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </aura:if>
+</aura:component>

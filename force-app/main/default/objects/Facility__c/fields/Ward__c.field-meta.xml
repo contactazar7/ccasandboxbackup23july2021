@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ward__c</fullName>
+    <externalId>false</externalId>
+    <label>Ward</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>Ward 1</fullName>
+                <default>false</default>
+                <label>Ward 1</label>
+            </value>
+            <value>
+                <fullName>Ward 2</fullName>
+                <default>false</default>
+                <label>Ward 2</label>
+            </value>
+            <value>
+                <fullName>Ward 3</fullName>
+                <default>false</default>
+                <label>Ward 3</label>
+            </value>
+            <value>
+                <fullName>Ward 4</fullName>
+                <default>false</default>
+                <label>Ward 4</label>
+            </value>
+            <value>
+                <fullName>Ward 5</fullName>
+                <default>false</default>
+                <label>Ward 5</label>
+            </value>
+            <value>
+                <fullName>Ward 6</fullName>
+                <default>false</default>
+                <label>Ward 6</label>
+            </value>
+            <value>
+                <fullName>Ward 7</fullName>
+                <default>false</default>
+                <label>Ward 7</label>
+            </value>
+            <value>
+                <fullName>Ward 8</fullName>
+                <default>false</default>
+                <label>Ward 8</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

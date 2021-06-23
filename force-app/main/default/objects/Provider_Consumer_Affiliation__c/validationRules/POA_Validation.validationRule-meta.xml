@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POA_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(ISPICKVAL( Has_Power_of_Attorney_POA__c , &apos;No&apos;), ISBLANK(If_No_Enter_New_POA_Name__c), NULL)</errorConditionFormula>
+    <errorDisplayField>If_No_Enter_New_POA_Name__c</errorDisplayField>
+    <errorMessage>Please enter the other POA name</errorMessage>
+</ValidationRule>

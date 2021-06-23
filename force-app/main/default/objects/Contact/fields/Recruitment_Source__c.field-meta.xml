@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruitment_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Recruitment Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>April2018List1</fullName>
+                <default>false</default>
+                <label>April2018List1</label>
+            </value>
+            <value>
+                <fullName>April2018List2</fullName>
+                <default>false</default>
+                <label>April2018List2</label>
+            </value>
+            <value>
+                <fullName>April2018List3</fullName>
+                <default>false</default>
+                <label>April2018List3</label>
+            </value>
+            <value>
+                <fullName>April2018List4</fullName>
+                <default>false</default>
+                <label>April2018List4</label>
+            </value>
+            <value>
+                <fullName>August2012Import1</fullName>
+                <default>false</default>
+                <label>August2012Import1</label>
+            </value>
+            <value>
+                <fullName>August2017List2</fullName>
+                <default>false</default>
+                <label>August2017List2</label>
+            </value>
+            <value>
+                <fullName>August2017List3</fullName>
+                <default>false</default>
+                <label>August2017List3</label>
+            </value>
+            <value>
+                <fullName>August2017List4</fullName>
+                <default>false</default>
+                <label>August2017List4</label>
+            </value>
+            <value>
+                <fullName>August2017List5</fullName>
+                <default>false</default>
+                <label>August2017List5</label>
+            </value>
+            <value>
+                <fullName>August2017List6</fullName>
+                <default>false</default>
+                <label>August2017List6</label>
+            </value>
+            <value>
+                <fullName>August2017List7</fullName>
+                <default>false</default>
+                <label>August2017List7</label>
+            </value>
+            <value>
+                <fullName>August2017List8</fullName>
+                <default>false</default>
+                <label>August2017List8</label>
+            </value>
+            <value>
+                <fullName>CDPHJanuary2020List1</fullName>
+                <default>false</default>
+                <label>CDPHJanuary2020List1</label>
+            </value>
+            <value>
+                <fullName>CDPHJanuary2020List2</fullName>
+                <default>false</default>
+                <label>CDPHJanuary2020List2</label>
+            </value>
+            <value>
+                <fullName>CDPHJanuary2020List3</fullName>
+                <default>false</default>
+                <label>CDPHJanuary2020List3</label>
+            </value>
+            <value>
+                <fullName>CDPHJuly2020List1</fullName>
+                <default>false</default>
+                <label>CDPHJuly2020List1</label>
+            </value>
+            <value>
+                <fullName>CDPHOctober2020List1</fullName>
+                <default>false</default>
+                <label>CDPHOctober2020List1</label>
+            </value>
+            <value>
+                <fullName>Cell-Ed</fullName>
+                <default>false</default>
+                <label>Cell-Ed</label>
+            </value>
+            <value>
+                <fullName>Dignity Campaign</fullName>
+                <default>false</default>
+                <label>Dignity Campaign</label>
+            </value>
+            <value>
+                <fullName>Do Not Use</fullName>
+                <default>false</default>
+                <label>Do Not Use</label>
+            </value>
+            <value>
+                <fullName>Fill A Seat Campaign</fullName>
+                <default>false</default>
+                <label>Fill A Seat Campaign</label>
+            </value>
+            <value>
+                <fullName>HC-CPR</fullName>
+                <default>false</default>
+                <label>HC-CPR</label>
+            </value>
+            <value>
+                <fullName>HCIT</fullName>
+                <default>false</default>
+                <label>HCIT</label>
+            </value>
+            <value>
+                <fullName>Health Net</fullName>
+                <default>false</default>
+                <label>Health Net</label>
+            </value>
+            <value>
+                <fullName>July2018List1</fullName>
+                <default>false</default>
+                <label>July2018List1</label>
+            </value>
+            <value>
+                <fullName>July2018List2</fullName>
+                <default>false</default>
+                <label>July2018List2</label>
+            </value>
+            <value>
+                <fullName>July2018List3</fullName>
+                <default>false</default>
+                <label>July2018List3</label>
+            </value>
+            <value>
+                <fullName>July2019List1</fullName>
+                <default>false</default>
+                <label>July2019List1</label>
+            </value>
+            <value>
+                <fullName>JuneList12020</fullName>
+                <default>false</default>
+                <label>JuneList12020</label>
+            </value>
+            <value>
+                <fullName>LA Care</fullName>
+                <default>false</default>
+                <label>LA Care</label>
+            </value>
+            <value>
+                <fullName>LA Care (IVR)</fullName>
+                <default>false</default>
+                <label>LA Care (IVR)</label>
+            </value>
+            <value>
+                <fullName>LA County Korean</fullName>
+                <default>false</default>
+                <label>LA County Korean</label>
+            </value>
+            <value>
+                <fullName>March2019List1</fullName>
+                <default>false</default>
+                <label>March2019List1</label>
+            </value>
+            <value>
+                <fullName>MarchList12020</fullName>
+                <default>false</default>
+                <label>MarchList12020</label>
+            </value>
+            <value>
+                <fullName>MarchList22020</fullName>
+                <default>false</default>
+                <label>MarchList22020</label>
+            </value>
+            <value>
+                <fullName>MarchList32020</fullName>
+                <default>false</default>
+                <label>MarchList32020</label>
+            </value>
+            <value>
+                <fullName>May2019List2</fullName>
+                <default>false</default>
+                <label>May2019List2</label>
+            </value>
+            <value>
+                <fullName>November2019List1</fullName>
+                <default>false</default>
+                <label>November2019List1</label>
+            </value>
+            <value>
+                <fullName>NovemberList12018</fullName>
+                <default>false</default>
+                <label>NovemberList12018</label>
+            </value>
+            <value>
+                <fullName>OctoberList12020</fullName>
+                <default>false</default>
+                <label>OctoberList12020</label>
+            </value>
+            <value>
+                <fullName>PA IHSS Orientation</fullName>
+                <default>false</default>
+                <label>PA IHSS Orientation</label>
+            </value>
+            <value>
+                <fullName>San Bernardino Import</fullName>
+                <default>false</default>
+                <label>San Bernardino Import</label>
+            </value>
+            <value>
+                <fullName>SBUCLAGWEPList1</fullName>
+                <default>false</default>
+                <label>SBUCLAGWEPList1</label>
+            </value>
+            <value>
+                <fullName>Training Fund</fullName>
+                <default>false</default>
+                <label>Training Fund</label>
+            </value>
+            <value>
+                <fullName>ULTCW Hours Based Import</fullName>
+                <default>false</default>
+                <label>ULTCW Hours Based Import</label>
+            </value>
+            <value>
+                <fullName>ULTCW Interest List</fullName>
+                <default>false</default>
+                <label>ULTCW Interest List</label>
+            </value>
+            <value>
+                <fullName>ULTCW New Member Orientation</fullName>
+                <default>false</default>
+                <label>ULTCW New Member Orientation</label>
+            </value>
+            <value>
+                <fullName>VTI CNA Cohort 9/7/2019</fullName>
+                <default>false</default>
+                <label>VTI CNA Cohort 9/7/2019</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

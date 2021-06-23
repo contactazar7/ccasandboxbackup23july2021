@@ -1,0 +1,12 @@
+<aura:component>
+    <aura:attribute name="childObjectName" type="String" required="true"/> 
+    <aura:attribute name="fieldName" type="String" required="true"/> 
+    <aura:attribute name="selectedRecordId" type="String"/> 
+    <aura:registerEvent name="onSelectEvt" type="c:CustomLookupSelectionEvt"/>
+    <lightning:recordEditForm onload="{!c.setSelectedRecordId}" objectApiName="{!v.childObjectName}">
+        <div style="font-style:Sans-serif;Verdana;padding-top:10px;">
+            <lightning:messages/>
+            <lightning:inputField aura:id="lookupField" variant="label-stacked" fieldName="{!v.fieldName}" onchange="{!c.OnSelect}" />
+        </div>
+    </lightning:recordEditForm>
+</aura:component>

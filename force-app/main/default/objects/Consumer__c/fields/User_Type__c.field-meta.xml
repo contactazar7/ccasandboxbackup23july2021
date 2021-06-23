@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>User Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Education Fund Board</fullName>
+                <default>false</default>
+                <label>Education Fund Board</label>
+            </value>
+            <value>
+                <fullName>Staff</fullName>
+                <default>false</default>
+                <label>Staff</label>
+            </value>
+            <value>
+                <fullName>Instructor</fullName>
+                <default>false</default>
+                <label>Instructor</label>
+            </value>
+            <value>
+                <fullName>Funding Source</fullName>
+                <default>false</default>
+                <label>Funding Source</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Partner</fullName>
+                <default>false</default>
+                <label>CLTCEC Partner</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Board</fullName>
+                <default>false</default>
+                <label>CLTCEC Board</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

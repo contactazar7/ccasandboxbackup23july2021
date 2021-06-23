@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Ward__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR( TEXT(Ward__c) == &quot;Ward 5&quot;, TEXT(Ward__c) == &quot;Ward 6&quot;, TEXT(Ward__c) == &quot;Ward 7&quot;, TEXT(Ward__c) == &quot;Ward 8&quot; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Preferred Ward</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,284 @@
+<aura:component controller = "MarkCompetencyController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:actionOverride" access="global" >
+ <aura:attribute name="recordId" type="Id" />
+     <aura:attribute name="ClassID" type="Id" />
+    
+ <aura:attribute name="showSaveCancelBtn" type="boolean" default="false" description="flag for rendered save and cancel buttons in aura:if "/>    
+  <aura:attribute name="Complist" type="Competency_Check__c[]" />
+       <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     <aura:attribute name="userInfo" type="user"/>  
+      <aura:attribute name="buttonss2" type="boolean" default="false" />
+    
+      <aura:html tag="style">
+        .slds-modal__container {
+        width : 90% !important;
+        max-width : 90% !important;
+        .modal-body{ 
+        height : 100vh !important; 
+        max-height: 100vh !important; 
+        } 
+        
+        .slds-modal__footer{ 
+        display: inline !important; 
+        }
+        
+        }
+    </aura:html>
+    
+<div class="slds-scrollable_x" >
+     <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_resizable-cols">
+        
+          
+            <br/>
+            <lightning:card >
+                <div style="font-size: 20px;">
+               <h1><center><b>Competency Checks</b></center></h1>        
+                </div>
+                   
+                 <div style="margin-left:25px;"> 
+            <lightning:layout >
+                  <aura:iteration  items="{!v.Complist}" var="CCserv" >
+     
+                
+                <lightning:layoutItem size="4" padding="around-large" flexibility="auto">
+           <span>   <lightning:icon iconName="standard:account" alternativeText="Account" title="Account" />&nbsp;&nbsp;&nbsp;<b>{!CCserv.Name}&nbsp;&nbsp;({!CCserv.Start_Date__c}&nbsp;&nbsp;-&nbsp;&nbsp;{!CCserv.End_Date__c})</b></span><br/>
+                    <P style="margin-left:2px;"><b>Class Language : </b> {!CCserv.Language__c}</P>
+                    <P style="margin-left:2px;"><b>Class Status : </b> {!CCserv.Class_Status__c}</P>
+                    <P style="margin-left:2px;"><b>Count of Records : </b> {!CCserv.Students_Enrolled__c}</P>
+                </lightning:layoutItem>
+               </aura:iteration>
+            </lightning:layout>
+                   
+               </div>
+            
+                
+                    
+  <div  style="width:99%">
+            <div class="slds-float--right">
+                <lightning:button variant="brand" label="Back to Class"  onclick="{! c.handleClickforopp }"/>
+            </div>
+                </div>
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th style="width:7.25rem;" >
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <label class="slds-checkbox">
+                                        <ui:inputCheckbox aura:id="boxPack" change="{!c.selectAll}"/>
+                                        <span class="slds-checkbox--faux"></span>
+                                        <span class="slds-form-element__label text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </th>
+                        
+                       <aura:iteration  items="{!v.Complist}" var="serv1" >
+                
+                 <aura:if isTrue="{!serv1.Class_Category__c == 'IHSS+ A&amp;D'}"> 
+                     
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Competency Check Name</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Enrollment</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">Provider Name</div>
+                        </th>
+    
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS A&amp;D - Complete Documentation Form</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS A&amp;D - Recognizing A &amp; D</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 1">IHSS A&amp;D - Repetitive Q's and Behaviour</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Dressing/Undressing</div>
+                        </th>
+                         <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Oral Care</div>
+                        </th>
+                         <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Making the Home Safe</div>
+                        </th>
+                       <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Help to Manage Hallucination</div>
+                        </th>  
+                         <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Assisting with Sleep</div>
+                        </th> 
+                         <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Medication Safety</div>
+                        </th> 
+                         <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 2">IHSS A&amp;D - Avoiding Burnout</div>
+                        </th> 
+                  
+                           </aura:if>
+                           
+         <aura:if isTrue="{!serv1.Class_Category__c == 'LA Care (IHSS+)'}"> 
+             
+               <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Competency Check Name</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Enrollment</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">Provider Name</div>
+                        </th>
+             
+                    <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS+ - Hand Washing</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS+ - Body Mechanics</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">IHSS+ - Care of Teeth</div>
+                        </th>
+    
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS+ - Dress and Undress</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">IHSS+ - Communication</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 1">IHSS+ - Model Of Care (MOC)-Provider</div>
+                        </th>
+             
+             
+                           </aura:if>
+                           
+             <aura:if isTrue="{!serv1.Class_Category__c == 'CDPH/UCSF'}"> 
+             <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Competency Check Name</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">Enrollment</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">Provider Name</div>
+                        </th>
+                 
+               <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">CDPH-Responding to Dementia Behaviour</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">CDPH-Home Safety</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Start Date">CDPH-Handwashing</div>
+                        </th>
+    
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">CDPH-Medication Safety</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Contract Year">CDPH-Urgent Care vs Emergency Care</div>
+                        </th>
+                        
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Faculty 1">CDPH-Model of Care</div>
+                        </th>
+                
+                 
+                           </aura:if>
+                           
+                        </aura:iteration>   
+                   
+                    </tr>
+                </thead>
+                
+                       <tbody>
+                    <aura:iteration  items="{!v.Complist}" var="serv1" >
+                 
+                        <aura:iteration  items="{!serv1.Competency_Checks__r}" var="serv" indexVar="i" start="{!i+1}">
+                            <tr>
+                                <td scope="row" class="slds-text-align--right" style="width:3.25rem;">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <label class="slds-checkbox">
+                                                <ui:inputCheckbox text="{!serv.Id}" aura:id="boxPack" value="" change="{!c.checkboxSelect}"/>
+                                                <span class="slds-checkbox--faux"></span>
+                                                <span class="slds-form-element__label text"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                   
+                      <td data-label="File Name">
+        <div class="slds-truncate" title="File Name" ><a data-caseid="{!serv.Id}" onclick="{!c.handleClickservice}" >{!serv.Name}</a></div>  
+         </td>           
+            
+              <td data-label="File Name">
+        <div class="slds-truncate" title="File Name" ><a data-caseid="{!serv.Id}" onclick="{!c.handleClickservice}" >{!serv.Enrollment__r.Name}</a></div>  
+         </td>                             
+                                
+                      <td>
+                          <div class="slds-truncate" title="{!serv.Enrollment__r.Contact__r.Name}">{!serv.Enrollment__r.Contact__r.Name}</div>
+                      </td>
+                         
+                      <aura:if isTrue="{!serv1.Class_Category__c == 'IHSS+ A&amp;D'}">  
+                          
+            <c:inlineEditChild  aura:id="childctrl" singleRec="{!serv}" showSaveCancelBtn="{!v.showSaveCancelBtn}"  parentdata="{!serv1}" sNo="{!sNo + 1}" />
+                          
+                           <td>
+                          <div class="slds-truncate" title="{!serv.IHSS_AD_Help_to_Manage_Hallucination__c}">{!serv.IHSS_AD_Help_to_Manage_Hallucination__c}</div>
+                      </td>
+                          
+                           <td>
+                          <div class="slds-truncate" title="{!serv.IHSS_AD_Assisting_with_Sleep__c}">{!serv.IHSS_AD_Assisting_with_Sleep__c}</div>
+                      </td>
+                          
+                           <td>
+                          <div class="slds-truncate" title="{!serv.IHSS_AD_Medication_Safety__c}">{!serv.IHSS_AD_Medication_Safety__c}</div>
+                      </td>
+                          
+                           <td>
+                          <div class="slds-truncate" title="{!serv.IHSS_AD_Assisting_with_Sleep__c}">{!serv.IHSS_AD_Avoiding_Burnout__c}</div>
+                      </td>
+                          
+                        </aura:if>
+        
+            <aura:if isTrue="{!serv1.Class_Category__c == 'LA Care (IHSS+)'}">  
+                
+    <c:inlineEditChildIHSS  aura:id="childctrl" singleRec="{!serv}" showSaveCancelBtn="{!v.showSaveCancelBtn}"  parentdata="{!serv1}" sNo="{!sNo + 1}" />
+                
+                                </aura:if>
+         
+              <aura:if isTrue="{!serv1.Class_Category__c == 'CDPH/UCSF'}"> 
+                  
+         <c:InlineEditChildCDPH  aura:id="childctrl" singleRec="{!serv}" showSaveCancelBtn="{!v.showSaveCancelBtn}"  parentdata="{!serv1}" sNo="{!sNo + 1}" />
+             
+                                      
+                 </aura:if>
+                                
+                            </tr>
+                        </aura:iteration>
+                           
+                           </aura:iteration>
+                </tbody>        
+                
+            </lightning:card><br/><br/>
+                <aura:if isTrue="{!v.showSaveCancelBtn}">
+                     <center>
+                <lightning:button label="Cancel" onclick="{!c.cancel}"/>&nbsp;
+                <lightning:button label="Save"  onclick="{!c.Save}" variant="brand"/>  
+                    </center>
+            </aura:if>   
+
+    
+    </table>
+    </div>
+</aura:component>

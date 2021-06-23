@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Students_Enrolled__c</fullName>
+    <description>Total Active Students Enrolled into this Class</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total Active Students Enrolled into this Class</inlineHelpText>
+    <label>Total # of Students Actively Enrolled</label>
+    <summaryFilterItems>
+        <field>SFDC_Enrollment__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Enrolled, Pre-registered, Registered, Rollover</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SFDC_Enrollment__c.Class__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

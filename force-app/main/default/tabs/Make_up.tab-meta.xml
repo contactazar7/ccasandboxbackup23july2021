@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <auraComponent>markMakeupattendance</auraComponent>
+    <description>This tab will invoke the attendance records from the Make up class records.</description>
+    <label>Mark Make-up Class Attendance</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom19: Wrench</motif>
+</CustomTab>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Contact_Types__c</fullName>
+    <externalId>false</externalId>
+    <label>Facility Contact Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>DSD</fullName>
+                <default>false</default>
+                <label>DSD</label>
+            </value>
+            <value>
+                <fullName>DON</fullName>
+                <default>false</default>
+                <label>DON</label>
+            </value>
+            <value>
+                <fullName>Organizer/Union Rep</fullName>
+                <default>false</default>
+                <label>Organizer/Union Rep</label>
+            </value>
+            <value>
+                <fullName>Steward</fullName>
+                <default>false</default>
+                <label>Steward</label>
+            </value>
+            <value>
+                <fullName>TF Rep</fullName>
+                <default>false</default>
+                <label>TF Rep</label>
+            </value>
+            <value>
+                <fullName>Kitchen Supervisor</fullName>
+                <default>false</default>
+                <label>Kitchen Supervisor</label>
+            </value>
+            <value>
+                <fullName>Executive Director</fullName>
+                <default>false</default>
+                <label>Executive Director</label>
+            </value>
+            <value>
+                <fullName>President</fullName>
+                <default>false</default>
+                <label>President</label>
+            </value>
+            <value>
+                <fullName>Nurse Practice Educator (NPE)</fullName>
+                <default>false</default>
+                <label>Nurse Practice Educator (NPE)</label>
+            </value>
+            <value>
+                <fullName>Staff Development Coordinator (SDC)</fullName>
+                <default>false</default>
+                <label>Staff Development Coordinator (SDC)</label>
+            </value>
+            <value>
+                <fullName>Business Office Manager</fullName>
+                <default>false</default>
+                <label>Business Office Manager</label>
+            </value>
+            <value>
+                <fullName>Lead</fullName>
+                <default>false</default>
+                <label>Lead</label>
+            </value>
+            <value>
+                <fullName>Regional Director</fullName>
+                <default>false</default>
+                <label>Regional Director</label>
+            </value>
+            <value>
+                <fullName>NPE</fullName>
+                <default>false</default>
+                <label>NPE</label>
+            </value>
+            <value>
+                <fullName>Maintenance Manager</fullName>
+                <default>false</default>
+                <label>Maintenance Manager</label>
+            </value>
+            <value>
+                <fullName>HR Director</fullName>
+                <default>false</default>
+                <label>HR Director</label>
+            </value>
+            <value>
+                <fullName>Payroll Manager</fullName>
+                <default>false</default>
+                <label>Payroll Manager</label>
+            </value>
+            <value>
+                <fullName>Regional Vice President of Operations</fullName>
+                <default>false</default>
+                <label>Regional Vice President of Operations</label>
+            </value>
+            <value>
+                <fullName>Talent Acquisition Manager</fullName>
+                <default>false</default>
+                <label>Talent Acquisition Manager</label>
+            </value>
+            <value>
+                <fullName>Vice President of Human Resources</fullName>
+                <default>false</default>
+                <label>Vice President of Human Resources</label>
+            </value>
+            <value>
+                <fullName>Human Resources Business Partner</fullName>
+                <default>false</default>
+                <label>Human Resources Business Partner</label>
+            </value>
+            <value>
+                <fullName>CPO</fullName>
+                <default>false</default>
+                <label>CPO</label>
+            </value>
+            <value>
+                <fullName>DSD Assistant</fullName>
+                <default>false</default>
+                <label>DSD Assistant</label>
+            </value>
+            <value>
+                <fullName>Executive Vice-President</fullName>
+                <default>false</default>
+                <label>Executive Vice-President</label>
+            </value>
+            <value>
+                <fullName>Legal Counsel</fullName>
+                <default>false</default>
+                <label>Legal Counsel</label>
+            </value>
+            <value>
+                <fullName>Test Contact Type</fullName>
+                <default>false</default>
+                <label>Test Contact Type</label>
+            </value>
+            <value>
+                <fullName>Director of Nursing</fullName>
+                <default>false</default>
+                <label>Director of Nursing</label>
+            </value>
+            <value>
+                <fullName>Test Contact Type for Owner</fullName>
+                <default>false</default>
+                <label>Test Contact Type for Owner</label>
+            </value>
+            <value>
+                <fullName>Infection Preventionist</fullName>
+                <default>false</default>
+                <label>Infection Preventionist</label>
+            </value>
+            <value>
+                <fullName>Director of Operations</fullName>
+                <default>false</default>
+                <label>Director of Operations</label>
+            </value>
+            <value>
+                <fullName>HCSG Supervisor</fullName>
+                <default>false</default>
+                <label>HCSG Supervisor</label>
+            </value>
+            <value>
+                <fullName>Steward PM</fullName>
+                <default>false</default>
+                <label>Steward PM</label>
+            </value>
+            <value>
+                <fullName>Steward NOC</fullName>
+                <default>false</default>
+                <label>Steward NOC</label>
+            </value>
+            <value>
+                <fullName>Administrator Assistant</fullName>
+                <default>false</default>
+                <label>Administrator Assistant</label>
+            </value>
+            <value>
+                <fullName>Receptionist</fullName>
+                <default>false</default>
+                <label>Receptionist</label>
+            </value>
+            <value>
+                <fullName>Kitchen Assistant</fullName>
+                <default>false</default>
+                <label>Kitchen Assistant</label>
+            </value>
+            <value>
+                <fullName>Steward AM</fullName>
+                <default>false</default>
+                <label>Steward AM</label>
+            </value>
+            <value>
+                <fullName>Activist</fullName>
+                <default>false</default>
+                <label>Activist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

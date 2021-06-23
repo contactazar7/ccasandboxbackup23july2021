@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Facility Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Assisted living facility (ID: 2)</fullName>
+                <default>false</default>
+                <label>Assisted living facility (ID: 2)</label>
+            </value>
+            <value>
+                <fullName>Behavioral/Mental Health Center (Lockdown Facility) (ID: 1)</fullName>
+                <default>false</default>
+                <label>Behavioral/Mental Health Center (Lockdown Facility) (ID: 1)</label>
+            </value>
+            <value>
+                <fullName>Nursing Facility (NF) (ID: 6)</fullName>
+                <default>false</default>
+                <label>Nursing Facility (NF) (ID: 6)</label>
+            </value>
+            <value>
+                <fullName>Nursing Home  (ID: 4)</fullName>
+                <default>false</default>
+                <label>Nursing Home  (ID: 4)</label>
+            </value>
+            <value>
+                <fullName>Rehabilitation Center (ID: 3)</fullName>
+                <default>false</default>
+                <label>Rehabilitation Center (ID: 3)</label>
+            </value>
+            <value>
+                <fullName>Skilled Nursing Facility (SNF) (ID: 5)</fullName>
+                <default>false</default>
+                <label>Skilled Nursing Facility (SNF) (ID: 5)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

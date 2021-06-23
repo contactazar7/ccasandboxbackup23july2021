@@ -1,0 +1,10 @@
+<apex:page standardController="Consumer__c" extensions="IconsForConsumerCL">
+<apex:slds />
+    
+<apex:form > 
+              <apex:image url="{!$Resource.AssesmentIcon}" width="53" height="53" rendered="{!conrec.Consumer_Participation_form_submitted__c=true}" />
+              <apex:image url="{!$Resource.AssesmentIcon}" width="53" height="53" title="Authorization" rendered="{!conrec.Authorization_Form_Submitted__c=true}" />
+              <apex:image url="{!$Resource.EnrollIcon}" width="53" height="53" title="Authorization" rendered="{!conrec.Check_Enrollment__c=true}" />
+
+</apex:form>
+</apex:page>

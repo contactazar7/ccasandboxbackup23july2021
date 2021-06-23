@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Classes_Desired__c</fullName>
+    <externalId>false</externalId>
+    <label>Classes Desired</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activity Assistance Resources</fullName>
+                <default>false</default>
+                <label>Activity Assistance Resources</label>
+            </value>
+            <value>
+                <fullName>Autism</fullName>
+                <default>false</default>
+                <label>Autism</label>
+            </value>
+            <value>
+                <fullName>BCC (Basic Computer Course)</fullName>
+                <default>false</default>
+                <label>BCC (Basic Computer Course)</label>
+            </value>
+            <value>
+                <fullName>C.N.A. (Certified Nurse Assistant)-ETP</fullName>
+                <default>false</default>
+                <label>C.N.A. (Certified Nurse Assistant)-ETP</label>
+            </value>
+            <value>
+                <fullName>CNA (Certified Nurse Assistant)</fullName>
+                <default>false</default>
+                <label>CNA (Certified Nurse Assistant)</label>
+            </value>
+            <value>
+                <fullName>CPR (AHA BLS Blended: Online Theory &amp; In-Person Skills)</fullName>
+                <default>false</default>
+                <label>CPR (AHA BLS Blended: Online Theory &amp; In-Person Skills)</label>
+            </value>
+            <value>
+                <fullName>CPR (AHA BLS for Health Care Providers)</fullName>
+                <default>false</default>
+                <label>CPR (AHA BLS for Health Care Providers)</label>
+            </value>
+            <value>
+                <fullName>CPR / Reanimación Cardiopulmonar (RCP)/ 心肺復甦術/急救</fullName>
+                <default>false</default>
+                <label>CPR / Reanimación Cardiopulmonar (RCP)/ 心肺復甦術/急救</label>
+            </value>
+            <value>
+                <fullName>CPR BLS for Health Care Provider - ARC (American Red Cross)</fullName>
+                <default>false</default>
+                <label>CPR BLS for Health Care Provider - ARC (American Red Cross)</label>
+            </value>
+            <value>
+                <fullName>CPR First Aid Instructor</fullName>
+                <default>false</default>
+                <label>CPR First Aid Instructor</label>
+            </value>
+            <value>
+                <fullName>Dementia Training</fullName>
+                <default>false</default>
+                <label>Dementia Training</label>
+            </value>
+            <value>
+                <fullName>Diabetes Care</fullName>
+                <default>false</default>
+                <label>Diabetes Care</label>
+            </value>
+            <value>
+                <fullName>Enhanced In Home Supportive Services</fullName>
+                <default>false</default>
+                <label>Enhanced In Home Supportive Services</label>
+            </value>
+            <value>
+                <fullName>Food Handler Certificate</fullName>
+                <default>false</default>
+                <label>Food Handler Certificate</label>
+            </value>
+            <value>
+                <fullName>GED (General Educational Development Preparation)</fullName>
+                <default>false</default>
+                <label>GED (General Educational Development Preparation)</label>
+            </value>
+            <value>
+                <fullName>HCAP Covid-19</fullName>
+                <default>false</default>
+                <label>HCAP Covid-19</label>
+            </value>
+            <value>
+                <fullName>IHSS+ Alzheimer&apos;s and Dementia (CLTCEC)</fullName>
+                <default>false</default>
+                <label>IHSS+ Alzheimer&apos;s and Dementia (CLTCEC)</label>
+            </value>
+            <value>
+                <fullName>In Home Supportive Services / Cuidado en Casa / 家庭護理課程</fullName>
+                <default>false</default>
+                <label>In Home Supportive Services / Cuidado en Casa / 家庭護理課程</label>
+            </value>
+            <value>
+                <fullName>In Home Supportive Services+ / Cuidado en Casa+ / 家庭護理課程+</fullName>
+                <default>false</default>
+                <label>In Home Supportive Services+ / Cuidado en Casa+ / 家庭護理課程+</label>
+            </value>
+            <value>
+                <fullName>In-Person CEUs (Continuing Education Units)</fullName>
+                <default>false</default>
+                <label>In-Person CEUs (Continuing Education Units)</label>
+            </value>
+            <value>
+                <fullName>Mental Health and Wellness Workshop</fullName>
+                <default>false</default>
+                <label>Mental Health and Wellness Workshop</label>
+            </value>
+            <value>
+                <fullName>Online CEUs (Continuing Education Units)</fullName>
+                <default>false</default>
+                <label>Online CEUs (Continuing Education Units)</label>
+            </value>
+            <value>
+                <fullName>Online Live Instructor Led CEU Class</fullName>
+                <default>false</default>
+                <label>Online Live Instructor Led CEU Class</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>RNA (Restorative Nursing Assistant)</fullName>
+                <default>false</default>
+                <label>RNA (Restorative Nursing Assistant)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

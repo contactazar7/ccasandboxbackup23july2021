@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coordinator__c</fullName>
+    <externalId>false</externalId>
+    <label>Coordinator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&quot;</fullName>
+                <default>false</default>
+                <label>&quot;</label>
+            </value>
+            <value>
+                <fullName>Adi Quezada</fullName>
+                <default>false</default>
+                <label>Adi Quezada</label>
+            </value>
+            <value>
+                <fullName>Adora Ma</fullName>
+                <default>false</default>
+                <label>Adora Ma</label>
+            </value>
+            <value>
+                <fullName>Aida Nalbandin</fullName>
+                <default>false</default>
+                <label>Aida Nalbandin</label>
+            </value>
+            <value>
+                <fullName>Alicia Gonzalez</fullName>
+                <default>false</default>
+                <label>Alicia Gonzalez</label>
+            </value>
+            <value>
+                <fullName>Amelia Acosta</fullName>
+                <default>false</default>
+                <label>Amelia Acosta</label>
+            </value>
+            <value>
+                <fullName>American Medical Career College Instructor1</fullName>
+                <default>false</default>
+                <label>American Medical Career College Instructor1</label>
+            </value>
+            <value>
+                <fullName>American Medical Careers Instructor1</fullName>
+                <default>false</default>
+                <label>American Medical Careers Instructor1</label>
+            </value>
+            <value>
+                <fullName>Anahid Hovakimyans</fullName>
+                <default>false</default>
+                <label>Anahid Hovakimyans</label>
+            </value>
+            <value>
+                <fullName>Anali Velazquez</fullName>
+                <default>false</default>
+                <label>Anali Velazquez</label>
+            </value>
+            <value>
+                <fullName>Andrea Garcia</fullName>
+                <default>false</default>
+                <label>Andrea Garcia</label>
+            </value>
+            <value>
+                <fullName>Angela Valle</fullName>
+                <default>false</default>
+                <label>Angela Valle</label>
+            </value>
+            <value>
+                <fullName>Angelica Crespo</fullName>
+                <default>false</default>
+                <label>Angelica Crespo</label>
+            </value>
+            <value>
+                <fullName>Angelica Hinds</fullName>
+                <default>false</default>
+                <label>Angelica Hinds</label>
+            </value>
+            <value>
+                <fullName>Angie Xu</fullName>
+                <default>false</default>
+                <label>Angie Xu</label>
+            </value>
+            <value>
+                <fullName>Anka Ung</fullName>
+                <default>false</default>
+                <label>Anka Ung</label>
+            </value>
+            <value>
+                <fullName>Anna Kasumyan</fullName>
+                <default>false</default>
+                <label>Anna Kasumyan</label>
+            </value>
+            <value>
+                <fullName>Annie Lee</fullName>
+                <default>false</default>
+                <label>Annie Lee</label>
+            </value>
+            <value>
+                <fullName>Antonio Borras</fullName>
+                <default>false</default>
+                <label>Antonio Borras</label>
+            </value>
+            <value>
+                <fullName>Ashley Mangum</fullName>
+                <default>false</default>
+                <label>Ashley Mangum</label>
+            </value>
+            <value>
+                <fullName>Assessment Test</fullName>
+                <default>false</default>
+                <label>Assessment Test</label>
+            </value>
+            <value>
+                <fullName>Ayesha Dixon</fullName>
+                <default>false</default>
+                <label>Ayesha Dixon</label>
+            </value>
+            <value>
+                <fullName>Berenice Campos</fullName>
+                <default>false</default>
+                <label>Berenice Campos</label>
+            </value>
+            <value>
+                <fullName>Bertha Cardenas</fullName>
+                <default>false</default>
+                <label>Bertha Cardenas</label>
+            </value>
+            <value>
+                <fullName>Blanca Lopez</fullName>
+                <default>false</default>
+                <label>Blanca Lopez</label>
+            </value>
+            <value>
+                <fullName>Brenda Tidmore</fullName>
+                <default>false</default>
+                <label>Brenda Tidmore</label>
+            </value>
+            <value>
+                <fullName>Brenda Pineda</fullName>
+                <default>false</default>
+                <label>Brenda Pineda</label>
+            </value>
+            <value>
+                <fullName>CAIPTC Staff1</fullName>
+                <default>false</default>
+                <label>CAIPTC Staff1</label>
+            </value>
+            <value>
+                <fullName>CAIPTC Staff2</fullName>
+                <default>false</default>
+                <label>CAIPTC Staff2</label>
+            </value>
+            <value>
+                <fullName>CAIPTC Staff3</fullName>
+                <default>false</default>
+                <label>CAIPTC Staff3</label>
+            </value>
+            <value>
+                <fullName>CAIPTC Instructor1</fullName>
+                <default>false</default>
+                <label>CAIPTC Instructor1</label>
+            </value>
+            <value>
+                <fullName>Camille Christian</fullName>
+                <default>false</default>
+                <label>Camille Christian</label>
+            </value>
+            <value>
+                <fullName>Candy Garcia</fullName>
+                <default>false</default>
+                <label>Candy Garcia</label>
+            </value>
+            <value>
+                <fullName>Carlos Brown</fullName>
+                <default>false</default>
+                <label>Carlos Brown</label>
+            </value>
+            <value>
+                <fullName>Carol Ludena</fullName>
+                <default>false</default>
+                <label>Carol Ludena</label>
+            </value>
+            <value>
+                <fullName>Charles Chuang</fullName>
+                <default>false</default>
+                <label>Charles Chuang</label>
+            </value>
+            <value>
+                <fullName>Chengya Liu</fullName>
+                <default>false</default>
+                <label>Chengya Liu</label>
+            </value>
+            <value>
+                <fullName>Claire Montgomerie</fullName>
+                <default>false</default>
+                <label>Claire Montgomerie</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Inventory</fullName>
+                <default>false</default>
+                <label>CLTCEC Inventory</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Department IT Logic Consulting</fullName>
+                <default>false</default>
+                <label>CLTCEC Department IT Logic Consulting</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Department Operations</fullName>
+                <default>false</default>
+                <label>CLTCEC Department Operations</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Department Home Care</fullName>
+                <default>false</default>
+                <label>CLTCEC Department Home Care</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Department Education Fund</fullName>
+                <default>false</default>
+                <label>CLTCEC Department Education Fund</label>
+            </value>
+            <value>
+                <fullName>CLTCEC Department IT SEIU Department</fullName>
+                <default>false</default>
+                <label>CLTCEC Department IT SEIU Department</label>
+            </value>
+            <value>
+                <fullName>Corinne Eldridge</fullName>
+                <default>false</default>
+                <label>Corinne Eldridge</label>
+            </value>
+            <value>
+                <fullName>Crystal Hoi Sze Lee</fullName>
+                <default>false</default>
+                <label>Crystal Hoi Sze Lee</label>
+            </value>
+            <value>
+                <fullName>Cube84 Login</fullName>
+                <default>false</default>
+                <label>Cube84 Login</label>
+            </value>
+            <value>
+                <fullName>Daily Razor</fullName>
+                <default>false</default>
+                <label>Daily Razor</label>
+            </value>
+            <value>
+                <fullName>Daniel Delgado</fullName>
+                <default>false</default>
+                <label>Daniel Delgado</label>
+            </value>
+            <value>
+                <fullName>Danielle Eisenstaedt</fullName>
+                <default>false</default>
+                <label>Danielle Eisenstaedt</label>
+            </value>
+            <value>
+                <fullName>Danielle Copeland</fullName>
+                <default>false</default>
+                <label>Danielle Copeland</label>
+            </value>
+            <value>
+                <fullName>David Ng</fullName>
+                <default>false</default>
+                <label>David Ng</label>
+            </value>
+            <value>
+                <fullName>Davit Gharibyan</fullName>
+                <default>false</default>
+                <label>Davit Gharibyan</label>
+            </value>
+            <value>
+                <fullName>DeBorah Smith</fullName>
+                <default>false</default>
+                <label>DeBorah Smith</label>
+            </value>
+            <value>
+                <fullName>Dereck Smith</fullName>
+                <default>false</default>
+                <label>Dereck Smith</label>
+            </value>
+            <value>
+                <fullName>DiNesha Jackson</fullName>
+                <default>false</default>
+                <label>DiNesha Jackson</label>
+            </value>
+            <value>
+                <fullName>Erika Marroquin</fullName>
+                <default>false</default>
+                <label>Erika Marroquin</label>
+            </value>
+            <value>
+                <fullName>Ernesto Castillo</fullName>
+                <default>false</default>
+                <label>Ernesto Castillo</label>
+            </value>
+            <value>
+                <fullName>Esmie Grubb</fullName>
+                <default>false</default>
+                <label>Esmie Grubb</label>
+            </value>
+            <value>
+                <fullName>Estrella Santos</fullName>
+                <default>false</default>
+                <label>Estrella Santos</label>
+            </value>
+            <value>
+                <fullName>Fanny Ortiz</fullName>
+                <default>false</default>
+                <label>Fanny Ortiz</label>
+            </value>
+            <value>
+                <fullName>Finance Assistant</fullName>
+                <default>false</default>
+                <label>Finance Assistant</label>
+            </value>
+            <value>
+                <fullName>Frida Galstyan</fullName>
+                <default>false</default>
+                <label>Frida Galstyan</label>
+            </value>
+            <value>
+                <fullName>GPS Nurse Education/GNGRA CPR Instructor1</fullName>
+                <default>false</default>
+                <label>GPS Nurse Education/GNGRA CPR Instructor1</label>
+            </value>
+            <value>
+                <fullName>Home Care Field Assistant</fullName>
+                <default>false</default>
+                <label>Home Care Field Assistant</label>
+            </value>
+            <value>
+                <fullName>Home Care Program Assistant</fullName>
+                <default>false</default>
+                <label>Home Care Program Assistant</label>
+            </value>
+            <value>
+                <fullName>Isabel Menjivar</fullName>
+                <default>false</default>
+                <label>Isabel Menjivar</label>
+            </value>
+            <value>
+                <fullName>Janet Shin</fullName>
+                <default>false</default>
+                <label>Janet Shin</label>
+            </value>
+            <value>
+                <fullName>Jasmine Basulto</fullName>
+                <default>false</default>
+                <label>Jasmine Basulto</label>
+            </value>
+            <value>
+                <fullName>Jen Chen</fullName>
+                <default>false</default>
+                <label>Jen Chen</label>
+            </value>
+            <value>
+                <fullName>Jeoung Park</fullName>
+                <default>false</default>
+                <label>Jeoung Park</label>
+            </value>
+            <value>
+                <fullName>Joanne Najar</fullName>
+                <default>false</default>
+                <label>Joanne Najar</label>
+            </value>
+            <value>
+                <fullName>Jonathan Du</fullName>
+                <default>false</default>
+                <label>Jonathan Du</label>
+            </value>
+            <value>
+                <fullName>Jorge Hernandez</fullName>
+                <default>false</default>
+                <label>Jorge Hernandez</label>
+            </value>
+            <value>
+                <fullName>Juan Carlos Cruz</fullName>
+                <default>false</default>
+                <label>Juan Carlos Cruz</label>
+            </value>
+            <value>
+                <fullName>Juanita Chavez</fullName>
+                <default>false</default>
+                <label>Juanita Chavez</label>
+            </value>
+            <value>
+                <fullName>Julia Alicia Hernandez</fullName>
+                <default>false</default>
+                <label>Julia Alicia Hernandez</label>
+            </value>
+            <value>
+                <fullName>Juliana Mata-Pacheco</fullName>
+                <default>false</default>
+                <label>Juliana Mata-Pacheco</label>
+            </value>
+            <value>
+                <fullName>Juliann Coulter</fullName>
+                <default>false</default>
+                <label>Juliann Coulter</label>
+            </value>
+            <value>
+                <fullName>June Ka</fullName>
+                <default>false</default>
+                <label>June Ka</label>
+            </value>
+            <value>
+                <fullName>Juvenal Mauricio</fullName>
+                <default>false</default>
+                <label>Juvenal Mauricio</label>
+            </value>
+            <value>
+                <fullName>Karine Torossian</fullName>
+                <default>false</default>
+                <label>Karine Torossian</label>
+            </value>
+            <value>
+                <fullName>Karla Paz</fullName>
+                <default>false</default>
+                <label>Karla Paz</label>
+            </value>
+            <value>
+                <fullName>Katiana Adorno Rodriguez</fullName>
+                <default>false</default>
+                <label>Katiana Adorno Rodriguez</label>
+            </value>
+            <value>
+                <fullName>Kelly Saturno</fullName>
+                <default>false</default>
+                <label>Kelly Saturno</label>
+            </value>
+            <value>
+                <fullName>Kenneth Stollenwerk</fullName>
+                <default>false</default>
+                <label>Kenneth Stollenwerk</label>
+            </value>
+            <value>
+                <fullName>Kenneth-Tester-1 stollenwerk</fullName>
+                <default>false</default>
+                <label>Kenneth-Tester-1 stollenwerk</label>
+            </value>
+            <value>
+                <fullName>Kenneth-Tester-2 Stollenwerk</fullName>
+                <default>false</default>
+                <label>Kenneth-Tester-2 Stollenwerk</label>
+            </value>
+            <value>
+                <fullName>L2015 User</fullName>
+                <default>false</default>
+                <label>L2015 User</label>
+            </value>
+            <value>
+                <fullName>Latanya Manning</fullName>
+                <default>false</default>
+                <label>Latanya Manning</label>
+            </value>
+            <value>
+                <fullName>Lauren Suarez</fullName>
+                <default>false</default>
+                <label>Lauren Suarez</label>
+            </value>
+            <value>
+                <fullName>Laurie Saffian-Straus</fullName>
+                <default>false</default>
+                <label>Laurie Saffian-Straus</label>
+            </value>
+            <value>
+                <fullName>Leah Harden</fullName>
+                <default>false</default>
+                <label>Leah Harden</label>
+            </value>
+            <value>
+                <fullName>Lizbeth Ramirez</fullName>
+                <default>false</default>
+                <label>Lizbeth Ramirez</label>
+            </value>
+            <value>
+                <fullName>Lorena Beltran</fullName>
+                <default>false</default>
+                <label>Lorena Beltran</label>
+            </value>
+            <value>
+                <fullName>Loretta Williams</fullName>
+                <default>false</default>
+                <label>Loretta Williams</label>
+            </value>
+            <value>
+                <fullName>Lori Picou</fullName>
+                <default>false</default>
+                <label>Lori Picou</label>
+            </value>
+            <value>
+                <fullName>Lucia Kung</fullName>
+                <default>false</default>
+                <label>Lucia Kung</label>
+            </value>
+            <value>
+                <fullName>Lyna Sok</fullName>
+                <default>false</default>
+                <label>Lyna Sok</label>
+            </value>
+            <value>
+                <fullName>Marcia Aguilar</fullName>
+                <default>false</default>
+                <label>Marcia Aguilar</label>
+            </value>
+            <value>
+                <fullName>Maria ponce</fullName>
+                <default>false</default>
+                <label>Maria ponce</label>
+            </value>
+            <value>
+                <fullName>Maria Polanco</fullName>
+                <default>false</default>
+                <label>Maria Polanco</label>
+            </value>
+            <value>
+                <fullName>Maria A. Marroquin</fullName>
+                <default>false</default>
+                <label>Maria A. Marroquin</label>
+            </value>
+            <value>
+                <fullName>Marianne Lyons</fullName>
+                <default>false</default>
+                <label>Marianne Lyons</label>
+            </value>
+            <value>
+                <fullName>Marilyn Austin Smith</fullName>
+                <default>false</default>
+                <label>Marilyn Austin Smith</label>
+            </value>
+            <value>
+                <fullName>Marlene Miranda</fullName>
+                <default>false</default>
+                <label>Marlene Miranda</label>
+            </value>
+            <value>
+                <fullName>Marlene Tester CAIPTC TEST Miranda-Saavedra</fullName>
+                <default>false</default>
+                <label>Marlene Tester CAIPTC TEST Miranda-Saavedra</label>
+            </value>
+            <value>
+                <fullName>Marlene Tester lv1 Miranda-Saavedra</fullName>
+                <default>false</default>
+                <label>Marlene Tester lv1 Miranda-Saavedra</label>
+            </value>
+            <value>
+                <fullName>Marlene Tester lv2 Miranda-Saavedra</fullName>
+                <default>false</default>
+                <label>Marlene Tester lv2 Miranda-Saavedra</label>
+            </value>
+            <value>
+                <fullName>Marta Flores</fullName>
+                <default>false</default>
+                <label>Marta Flores</label>
+            </value>
+            <value>
+                <fullName>Martha Conquest</fullName>
+                <default>false</default>
+                <label>Martha Conquest</label>
+            </value>
+            <value>
+                <fullName>Martha Davila</fullName>
+                <default>false</default>
+                <label>Martha Davila</label>
+            </value>
+            <value>
+                <fullName>Mena Liu</fullName>
+                <default>false</default>
+                <label>Mena Liu</label>
+            </value>
+            <value>
+                <fullName>Mia Brucelango</fullName>
+                <default>false</default>
+                <label>Mia Brucelango</label>
+            </value>
+            <value>
+                <fullName>Michelle Bell-Blossom</fullName>
+                <default>false</default>
+                <label>Michelle Bell-Blossom</label>
+            </value>
+            <value>
+                <fullName>Minh Lu</fullName>
+                <default>false</default>
+                <label>Minh Lu</label>
+            </value>
+            <value>
+                <fullName>Miya McCampbell</fullName>
+                <default>false</default>
+                <label>Miya McCampbell</label>
+            </value>
+            <value>
+                <fullName>Muzill Sanders</fullName>
+                <default>false</default>
+                <label>Muzill Sanders</label>
+            </value>
+            <value>
+                <fullName>Naira Charchyan</fullName>
+                <default>false</default>
+                <label>Naira Charchyan</label>
+            </value>
+            <value>
+                <fullName>Nicholas Grecco</fullName>
+                <default>false</default>
+                <label>Nicholas Grecco</label>
+            </value>
+            <value>
+                <fullName>Norma Gonzalez</fullName>
+                <default>false</default>
+                <label>Norma Gonzalez</label>
+            </value>
+            <value>
+                <fullName>Nurses Development Center Instructor1</fullName>
+                <default>false</default>
+                <label>Nurses Development Center Instructor1</label>
+            </value>
+            <value>
+                <fullName>Operations Assistant</fullName>
+                <default>false</default>
+                <label>Operations Assistant</label>
+            </value>
+            <value>
+                <fullName>Patricia Rios</fullName>
+                <default>false</default>
+                <label>Patricia Rios</label>
+            </value>
+            <value>
+                <fullName>Pia Orense</fullName>
+                <default>false</default>
+                <label>Pia Orense</label>
+            </value>
+            <value>
+                <fullName>Priscilla Rivera</fullName>
+                <default>false</default>
+                <label>Priscilla Rivera</label>
+            </value>
+            <value>
+                <fullName>Raylene Palma</fullName>
+                <default>false</default>
+                <label>Raylene Palma</label>
+            </value>
+            <value>
+                <fullName>Rodney Smith</fullName>
+                <default>false</default>
+                <label>Rodney Smith</label>
+            </value>
+            <value>
+                <fullName>Rosa Crespo</fullName>
+                <default>false</default>
+                <label>Rosa Crespo</label>
+            </value>
+            <value>
+                <fullName>Rosalba Mendoza</fullName>
+                <default>false</default>
+                <label>Rosalba Mendoza</label>
+            </value>
+            <value>
+                <fullName>Saad Bawazir</fullName>
+                <default>false</default>
+                <label>Saad Bawazir</label>
+            </value>
+            <value>
+                <fullName>Sandra Rodriguez</fullName>
+                <default>false</default>
+                <label>Sandra Rodriguez</label>
+            </value>
+            <value>
+                <fullName>Sarah Gonzaga</fullName>
+                <default>false</default>
+                <label>Sarah Gonzaga</label>
+            </value>
+            <value>
+                <fullName>Scott Mann</fullName>
+                <default>false</default>
+                <label>Scott Mann</label>
+            </value>
+            <value>
+                <fullName>Sergey Alaverdyan</fullName>
+                <default>false</default>
+                <label>Sergey Alaverdyan</label>
+            </value>
+            <value>
+                <fullName>Sheung Ng</fullName>
+                <default>false</default>
+                <label>Sheung Ng</label>
+            </value>
+            <value>
+                <fullName>Sonia Escobedo</fullName>
+                <default>false</default>
+                <label>Sonia Escobedo</label>
+            </value>
+            <value>
+                <fullName>Soo Young Park</fullName>
+                <default>false</default>
+                <label>Soo Young Park</label>
+            </value>
+            <value>
+                <fullName>Stella Yoo</fullName>
+                <default>false</default>
+                <label>Stella Yoo</label>
+            </value>
+            <value>
+                <fullName>Susie Yu</fullName>
+                <default>false</default>
+                <label>Susie Yu</label>
+            </value>
+            <value>
+                <fullName>Syuzanna Petrosyan</fullName>
+                <default>false</default>
+                <label>Syuzanna Petrosyan</label>
+            </value>
+            <value>
+                <fullName>Tamara Nghishakenwa</fullName>
+                <default>false</default>
+                <label>Tamara Nghishakenwa</label>
+            </value>
+            <value>
+                <fullName>Tiffany SmithUbaldo Ramos</fullName>
+                <default>false</default>
+                <label>Tiffany SmithUbaldo Ramos</label>
+            </value>
+            <value>
+                <fullName>Ventura Training Institute Instructor1</fullName>
+                <default>false</default>
+                <label>Ventura Training Institute Instructor1</label>
+            </value>
+            <value>
+                <fullName>Victoria Cepeida-Mojarro</fullName>
+                <default>false</default>
+                <label>Victoria Cepeida-Mojarro</label>
+            </value>
+            <value>
+                <fullName>WRIS Web Services 1</fullName>
+                <default>false</default>
+                <label>WRIS Web Services 1</label>
+            </value>
+            <value>
+                <fullName>WRIS Web Services 2</fullName>
+                <default>false</default>
+                <label>WRIS Web Services 2</label>
+            </value>
+            <value>
+                <fullName>Yesenia Rosales</fullName>
+                <default>false</default>
+                <label>Yesenia Rosales</label>
+            </value>
+            <value>
+                <fullName>Yessenia Pinargote&quot;</fullName>
+                <default>false</default>
+                <label>Yessenia Pinargote&quot;</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,281 @@
+<aura:component controller="AssignedClassController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    
+    <aura:html tag="style">
+        [lightning-input_input-host]
+        {
+        display: inline-block;
+        }
+        .slds-scope .slds-text-color_error
+        {
+        display: inline-block;
+        padding: 5px;
+        }
+        .slds-scope .slds-table_fixed-layout
+        {
+            table-layout: auto !important;
+        }
+        .slds-scope .slds-table_edit thead th
+        {
+          position: relative;
+          left: 5px;
+        }
+    </aura:html>
+    <aura:attribute type="SFDC_Enrollment__c[]" name="enrollmentList"/>
+    <aura:attribute type="Contact[]" name="contactList"/>
+    <aura:attribute type="List" name="classIdList"/>
+    <aura:attribute type="SFDC_Class__c[]" name="fetchClassList"/>    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="openmodal" type="boolean"/>
+    <aura:attribute name="contactId" type="String" />
+    <aura:attribute name="customURL" type="String" />
+    <aura:attribute name="classList" type="List" /> 
+    <aura:attribute name="trasferClassList" type="List" />
+    <aura:attribute name="selectedClassId" type="String" />
+    <aura:attribute name="isClassModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="searchClassName" type="String" />
+    <aura:attribute name="searchClassCourse" type="String" />  
+    <aura:attribute name="searchClassCategory" type="String" />
+    <aura:attribute name="searchclassPreferredDay" type="String" />
+    <aura:attribute name="searchLanguage" type="String" />    
+    
+    
+    <aura:handler name="init"  value="{!this}"  action="{!c.doInit}"/>   
+  
+    <center>
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Enrolled Classes</h2>
+    </center>
+    <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer">    
+        
+        <header class="slds-modal__header">
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <aura:if isTrue="{!v.classList.length>0}">
+                    <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                        
+                        
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">Enrollment</th>
+                                </th>
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Name</th>
+                                </th>
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;"> Class Course</th>
+                                </th> 
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Status</th>
+                                </th>
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;"> Status</th>
+                                </th>
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">Language</th>
+                                </th>
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">Start Date</th>
+                                </th> 
+                                <th scope="col">
+                                    <th scope="col" style="width:50px;max-width:60px;text-align:center;">End Date</th>
+                                </th> 
+                            </tr>
+                        </thead>
+                        
+                        <TBody>
+                            <aura:iteration items="{!v.classList}" var="cl">
+                                <tr>
+                                    <td data-label="Name">
+                                        <a href="{!v.customURL+cl.Id+'/view'}" target="_blank">   <div class="slds-truncate" title="Enrollment">{!cl.Name}</div></a>
+                                    </td>
+                                    <td data-label="Relationship">
+                                        <a href="{!v.customURL+cl.Class__c+'/view'}" target="_blank"> <div class="slds-truncate" title="Class Name">{!cl.Class__r.Name}</div></a>
+                                    </td>
+                                     <td data-label="Language">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Class__r.Class_Course__r.Name}</div>
+                                    </td> 
+                                    <td data-label="Class Status">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Class__r.Class_Status__c}</div>
+                                    </td>
+                                     <td data-label="Class Status">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Status__c}</div>
+                                    </td>
+                                    <td data-label="Language">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Language__c}</div>
+                                    </td>
+                                    <td data-label="Class Status">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Class__r.Start_Date__c}</div>
+                                    </td>  
+                                    
+                                    <td data-label="Class Status">
+                                        <div class="slds-truncate" title="Class Status">{!cl.Class__r.End_Date__c}</div>
+                                    </td>  
+                                </tr>
+                            </aura:iteration>
+                        </TBody>    
+                    </table>
+                    
+                </aura:if>
+            </div>
+        </header>
+        
+         <header class="slds-modal__header">
+        <center>
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Assign to Class</h2>
+        </center>
+        <center><p>
+                        <lightning:layout >
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchClassName}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="className"
+                                                     label="Name"
+                                                     onchange="{!c.classSearch}"/></div>
+                                
+                            </lightning:layoutItem>
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchClassCategory}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="classCategory"
+                                                     label="Class Category"
+                                                     onchange="{!c.classSearch}"/></div>                                
+                            
+                            </lightning:layoutItem>
+                            
+                   <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchClassCourse}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="classCourse"
+                                                     label="Class Course"
+                                                     onchange="{!c.classSearch}"/></div>
+                                
+                            
+                            </lightning:layoutItem>
+                             
+                            <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchclassPreferredDay}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="classPreferredDay"
+                                                     label="Class Preferred Day"
+                                                     onchange="{!c.classSearch}"/></div>                                
+                            
+                            </lightning:layoutItem> 
+                            
+                                     <lightning:layoutItem  padding="around-small">
+                                <div class="slds-form-element slds-size_1-of-1">
+                                    <lightning:input value="{!v.searchLanguage}"                                                     
+                                                     placeholder="Search..."
+                                                     aura:id="language"
+                                                     label="Language"
+                                                     onchange="{!c.classSearch}"/></div>                                
+                            
+                            </lightning:layoutItem>     
+                       
+                           
+                            <lightning:layoutItem  padding="around-small">
+                           
+                                <p class="field-title " title="Field 1" ></p>
+                                <div style = "position:relative; bottom:-23.5px;">
+                                    <p><lightning:button onclick="{!c.Clear}"
+                                                         variant="brand"
+                                                         label="Clear"
+                                                         iconName="utility:search"/></p></div> 
+                            </lightning:layoutItem>
+                       
+            </lightning:layout>
+            </p>
+        </center>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <aura:if isTrue="{!v.fetchClassList.length>0}">
+              <!--   <lightning:layoutItem  padding="around-small">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <ui:inputText label="Transfer Reason" required="true" aura:id="transferDesc" value="{!v.transferDescription}"/></div>
+                    </lightning:layoutItem>  -->
+               
+                <table aria-multiselectable="true" class="cTable slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid"> 
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th>
+                            </th>
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Name</th>
+                            </th>
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Category</th>
+                            </th> 
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;"> Class Course</th>
+                            </th> 
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:50px;text-align:center;">Class Preferred Day</th>
+                            </th>
+                            
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">Class Status</th>
+                            </th>
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">Language</th>
+                            </th>
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">Start Date</th>
+                            </th> 
+                            <th scope="col">
+                                <th scope="col" style="width:50px;max-width:60px;text-align:center;">End Date</th>
+                            </th> 
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        <aura:iteration items="{!v.fetchClassList}" var="cl">
+                            <tr>
+                                <td>
+                                  <ui:inputRadio name ="classRadio" aura:id="radio1" change="{!c.handleClassCheck}" text="{!cl.Id}"/>
+                                </td>
+                                <td data-label="Name">
+                                    <a href="{!v.customURL+cl.Id+'/view'}" target="_blank">   <div class="slds-truncate" title="Name">{!cl.Name}</div></a>
+                                </td>
+                                <td data-label="Class Course">
+                                    
+                                     <c:ClassCategory colorClassCategory="{!cl.Class_Category__c}"/> 
+                                </td> 
+                                <td data-label="Class Course">
+                                    <a href="{!v.customURL+cl.Class_Course__c+'/view'}" target="_blank">  <div class="slds-truncate" title="Class Course">{!cl.Class_Course__r.Name}</div></a>
+                                </td>  
+                                
+                                <td data-label="Class Status">
+                                    <div class="slds-truncate" title="Class Status">{!cl.Class_Schedule__c}</div>
+                                </td>
+                                
+                                <td data-label="Class Status">
+                                    <div class="slds-truncate" title="Class Status">{!cl.Class_Status__c}</div>
+                                </td>
+                                 <td data-label="Language">
+                                    <div class="slds-truncate" title="Language">{!cl.Language__c}</div>
+                                 </td> 
+                                <td data-label="Start Date">
+                                    <div class="slds-truncate" title="Start Date">{!cl.Start_Date__c}</div>
+                                </td>
+                                <td data-label="End Date">
+                                    <div class="slds-truncate" title="End Date">{!cl.End_Date__c}</div>
+                                </td>  
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <h2>No Records Found</h2>
+                </aura:set>
+            </aura:if>
+        </div>          
+         <footer class="slds-modal__footer">
+            <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.backtoClass}"/>
+            <lightning:button variant="brand" name="class" label="Add to Class" title="Add to Class" onclick="{!c.createRecords}" />
+        </footer> 
+    </table>
+           
+  </aura:component>

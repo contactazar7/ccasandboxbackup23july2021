@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_of_Make_up_Attendance__c</fullName>
+    <description>Count of Make-up Attendance will be used in the View Roster component in order to show the Make-up class Attendance Component from the Roster page - Mark Attendance usually are two types. 1) Regular Attendance 2) Make-Up Class Attendance. This field should be used in the backend not in the Record page</description>
+    <externalId>false</externalId>
+    <label>Count of Make-up Attendance</label>
+    <summaryFilterItems>
+        <field>Attendance__c.Class_Type__c</field>
+        <operation>equals</operation>
+        <value>Make-up</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Attendance__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Scheduled</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Attendance__c.Makeup_Class_status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Attendance__c.Roaster__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

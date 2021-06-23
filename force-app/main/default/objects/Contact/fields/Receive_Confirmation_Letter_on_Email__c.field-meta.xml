@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Receive_Confirmation_Letter_on_Email__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Help us save paper and go paperless! Opt in to receive your confirmation letter via email - Formerly used in Empower</inlineHelpText>
+    <label>Receive Confirmation Letter on Email?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, send my letter via email</fullName>
+                <default>false</default>
+                <label>Yes, send my letter via email</label>
+            </value>
+            <value>
+                <fullName>No, I want my letter mailed to me</fullName>
+                <default>false</default>
+                <label>No, I want my letter mailed to me</label>
+            </value>
+            <value>
+                <fullName>Decline to state</fullName>
+                <default>false</default>
+                <label>Decline to state</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

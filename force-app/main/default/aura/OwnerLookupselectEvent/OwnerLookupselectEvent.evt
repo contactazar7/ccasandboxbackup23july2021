@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="On record selection">
+    <aura:attribute name="childObjectName" type="String"/>
+    <aura:attribute name="fieldNames" type="String"/>
+    <aura:attribute name="selectedOwnerId" type="String"/>		    
+</aura:event>

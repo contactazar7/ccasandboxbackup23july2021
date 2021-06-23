@@ -1,0 +1,5 @@
+<apex:page standardController="SFDC_Class__c" extensions="Attendance_automate" action="{!createAttendance}">
+    <apex:form >
+        <apex:inputHidden value="{!SFDC_Class__c.Id}"/>
+    </apex:form>
+</apex:page>

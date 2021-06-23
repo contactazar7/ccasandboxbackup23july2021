@@ -1,0 +1,456 @@
+<apex:page StandardController="contact" extensions="screeningquestionCL" Sidebar="False">   
+     
+   <style >
+  .table { display: table; width:100%; border:1px solid black; margin-top:.25in;}
+     
+</style>
+    
+    <style> 
+            .radioB td { margin:0px 0px; padding:0px 0px;color:white;margin-left:100px; font-size:12px;}
+             .radioB {border:none;margin-bottom: 0px;margin-left:100px; font-size:14px;}
+             .radioB label {color:white;}
+        
+            
+.buttonStyle {
+font-color:white;
+font-size:15px;
+text-size:25px; 
+text-align:center; 
+width:60px;
+height :30px;
+}
+        </style>
+
+    <style>
+        #ct{
+        text-align:center;
+        font-size:15px;
+        font-color:#FFFFFF;
+        margin-left:100px;
+        }
+    </style> 
+    
+    <style>
+        #ct1{
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-left:100px;
+        font-size:30px;
+        }
+    </style>  
+    
+     <style>
+        #ct2{
+        margin-top:10px;
+        margin-left:100px;
+          margin-bottom:10px;
+         font-color:#FFFFFF;
+         font-size:15px;
+        }
+    </style>  
+
+    <style>
+        #ct3{
+        margin-top:25px;
+         margin-bottom:10px;
+        margin-left:100px;
+        font-color:#FFFFFF;
+        font-size:15px;
+        }
+    </style>  
+    
+   <style>
+        #ct4{
+        text-align:center;
+        font-size:15px;
+       font-color:#FFFFFF;
+       margin-top:25px;
+        margin-left:100px;
+        }
+    </style> 
+    
+    <style>
+        #ct5{
+         margin-top:25px;
+         margin-bottom:10px;
+        margin-left:100px;
+        font-color:#FFFFFF;
+        font-size:15px;
+        }
+    </style> 
+    
+      <style>
+        #ct6{
+         margin-top:20px;
+         margin-bottom:10px;
+        margin-left:100px;
+          font-color:#FFFFFF;
+          font-size:15px;
+        }
+    </style> 
+   
+   
+<apex:form id="theForm" style="border-style:solid;border-width:1px;
+                      border-color:black;background-image:linear-gradient(to right, #ff66ff , #aa80ff);width:1230px;height:800px;margin-left:0px">
+    <table>
+        
+         <font color="#FFFFFF">
+        <font size="5px">
+             <div id="ct1">
+      <apex:image id="theImage" value="{!$Resource.CCALogo}" width="170" height="100"/>
+            </div>   
+        </font>
+    </font>
+         <font color="#3c3d3e">
+        <font size="10px">
+             <div id="ct1">
+     <h1>Screening Questions</h1>
+            </div>   
+        </font>
+    </font>
+           <div id="ct1">
+    <apex:selectList id="fname" value="{!selectedRT}" size="1" multiselect="false">
+                <apex:selectOption itemValue="abc" itemlabel="English"/>
+                <apex:selectOption itemValue="def" itemlabel="Chinese"/>
+               <apex:selectOption itemValue="ghi" itemlabel="Spanish"/>
+                <apex:actionSupport event="onchange" action="{!onChangeFnCall}"/>
+            </apex:selectList>
+        </div>        
+        
+    <apex:pageBlock id="pb2" rendered="{!pb2Rendered}">
+        <div>
+          <apex:pageBlockSection >
+            <div id="ct2">
+                 <font color="#FFFFFF">
+            <h1>1. What is your birthdate? (If over 18, please proceed):</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+            <apex:pageBlockSection >
+          <apex:inputField label=" " value="{! Contact.Birthdate }" style="width:150px;margin-left:120px"/>
+           </apex:pageBlockSection>  
+          </div>             
+           <apex:pageBlockSection >
+                <div id="ct3">
+                     <font color="#FFFFFF">
+            <h1>2. Are you currently employed as an IHSS caregiver?</h1>
+                    </font>
+               </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio id="radio-1" layout="pageDirection" value="{!selectedOp}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="Yes (continue with question #3)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no"   itemLabel="No (if not, the IHSS caregiver does not qualify to participate)" itemValue="No"></apex:selectOption>
+         <apex:actionSupport event="onchange" action="{!onChangeFnCall1}" rerender="fakeresults"/>   
+      </apex:selectRadio>
+          
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>3. Do you care for a consumer who resides in Alameda County?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" styleClass="radioB" value="{!selectedOp1}" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes"  itemLabel="Yes (continue with question #4)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" No (if not, the IHSS caregiver does not qualify to participate)" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall2}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>4. Is your consumer a member of Alameda Alliance Health?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" styleClass="radioB" value="{!selectedOp2}" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Yes (continue with question #5)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" No (if not, the IHSS caregiver does not qualify to participate)" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall3}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>5. Is your IHSS consumer age 50 years or over?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" styleClass="radioB" value="{!selectedOp3}" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Yes (administer AD8 questionnaire)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="  No (if not, the IHSS caregiver does not quality to participate)" itemValue="No" ></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall4}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+         <apex:pageBlockSection >
+             <div id="ct">
+                  <font color="#FFFFFF">
+            <h1>6. Do you provide care for more than 1 consumer who resides in Alameda County and is a member of Alameda Alliance Health?</h1>
+                 </font>
+             </div>    
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" styleClass="radioB" value="{!selectedOp4}" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Yes (If yes, then student must fill out form for each qualified consumer)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="  No" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall5}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>7. Is the consumer your family member?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" styleClass="radioB" value="{!selectedOp5}" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Yes" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="  No" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall6}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+      
+    </apex:pageBlock> 
+        
+        
+      <apex:pageBlock id="pb3" rendered="{!pb3Rendered}">
+       
+        
+        <apex:pageBlockSection >
+            <div id="ct2">
+                 <font color="#FFFFFF">
+            <h1>1. 出生日期 (如果年逾 18，請繼續):</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+       
+       
+            <apex:pageBlockSection >
+          <apex:inputField label=" " value="{! Contact.Birthdate }" style="width:150px;margin-left:120px"/>
+               </apex:pageBlockSection>  
+           <apex:pageBlockSection >
+                <div id="ct3">
+                     <font color="#FFFFFF">
+            <h1>2. 您目前是否受雇為 IHSS 照護人員?</h1>
+                    </font>
+               </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio value="{!selectedOp}" layout="pageDirection" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" 是（繼續問題 3）" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" 否（若否，則該 IHSS 照護人員沒有資格參加）" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall1}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>3. 您是否照護居住在阿拉米達縣的用戶？</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp1}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" 是（繼續問題 4）" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" 否（若否，則該 IHSS 照護人員沒有資格參加）" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall2}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>4. 您的用戶是否是阿拉米達衛生聯盟成員？</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp2}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="  是（繼續問題 5）" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" 否（若否，則該 IHSS 照護人員沒有資格參加）" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall3}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>5. 您的 IHSS 用戶年齡是否年滿或年逾 50 歲？</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp3}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" 是（使用 AD8 問卷）" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="  否（若否，則該 IHSS 照護人員沒有資格參加）" itemValue="No" ></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall4}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+         <apex:pageBlockSection >
+             <div id="ct">
+                  <font color="#FFFFFF">
+            <h1>6. 您是否為居住在阿拉米達縣且是阿拉米達衛生聯盟成員的多個用戶提供照護？</h1>
+                 </font>
+             </div>    
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp4}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" 如果是，則學生必須為每個符合資格的用戶填寫表格" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="否" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall5}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>7. 用戶是否是您的家人？</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp5}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="是" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="否" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall6}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+      
+    </apex:pageBlock>    
+        
+       <apex:pageBlock id="pb4" rendered="{!pb4Rendered}">
+       
+        
+        <apex:pageBlockSection >
+            <div id="ct2">
+                 <font color="#FFFFFF">
+            <h1>1.Cual es su fecha de nacimiento. (Si es mayor de 18 años, por favor proceda):</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+       
+       
+            <apex:pageBlockSection >
+          <apex:inputField label=" " value="{! Contact.Birthdate }" style="width:150px;margin-left:120px"/>
+               </apex:pageBlockSection>  
+           <apex:pageBlockSection >
+                <div id="ct3">
+                     <font color="#FFFFFF">
+            <h1>2.¿Está actualmente empleado como cuidador de IHSS?</h1>
+                    </font>
+               </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio value="{!selectedOp}" layout="pageDirection" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="Sí (continúe con la pregunta #3)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="No (si la respuesta es negativa, el cuidador de IHSS no califica para" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall1}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>3.¿Usted cuida a un consumidor que reside en el Condado de Alameda?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp1}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Sí (continúe con la pregunta #4)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" No (si la respuesta es negativa, el cuidador de IHSS no califica para" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall2}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>4.¿Es su consumidor miembro de Alameda Alliance for Health?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp2}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Sí (continúe con la pregunta #5)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="No (si la respuesta es negativa, el cuidador de IHSS no califica para" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall3}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>5.¿Su consumidor de IHSS tiene 50 años o más?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp3}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel=" Sí (administre el cuestionario AD8)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel=" No (si la respuesta es negativa, el cuidador de IHSS no califica para participar)" itemValue="No" ></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall4}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+         <apex:pageBlockSection >
+             <div id="ct">
+                  <font color="#FFFFFF">
+            <h1>6.¿Proporciona cuidados a más de un consumidor que reside en el Condado de Alameda y es miembro de Alameda Alliance for Health?</h1>
+                 </font>
+             </div>    
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp4}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="Si es afirmativo, entonces el estudiante debe completar un formulario por cada consumidor calificado" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="No" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall5}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection >
+            <div id="ct">
+                 <font color="#FFFFFF">
+            <h1>7.¿Es el consumidor un miembro de su familia?</h1>
+                </font>
+            </div>
+             </apex:pageBlockSection>
+         <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp5}" styleClass="radioB" disabled="{!disablevalue}" >
+          <apex:selectOption id="radio-1-yes" itemLabel="Sí" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption id="radio-1-no" itemLabel="No" itemValue="No"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall6}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>
+      
+    </apex:pageBlock>      
+        
+      
+         <div align="center" draggable="false" >
+            <apex:commandButton action="{! updatecon }" styleClass="buttonStyle" style="background:#ffb3ff" value="Submit"/> 
+             <apex:commandButton action="{! cancel }" styleClass="buttonStyle" style="background:#ffb3ff" value="Back" />  
+            
+            </div>
+        
+       
+         </table>
+    </apex:form>
+
+   
+</apex:page>

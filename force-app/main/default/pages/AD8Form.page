@@ -1,0 +1,639 @@
+<apex:page standardController="Contact" extensions="AD8FormController" Sidebar="False" >
+ <style >
+  .table { display: table; width:100%; border:1px solid black; margin-top:.25in;}
+     
+</style>
+    
+    <style> 
+            .radioB td { margin:0px 0px; padding:0px 0px;color:white;margin-left:100px; font-size:12px;}
+             .radioB {border:none;margin-bottom: 0px;margin-left:100px; font-size:14px;}
+             .radioB label {color:white;}
+        
+            
+.buttonStyle {
+font-color:white;
+font-size:15px;
+text-size:25px; 
+text-align:center; 
+width:60px;
+height :30px;
+}
+        </style>
+
+    <style>
+        #ct{
+        text-align:center;
+        font-size:15px;
+        font-color:#FFFFFF;
+        margin-left:100px;
+        }
+    </style> 
+    
+    <style>
+        #ct1{
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-left:100px;
+        font-size:30px;
+        }
+    </style>  
+    
+     <style>
+        #ct2{
+        margin-top:10px;
+        margin-left:100px;
+         font-color:#FFFFFF;
+         font-size:15px;
+        }
+    </style>  
+
+    <style>
+        #ct3{
+        margin-top:25px;
+         margin-bottom:10px;
+        margin-left:100px;
+        font-color:#FFFFFF;
+        font-size:15px;
+        }
+    </style>  
+    
+   <style>
+        #ct4{
+        text-align:center;
+        font-size:15px;
+       font-color:#FFFFFF;
+       margin-top:25px;
+        margin-left:100px;
+        }
+    </style> 
+    
+    <style>
+        #ct5{
+         margin-top:25px;
+         margin-bottom:10px;
+        margin-left:100px;
+        font-color:#FFFFFF;
+        font-size:15px;
+        }
+    </style> 
+    
+      <style>
+        #ct6{
+         margin-top:20px;
+         margin-bottom:10px;
+        margin-left:100px;
+          font-color:#FFFFFF;
+          font-size:15px;
+        }
+    </style> 
+     
+    
+<apex:form id="theForm" style="border-style:solid;border-width:1px;
+                      border-color:black;background-image:linear-gradient(to right, #ff66ff , #aa80ff);width:1230px;height:1350px;margin-left:0px">
+    
+    <table>
+        
+         
+    <font color="#FFFFFF">
+        <font size="5px">
+             <div id="ct1">
+      <apex:image id="theImage" value="{!$Resource.CCALogo}" width="170" height="100"/>
+            </div>   
+        </font>
+    </font>
+         <font color="#3c3d3e">
+        <font size="10px">
+             <div id="ct1">
+     <h1>AD8 Survey</h1>
+            </div>   
+        </font>
+    </font>
+           <div id="ct1">
+    <apex:selectList id="fname" value="{!selectedRT}" size="1" multiselect="false">
+                <apex:selectOption itemValue="abc" itemlabel="English"/>
+                <apex:selectOption itemValue="def" itemlabel="Chinese"/>
+               <apex:selectOption itemValue="ghi" itemlabel="Spanish"/>
+                <apex:actionSupport event="onchange" action="{!onChangeFnCall}"/>
+            </apex:selectList>
+        </div>        
+        
+        <apex:pageBlock id="pb2" rendered="{!pb2Rendered}" >
+             <apex:pageBlockSection >
+                  <div id="ct4">
+                       <font color="#FFFFFF">
+                 <h1>Please read the following instructions out loud to the caregiver:</h1>
+                      </font>
+                 </div>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection >
+                  <div id="ct2">
+                       <font color="#FFFFFF">
+                      <h1>The IHSS+ Alzheimer’s program is interested in training caregivers who care for those with cognitive<br/>
+                       decline, like Alzheimer’s. While your consumer may not be diagnosed with Alzheimer’s, they may show<br/>
+                      signs of cognitive impairment or memory loss. Please answer the following survey to the best of your<br/>
+                      ability. The following 8 questions will ask you to reflect on any changes in your consumer’s daily life.<br/>
+                      YES means that there has been a change and NO means that there has not been a change. N/A<br/>
+                          means you do not know if there has been a change.
+                      </h1>   
+                      </font>
+                 </div>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+                  <div id="ct3">
+                       <font color="#FFFFFF">
+                      <h1>Remember, 'Yes, a change' indicates that there has been a change in the last several years caused by<br/>
+                        cognitive (thinking and memory) problems.
+                      </h1>
+                      </font>
+                </div>
+            </apex:pageBlockSection>
+            
+        <apex:pageBlockSection >
+             <div id="ct5">
+                  <font color="#FFFFFF">
+            <h1>Consumer Name (this is included for CCA caregiver/consumer matching purposes):</h1>
+            </font>
+            </div>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection >
+          <apex:inputText label=" " value="{!conval }" style="width:350px;margin-left:100px"/>
+               </apex:pageBlockSection>              
+            
+    <apex:pageBlockSection >
+         <div id="ct6">
+              <font color="#FFFFFF">
+            <h1>1. Problems with judgment (for example, problems making decisions, bad financial decisions, problems with thinking)</h1>
+             </font>     
+        </div>   
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption id="selectElementID" itemLabel="YES, (A change)" itemValue="Yes" ></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall1}" rerender="fakeresults"/>
+      </apex:selectRadio>
+          
+        </apex:pageBlockSection> 
+            
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>2. Less interest in hobbies/activities</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp1}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall2}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>3. Repeats the same things over and over (questions, stories, or statements)</h1>
+                      </font>
+                 </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp2}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+            <apex:actionSupport event="onchange" action="{!onChangeFnCall3}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>4. Trouble learning how to use a tool, appliance, or gadget (e.g., VCR, computer, microwave, remote control)</h1>
+                      </font>
+                 </div>      
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp3}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+             <apex:actionSupport event="onchange" action="{!onChangeFnCall4}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>5. Forgets correct month or year</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp4}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+             <apex:actionSupport event="onchange" action="{!onChangeFnCall5}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>6. Trouble handling complicated financial affairs (e.g., balancing checkbook, income taxes, paying bills)</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp5}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+             <apex:actionSupport event="onchange" action="{!onChangeFnCall6}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>7. Trouble remembering appointments</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp6}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+             <apex:actionSupport event="onchange" action="{!onChangeFnCall7}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>8. Daily problems with thinking and/or memory</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp7}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="YES, (A change)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (No change)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="Not Applicable (N/A), (Don’t know)" itemValue="NAP"></apex:selectOption>
+             <apex:actionSupport event="onchange" action="{!onChangeFnCall8}" rerender="fakeresults"/>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+        </apex:pageBlock>
+        
+        
+           
+        <apex:pageBlock id="pb3" rendered="{!pb3Rendered}">
+             <apex:pageBlockSection >
+                  <div id="ct4">
+                      <font color="#FFFFFF">
+                 <h1>請大聲地向照護人員閱讀以下說明：</h1>
+                      </font>
+                 </div>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection >
+                  <div id="ct2">
+                      <font color="#FFFFFF">
+                      <h1>IHSS+ 阿爾茲海默氏症計畫意在培訓照護像阿爾茲海默氏症這樣的認知能力下降者的照護人員。 雖然您<br/>
+                       的用戶可能沒有被診斷出患有阿爾茲海默氏症，但可能會出現認知障礙或記憶力減退的跡象。請盡力回<br/>
+                      答以下調查問題。以下 8 個問題將要求您回想用戶日常生活中的任何變化。答是表示發生了變化，答否<br/>
+                      表示沒有發生變化。不適用表示您不知道是否發生了變化。<br/>
+                      
+                      </h1>   
+                      </font>
+                 </div>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+                  <div id="ct3">
+                      <font color="#FFFFFF">
+                      <h1>注意：”是，有改變” 代表你認為在過去的幾年中有因為認知功能(思考和記憶)問題而導致的改變。</h1>
+                      </font>
+                </div>
+            </apex:pageBlockSection>
+            
+        <apex:pageBlockSection >
+             <div id="ct5">
+                 <font color="#FFFFFF">
+            <h1>Consumer Name (this is included for CCA caregiver/consumer matching purposes):</h1>
+                 </font>
+            </div>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection >
+          <apex:inputText label=" " value="{!conval }" style="width:350px;margin-left:100px"/>
+               </apex:pageBlockSection>              
+            
+    <apex:pageBlockSection >
+         <div id="ct6">
+              <font color="#FFFFFF">
+            <h1>1.有判斷力的問題（例如，決策困難，糟糕的財務決策，思維問題）</h1>
+             </font>
+        </div>   
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption id="selectElementID1" itemLabel="是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel=" 不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection> 
+            
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>2.對活動和嗜好的興趣降低。</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp1}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel=" 是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel=" 不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>3.重複相同的問題、故事和陳述。</h1>
+                      </font>
+                 </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp2}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>4.在學習如何使用工具、設備、和小器具上有困難。例如: 電視、音響、冷氣機、洗衣機、熱水爐(器)、微波爐、遙控器。</h1>
+                      </font>
+                 </div>      
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp3}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel=" 是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>5. 忘記正確的月份和年份。</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp4}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="是，有改變）" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel=" 不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>6.處理複雜的財務上有困難。例如: 個人或家庭的收支平衡、所得稅、繳費單。</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp5}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>7. 記住約會的時間有困難。</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp6}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel=" 是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>8.有持續的思考和記憶方面的問題。</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp7}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="是，有改變" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="不是，沒有改變" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="不知道" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+        </apex:pageBlock>
+        
+        
+        
+         <apex:pageBlock id="pb4" rendered="{!pb4Rendered}">
+             <apex:pageBlockSection >
+                  <div id="ct4">
+                      <font color="#FFFFFF">
+                 <h1>Por favor, lea las siguientes instrucciones en voz alta al cuidador:</h1>
+                      </font>
+                 </div>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection >
+                  <div id="ct2">
+                      <font color="#FFFFFF">
+                      <h1>El programa IHSS+ Alzheimer está interesado en capacitar a los cuidadores que atienden a los<br/>
+                       personas con deterioro cognitivo, como el Alzheimer. Aunque su consumidor no sea diagnosticado con<br/>
+                      Alzheimer, puede mostrar signos de deterioro cognitivo o pérdida de memoria. Por favor, conteste la<br/>
+                      siguiente encuesta lo mejor que pueda. Las siguientes 8 preguntas le pedirán que reflexione sobre<br/>
+                      cualquier cambio en la vida diaria de su consumidor. SÍ significa que ha habido un cambio y NO<br/>
+                          significa que no ha habido un cambio. N/A significa que no sabe si ha habido un cambio.<br/>
+                      </h1>   
+                      </font>                     
+                 </div>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+                  <div id="ct3">
+                      <font color="#FFFFFF">
+                      <h1>Recuerde, “Sí, un cambio” indica que ha habido un cambio en los últimos años causado por problemas cognitivos (de pensamiento y memoria).
+                      </h1>
+                      </font>
+                </div>
+            </apex:pageBlockSection>
+            
+        <apex:pageBlockSection >
+             <div id="ct5">
+                 <font color="#FFFFFF">
+            <h1>Consumer Name (this is included for CCA caregiver/consumer matching purposes):</h1>
+                 </font>
+            </div>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection >
+          <apex:inputText label=" " value="{! conval }" style="width:350px;margin-left:100px"/>
+               </apex:pageBlockSection>              
+            
+    <apex:pageBlockSection >
+         <div id="ct6">
+              <font color="#FFFFFF">
+            <h1>1.Problemas de juicio (por ejemplo, problemas para tomar decisiones, malas decisiones financieras, problemas de pensamiento)</h1>
+             </font>
+        </div>   
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection> 
+            
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>2.Menos interés en los pasatiempos/actividades</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp1}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>3.Repite las mismas cosas una y otra vez (preguntas, historias o declaraciones)</h1>
+                      </font>
+                 </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp2}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel=" SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel=" No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+             <apex:pageBlockSection >
+                  <div id="ct">
+                       <font color="#FFFFFF">
+            <h1>4.Dificultades para aprender a utilizar una herramienta, un aparato o un dispositivo (un VCR, una computadora, un microondas, un control remoto)</h1>
+                      </font>
+                 </div>      
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp3}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>5.Olvida el mes o el año correcto</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp4}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel=" SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>6.Dificultades para manejar asuntos financieros complicados (por ejemplo, balance de la chequera, impuestos sobre la renta, pago de facturas)</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp5}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>7.Problemas para recordar las citas</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp6}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel="No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection >
+                 <div id="ct">
+                      <font color="#FFFFFF">
+            <h1>8.Problemas diarios con el pensamiento y/o la memoria</h1>
+                     </font>
+                </div>
+             </apex:pageBlockSection>
+        <apex:pageBlockSection >
+        <apex:selectRadio layout="pageDirection" value="{!selectedOp7}" styleClass="radioB" disabled="{!disablevalue}">
+          <apex:selectOption itemLabel="SÍ, (Un cambio)" itemValue="Yes"></apex:selectOption>
+          <apex:selectOption itemLabel="NO, (Ningún cambio)" itemValue="No"></apex:selectOption>
+           <apex:selectOption itemLabel=" No Aplica (N/A), (No sé)" itemValue="NAP"></apex:selectOption>
+      </apex:selectRadio>
+        </apex:pageBlockSection>    
+            
+        </apex:pageBlock>
+        
+        
+        
+        <div align="center" draggable="false" >
+            <apex:commandButton action="{! updatecon }" styleClass="buttonStyle" style="background:#ffb3ff" value="Submit" />  
+             <apex:commandButton action="{! cancel }" styleClass="buttonStyle" style="background:#ffb3ff" value="Back"/>  
+            </div>
+    </table>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,924 @@
+<aura:component controller="ContactController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:html tag="style"> 
+        @media (min-width: 768px) and (max-width: 1024px) 
+        {
+         .forceCommunityThemeHeroBase[style]
+        {
+        padding: 25px !important;
+        }    
+        .forceCommunityThemeHeroBase .bgImage, .forceCommunityThemeHeroBase .bgOverlay
+        {
+        background: transparent !important;    
+        }    
+        .slds-modal__content
+        {
+        }     
+        .slds-modal__container
+        {
+        }    
+        .progress-title
+        {
+        position: relative !important;
+        top: 32px;
+        left: -157px !important;  
+        }    
+        #upcoming-events
+        {
+        padding-bottom: 25px !important;
+        }
+        #news
+        {
+        position: relative !important;
+        top: 50px !important;
+        } 
+        .our-cltec
+        {
+        padding-bottom: 25px !important;
+        }
+        .icon-summary
+        {
+        padding-bottom: 25px    
+        }    
+        .Progress-section
+        {
+        position: relative;
+        bottom: -30px;
+        height: 250px;
+        }
+        
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -144px !important;
+        top: 65px !important;
+        }    
+        .col-xs-12
+        {    
+        width: 100% !important;
+        float: left !important;
+        }  
+        /*.footer-heading
+        {
+        position: relative !important;
+        top: 30px !important;
+        }*/
+        .gpa-title
+        {
+        position: relative !important;
+         top: -100px !important;
+        left: 250px !important   
+        }
+        .gpa-heading
+        {
+        position: relative !important;
+        top: -140px !important;
+        font-size: 20px !important;
+        left: 250px !important;    
+        }  
+        .credits-heading
+        {
+        position: relative !important;
+        top: -79px !important; 
+        left: 44px !important;
+        } 
+        .credits-title
+        {
+        position: relative !important;
+        top: -42px !important;
+        left: 38px;      
+        }
+        }
+        @media (max-width:767px)
+        {
+        
+        .forceCommunityThemeHeroBase[style]
+        {
+        padding: 25px !important;
+        }    
+        .forceCommunityThemeHeroBase .bgImage, .forceCommunityThemeHeroBase .bgOverlay
+        {
+        background: transparent !important;    
+        }    
+        .slds-modal__content
+        {
+        }     
+        .slds-modal__container
+        {
+        }    
+        .progress-title
+        {
+        position: relative;
+        top: 35px;    
+        }    
+        #upcoming-events
+        {
+        padding-bottom: 25px !important;
+        }
+        #news
+        {
+        position: relative !important;
+        top: 50px !important;
+        } 
+        .our-cltec
+        {
+        padding-bottom: 25px !important;
+        }
+        .icon-summary
+        {
+        padding-bottom: 25px    
+        }    
+        .Progress-section
+        {
+        position: relative;
+        bottom: 40px;
+        height: 300px;
+        }
+        
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -105px !important;
+        top: 50px !important;
+        }    
+        .col-xs-12
+        {    
+        width: 100% !important;
+        float: left !important;
+        }  
+        /*.footer-heading
+        {
+        position: relative !important;
+        top: 30px !important;
+        }*/
+        .gpa-title
+        {
+        position: relative !important;
+        top: 80px !important;
+        left: 0px !important;    
+        }
+        .gpa-heading
+        {
+        position: relative !important;
+        top: 80px !important;
+        font-size: 20px !important;
+        left: 3px !important;    
+        } 
+        .credits-heading
+        {
+        position: relative !important;
+        top: 65px !important;
+        } 
+        .credits-title
+        {
+        position: relative !important;
+        top: 68px !important;
+        }    
+        }
+        @media (max-width:992px)
+        {
+        .cCircularRing {
+        position: relative !important;
+        right: -70px !important;
+        top: 65px !important;
+        }
+        }
+        @media (max-width:540px)
+        {
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -140px !important;
+        top: 50px !important;
+        }
+        }
+        @media (max-width:414px)
+        {
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -100px !important;
+        top: 50px !important;
+        }
+        }
+        @media (max-width:375px)
+        {
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -83px !important;
+        top: 50px !important; 
+        }
+        }
+        @media (max-width:320px)
+        {
+        .cCircularRing 
+        {
+        position: relative !important;
+        right: -69px !important;
+        top: 50px !important;
+        }
+        }
+        
+        @media (max-width:1200px)
+        {
+        
+        }
+        
+        
+        
+        .progress-section
+        {    
+        position: relative;
+        left: 26px;
+        }    
+        .col-lg-2
+        {
+        padding: 20px !important;    
+        }
+        .col-lg-4 {
+        //width: 30% !important;
+        }
+        .cCommunityComp.center
+        {
+        //width: 90% !important;    
+        }    
+        .icon-heading
+        {    
+        position: relative;
+        top: 15px;
+        }
+        .icon-summary
+        { 
+        position: relative;
+        top: 14px;
+        font-family: Times New Roman;
+        font-size: 15px;    
+        }
+        .slice
+        {
+        position: relative !important;
+        right: 15px;
+        }     
+        .cCircularRing
+        { 
+        position: relative;
+        right: -100px;
+        top: 15px;
+        }
+        .credits-title
+        {
+        font-size: 30px !important;
+        position: relative !important;
+        top: 30px;
+        }
+        .gpa-title
+        { 
+        font-size: 30px !important;
+        position: relative !important;
+        top: 30px;
+        left: 11px;
+        }         
+        .footer-section-old
+        {
+        display: none !important;       
+        }        
+        .footer-section1 p
+        {
+        display: inline-block;
+        padding: 5px;
+        font-size: 15px !important;    
+        }
+        .footer-section1
+        {
+        position: relative;
+        top: 20px;
+        }
+        .home-care
+        {
+        font-family: Times New Roman;    
+        position: relative;
+        top: 15px;
+        font-size: 15px !important;    
+        }
+        .home-care-summary
+        {
+        position: relative;
+        top: 25px; 
+        text-align: justify;
+        font-family: Times New Roman;
+        font-size: 15px !important;    
+        }
+        .nursing-home
+        {
+        position: relative;
+        top: 35px;
+        font-family: Times New Roman;    
+        font-size: 15px !important;    
+        }
+        .nursing-home-summary
+        {
+        position: relative;
+        top: 45px;
+        text-align: justify;
+        font-family: Times New Roman; 
+        font-size: 15px !important;    
+        }
+        .footer-section3 img
+        {
+        position: relative;
+        top: 15px;
+        }
+        .news-summary
+        {
+        position: relative;
+        top: 25px;
+        width: 75%;
+        text-align: justify;
+        left: 50px;
+        font-family: Times New Roman;
+        font-size: 15px;
+        }
+        
+        
+        
+        
+        .footer-heading
+        {        
+        font-family: "Times New Roman",Times,serif;
+        font-weight: bold;
+        font-size: 1.0rem;
+        text-transform: uppercase;
+        position: relative;
+        left: 11px;    
+        }
+        .footer-heading10
+        {        
+        font-family: "Times New Roman",Times,serif;
+        font-weight: bold;
+        font-size: 0.8rem;
+        }
+        .news-image 
+        {
+        max-width: 250px;
+        height: 150px;  
+        width: auto !important;
+        }
+        
+        .cCommunityComp img
+        {
+        max-height: 100%;    
+        }
+        .field-title8 div:nth-child(1)
+        {
+        position: absolute !important;
+        bottom: 700px !important;
+        right: 500px !important;
+        display: inline-block !important;
+        }
+        .field-title8 div:nth-child(2)
+        {
+        position: absolute !important;
+        bottom: 700px !important;
+        right: 275px !important;
+        }
+        .center
+        {
+        margin: 0 auto !important;
+        text-align: center !important;        
+        }           
+        
+        
+        .row{margin-right:-15px;margin-left:-15px}
+        .row:after,.row:before{display:table;content:" "}
+        .row:after{clear:both}
+        .container
+        {
+        padding-right:15px;
+        padding-left:15px;
+        margin-right:auto;
+        margin-left:auto}
+        @media (min-width:768px)
+        {
+        .container
+        {
+        width:750px
+        }
+        
+        }
+        @media 
+        (min-width:992px)
+        {
+        .container
+        {
+        width:970px
+        }
+        }
+        @media (min-width:1200px)
+        {
+        .container
+        { 
+        width:1170px
+        }
+        }
+        @media (min-width:1200px){.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9{float:left}.col-lg-12{width:100%}.col-lg-11{width:91.66666667%}.col-lg-10{width:83.33333333%}.col-lg-9{width:75%}.col-lg-8{width:66.66666667%}.col-lg-7{width:58.33333333%}.col-lg-6{width:50%}.col-lg-5{width:41.66666667%}.col-lg-4{width:33.33333333%}.col-lg-3{width:25%}.col-lg-2{width:16.66666667%}.col-lg-1{width:8.33333333%}
+        .col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9{position:relative;min-height:1px;padding-right:15px;padding-left:15px}.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9{float:left}
+    </aura:html>
+    <aura:attribute name="ringValue" type="Double" default="50.0"/>
+    <aura:attribute name="Name" type="Id" default="0035g000001dmTxAAI"/>
+    <aura:attribute name="UpdatedList" type="Roaster__c[]"/>
+    <aura:attribute name="fieldMap" type="Map"/>
+    <aura:attribute name="sivak" type="boolean" default="true"/>
+    <aura:attribute name="students" type="List" default="{'sobjectType':'Lead', 
+                                                         'Class_Name__c': '',
+                                                         'Class_Names__c': '',
+                                                         'Class_Scheduled_Date__c': '',
+                                                         'End_Date__c': '', 
+                                                         'Students_RSVP__c': ''}"/>
+    <aura:attribute name="recorId" type="Id" default="a005g00002pW0mFAAS"/>
+    <aura:attribute name="ClassrelatedroasterList" type="SFDC_Class__c[]" />
+    <aura:attribute name="ClassList" type="List"/>
+    <aura:attribute name="parentId" type="Id" default="0035g000001dmTxAAI" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+    <aura:attribute name="files" type="ContentDocument[]"/>  
+    <aura:attribute name="recordId" type="Id" default="0035g000001dmTxAAI"/>  
+    <aura:attribute name="acceptFileTypes" type="String" />  
+    <aura:attribute name="showFileHeader" type="Boolean" default="true" />  
+    <aura:attribute name="fileHeaderText" type="String" default="Files" /> 
+    <aura:attribute name="uploadMultiple" type="Boolean" default="true"/>      
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+    <!-- 'showLoadingSpinner' attribute for show/hide the uploading image and msg in aura:if-->
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <!-- 'fileName' attribute for display the selected file name -->  
+    <aura:attribute name="fileName" type="String" default="No File Selected.." />
+    <aura:attribute name="showLoadingSpinner1" type="boolean" default="false" />
+    <aura:attribute name="session" type="boolean" default="false" />
+    <aura:attribute name="programs" type="boolean" default="false" />
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="userInfo" type="user"/> 
+    
+    <!-- 'fileName' attribute for display the selected file name -->  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="cirDeg" type="String" default="0" description="Degree of Progress to show. It is auto calculated field and used internally." />
+    <aura:attribute name="theme" type="String" default="green" description="Theme of Circular Progress Bar. Possible values are blue, green, orange." />
+    <aura:attribute name="size" type="String" default="small" description="Size of Circular Progress Bar. Possible values are small, medium, big." />
+    <img src="{!$Resource.CltcecLogo}" />  <div class="slds-float_right">
+    <div class="slds-m-right--xx-large">
+        <div class="slds-m-right--xx-large">
+            <div class="slds-m-right--xx-large">
+                <div class="slds-m-right--xx-large">
+                    <div class="slds-m-right--xx-large">
+                        <!-- <lightning:tabset selectedTabId="two">
+                            <lightning:tab label="HOME" id="one">
+                                
+                            </lightning:tab>
+                            <lightning:tab label="MY DETAILS" id="two">
+                                
+                            </lightning:tab>
+                            <lightning:tab label="NEW APPLICATION" id="four">
+                                
+                            </lightning:tab>
+                            <lightning:tab label="STUDENT POLICY" id="three">
+                                
+                            </lightning:tab>
+                        </lightning:tabset>--></div> </div></div></div></div></div><br/><br/>
+    <br/>
+    <br/>
+    <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false" >
+        
+        <lightning:carouselImage  
+                                 src = "{!$Resource.Cltcecpicgroup}"
+                                 >
+        </lightning:carouselImage>
+        <lightning:carouselImage 
+                                 src = "{!$Resource.cltcecdis	
+                                        }"
+                                 >
+        </lightning:carouselImage>
+    </lightning:carousel>
+    
+    <center> <div style="font-size: 21px;font-family: Times New Roman; font-weight: bold;">Hello Kathryn  </div>  </center> 
+    
+    <br/>
+    
+    <center> <div style="font-size: 21px;font-family: Times New Roman"> Building the workforce of highly trained caregivers that Californians can't live without.</div> </center>
+    
+    
+    <br/>
+    
+    <center><div style="font-size: 17px;font-family: Times New Roman">Our students take care of the most vulnerable populations. With their health and safety in mind during the Covid-19 outbreak, <br/>our IHSS+ Training program has moved to virtual learning and our Education Fund continues to offer online Continuing Education <br/>Unit and cell phone-based courses.
+        We are grateful for the patience, flexibility, and resilience of our students, staff, instructors, <br/>funders and union partners. These are challenging times but we are all working together to make sure our providers, care teams,<br/> consumers and patients are safe and healthy.</div></center>
+    <br/> <div class="center"> <div class="slds-border_top"></div></div>
+    <div class="container center Progress-section">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12">
+                <h4 class="footer-heading progress-title">My Progress</h4>
+                <div>
+                    <c:CircularRing/>
+                    
+                </div>  
+            </div> 
+            <div class="col-lg-4 col-xs-12">
+                <h4 class="footer-heading credits-heading">Credits Earned</h4>
+                <div>
+                    <h3 class="credits-title">50.0</h3>
+                </div>  
+            </div> 
+            <div class="col-lg-4 col-xs-12">
+                <h4 class="footer-heading gpa-heading">G P A</h4>
+                <div> 
+                    <h3 class="gpa-title">3.1</h3>
+                </div>   
+            </div>
+            
+            
+            
+        </div></div>
+    
+    <div class="center"> <div class="slds-border_top"></div></div>
+    
+    <div class="container center">
+        <div class="row">
+            <div class="col-lg-2 col-xs-6"><div>
+                
+                <div >
+                   <div onclick="{!c.navigateToMyComponent}"> <lightning:icon iconName="standard:avatar" alternativeText="Event" title="Event" /></div>
+
+                    <!-- <a href="{!'detail/'+v.Name}" target="_blank"> <lightning:icon iconName="standard:avatar" alternativeText="Event" title="Event" /></a>-->
+                    <div><h3 class="footer-heading10 icon-heading">My Profile</h3></div>
+                    <div class="icon-summary">View and update your profile, application and education</div>
+                </div>  
+                </div></div>
+            <div class="col-lg-2 col-xs-6">
+                <div >
+                    <a onclick = "{!c.handleClick}" > <lightning:icon iconName="standard:file" alternativeText="Event" title="Event" /></a>
+                    <h4 class="footer-heading10 icon-heading">Upload Files</h4>
+                    <div class="icon-summary">View files that you have uploaded and files shared to you</div>
+                </div>  
+            </div>
+            <div class="col-lg-2 col-xs-6">
+                <div >
+                    <a onclick ="{!c.myAction}"> <lightning:icon iconName="standard:event" alternativeText="Event" title="Event" size="medium" /></a>
+                    <h4 class="footer-heading10 icon-heading">My Schedule</h4>
+                    
+                    <div class="icon-summary">View your session date, time and location of the enrolled units</div>
+                </div>  
+            </div>
+            <div class="col-lg-2 col-xs-6">
+                <div >
+                    <a onclick="{!c.programs}"> <lightning:icon iconName="standard:products" alternativeText="Money"  title="money icon with success variant " variant="success" /></a>
+                    <h4 class="footer-heading10 icon-heading">Register to Programs</h4>
+                    
+                    <div class="icon-summary">View/enroll into programs, units session through the terms</div>
+                </div>  
+            </div>
+            <div class="col-lg-2 col-xs-6">
+                <div >
+                    <lightning:icon iconName="standard:groups" alternativeText="Event" title="Event" size="medium"/>
+                    <h4 class="footer-heading10 icon-heading">Groups</h4>
+                    
+                    <div class="icon-summary">Get latest upadate and collabrate with the faculty members</div>
+                </div>  
+            </div>
+            <div class="col-lg-2 col-xs-6">
+                <div >
+                    <lightning:icon iconName="standard:account" alternativeText="Event" title="Event" />
+                    <h4 class="footer-heading10 icon-heading">Contact Us</h4> 
+                    
+                    <div class="icon-summary">Reach out directly to CLTCEC staff</div>
+                </div>  
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    
+    <div class="center"> <div class="slds-border_top"></div></div>
+    
+    <div class="container center">
+        <div class="row">
+            <div class="col-lg-4" id="upcoming-events">
+                <h4 class="footer-heading" >Upcoming Events</h4>
+                <div class="footer-section1">
+                    <button class="slds-button slds-button_brand" type="button" title="Brand action" data-aura-rendered-by="171:2;a"><!--render facet: 172:2;a--><div style="width:15px" data-aura-rendered-by="168:2;a">
+                        25 -- Jan
+                        </div><!--render facet: 175:2;a--></button>
+                    <p>Summer Registration Events</p>
+                </div>  
+            </div>
+            <div class="col-lg-5"> 
+                <h4 class="footer-heading our-cltect">Our Cltcec</h4>
+                <div class="footer-section2">
+                    <h5 class="home-care">HOME CARE PROVIDERS</h5>
+                    <p class="home-care-summary">IHSS+ is a 10-week training course for IHSS providers that prepares you become a recognized member of your consumer’s care team. You’ll learn
+                        practical skills including CPR, first aid, infection control, nutrition, body mechanics, and much more! Classes are offered in Spanish, English,
+                        Armenian, Mandarin, Cantonese, and Korean.</p>
+                    
+                    <h5 class="nursing-home">NURSING HOME WORKERS</h5>
+                    <p class="nursing-home-summary">All our Services are free for Eligible Nursing Home Workers – call Suzytrosyan at 213-985-1715 or email her at suzyp@cltcec.org to learn more.</p>
+                </div>
+            </div>
+            <div class="col-lg-3" id="news"> 
+                <h4 class="footer-heading news-heading">News</h4>
+                <div class="footer-section3">
+                    
+                    <img class="news-image" src="/CLTCECCommunity/resource/1623236904000/cltcecimage2"></img>    
+                    
+                    <p class="news-summary">As CLTCEC marks its 20th anniversary, we celebrate the courageous women who founded the training center</p>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <br/><br/><br/><br/><br/>     
+    
+    <aura:if isTrue="{!v.showLoadingSpinner1}">
+        
+        <div class="mainWrap">
+            <ui:scrollerWrapper class="sWrapTest">
+                <ul class="testDiv">         
+                    
+                    <!-- Modal/Popup Box starts here-->
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <!-- Modal/Popup Box Header Starts here-->
+                            <header class="slds-modal__header">
+                                <lightning:buttonIcon iconName="utility:close"
+                                                      onclick="{! c.closeModel }"
+                                                      alternativeText="close"
+                                                      variant="bare-inverse"
+                                                      class="slds-modal__close"/>
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">File Upload</h2>
+                            </header>
+                            <!--Modal/Popup Box Body Starts here-->
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                <p><b>
+                                    
+                                    <c:CommunityFileUpload  childAttr="{!v.showLoadingSpinner1}" />
+                                    
+                                    <br/>
+                                    
+                                    <!-- <button class="slds-button slds-button_brand" onclick="{!c.doSave}">Upload Attachment</button>-->
+                                    
+                                    </b>
+                                </p>
+                            </div>
+                            <!--Modal/Popup Box Footer Starts here-->
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="neutral"
+                                                  label="Cancel"
+                                                  title="Cancel"
+                                                  onclick="{! c.closeModel }"/>
+                                <lightning:button variant="brand"
+                                                  label="OK"
+                                                  title="OK"
+                                                  onclick="{!c.submitDetails}"/>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div> </ul></ui:scrollerWrapper></div></aura:if>
+    <aura:if isTrue="{!v.session}">
+        <div class="mainWrap">
+            <ui:scrollerWrapper class="sWrapTest">
+                <ul class="testDiv"> 
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container" style="width:80%">
+                            <!-- Modal/Popup Box Header Starts here-->
+                            <header class="slds-modal__header">
+                                <lightning:buttonIcon iconName="utility:close"
+                                                      onclick="{! c.closeModel1 }"
+                                                      alternativeText="close"
+                                                      variant="bare-inverse"
+                                                      class="slds-modal__close"/>
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">My Schedule </h2>
+                            </header>
+                            <!--Modal/Popup Box Body Starts here-->
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                <p><b>
+                                    
+                                    <aura:if isTrue="{!not(empty(v.ClassrelatedroasterList))}">
+                                        
+                                        
+                                        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+                                            <thead>
+                                                <tr class="slds-text-heading_label">            
+                                                    <th scope="col"><div class="fieldLabel" title="Name">Name</div></th>
+                                                    <th scope="col"><div class="fieldLabel" title="Amount">Class Name</div></th>   
+                                                    <th scope="col"><div class="fieldLabel" title="Amount">Class Scheduled</div></th>                                               
+                                                    
+                                                    <th scope="col"><div class="fieldLabel" title="Amount">Student RSVP</div></th>                                               
+                                                    
+                                                    
+                                                </tr>
+                                            </thead> 
+                                            <tbody>    
+                                                <aura:iteration items="{!v.ClassrelatedroasterList[0].Roasters__r}" var="opp" >
+                                                    <tr>                     
+                                                        <th scope="row">   
+                                                            
+                                                            <lightning:input type="text" name="input5"   value="{!opp.Name}" disabled="{!v.sivak}"  aura:id = "OpportunityName"/>
+                                                        </th>
+                                                        
+                                                        <th scope="row">   
+                                                            
+                                                            <lightning:input type="text" name="input5"  value="{!opp.Class_Name__r.Name}" disabled="{!v.sivak}"   aura:id = "OpportunityClassName"/>
+                                                        </th>
+                                                        
+                                                        <th scope="row">   
+                                                            
+                                                            <lightning:input type="date" name="input5"  value="{!opp.Class_Scheduled_Date__c}" disabled="{!v.sivak}" aura:id = "OpportunityScheduledDate"/>
+                                                        </th>
+                                                        
+                                                        <!-- <th scope="row">
+          
+    <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small "> <lightning:formattedDateTime value="{!opp.End_Time__c}" hour="numeric" disabled="{!v.sivak}"/>
+</div>
+                                </th>-->
+                                                        
+                                                        
+                                                        <th scope="row">  
+                                                            <lightning:select aura:id="industryPicklist" value="{!opp.Students_RSVP__c}" onchange="{!c.handleOnChange}" name="industryPicklist"   >
+                                                                <option value="">--Awaiting RSVP--</option>
+                                                                <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
+                                                                    <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.students.Students_RSVP__c}" />
+                                                                </aura:iteration>
+                                                            </lightning:select></th>
+                                                        <th scope="row">
+                                                            <lightning:button value="{!opp}" 
+                                                                              label="Save" 
+                                                                              onclick="{!c.saveOpportunity}"/>
+                                                        </th>
+                                                    </tr>
+                                                </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <aura:set attribute="else">
+                                            <div Style="text-align : center"> " There Are No My Schedule "</div>
+                                        </aura:set>
+                                    </aura:if>
+                                    </b>
+                                </p>
+                            </div>
+                            <!--Modal/Popup Box Footer Starts here-->
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="neutral"
+                                                  label="Cancel"
+                                                  title="Cancel"
+                                                  onclick="{! c.closeModel1 }"/>
+                                <lightning:button variant="brand"
+                                                  label="OK"
+                                                  title="OK"
+                                                  onclick="{!c.submitDetails1}"/>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div> </ul></ui:scrollerWrapper></div></aura:if>
+    <aura:html tag="style">
+        
+        .slds-modal__container{
+        height : auto;
+        width: 50%;
+        max-width: 75rem;
+        }
+        
+        
+    </aura:html>
+    
+    <aura:if isTrue="{!v.programs}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" style="width:80%">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel1 }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Available Programs</h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p><b>
+                        
+                        <aura:if isTrue="{!not(empty(v.ClassList))}">
+                            <div class="mainWrap">
+                                <ui:scrollerWrapper class="sWrapTest">
+                                    <ul class="testDiv"> 
+                                        
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">S.No</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">Class Name</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">Class Id</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">Class Status</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="First Name">Instructor 1</div>
+                                                    </th>
+                                                    
+                                                    
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">Start Date</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">start Time</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">End Date</div>
+                                                    </th>
+                                                    
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="last Name">End Time</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <aura:iteration  items="{!v.ClassList}" var="con" indexVar="i">
+                                                    <tr class="slds-hint-parent">
+                                                        
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">{!i+1}</div>  
+                                                        </td>
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">{!con.Name}</div>  
+                                                        </td>
+                                                        
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">{!con.Class_ID__c}</div>  
+                                                        </td>
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">{!con.Class_Status__c}</div>  
+                                                        </td>
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">{!con.Instructor_1__c}</div>  
+                                                        </td>
+                                                        
+                                                        
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.Start_Date__c}"/></div>  
+                                                        </td>                            
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.Start_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                                                                                                                      timeZoneName="short" /></div>  
+                                                        </td>
+                                                        
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.End_Date__c}"/></div>  
+                                                        </td>
+                                                        
+                                                        
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.End_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                                                                                                                      timeZoneName="short"/></div>  
+                                                        </td>
+                                                        <td data-label="File Name">
+                                                            <div class="slds-truncate" title="File Name">
+                                                                <aura:if isTrue="{!con.Id=='a005g00002pW0mFAAS'}">
+                                                                    
+                                                                    <lightning:button variant="Success" label="Enrolled" title="Primary action"  class="slds-m-left_x-small"></lightning:button>
+                                                                    
+                                                                    <aura:set attribute="else">
+                                                                        <lightning:button variant="brand" label="Enroll" title="Primary action"  class="slds-m-left_x-small"></lightning:button>
+                                                                        
+                                                                    </aura:set>
+                                                                    
+                                                                </aura:if>               </div>  
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                        <aura:set attribute="else">
+                                            <div Style="text-align : center"> " There Are No Available Programs"</div>
+                                        </aura:set>
+                                    </ul></ui:scrollerWrapper></div></aura:if>
+                        </b>
+                    </p>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancel"
+                                      title="Cancel"
+                                      onclick="{! c.closeModel1}"/>
+                    <lightning:button variant="brand"
+                                      label="OK"
+                                      title="OK"
+                                      onclick="{!c.submitDetails1}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div> </aura:if>
+    
+</aura:component>

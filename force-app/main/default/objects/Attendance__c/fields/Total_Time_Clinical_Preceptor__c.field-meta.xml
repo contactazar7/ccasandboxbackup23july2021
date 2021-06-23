@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Time_Clinical_Preceptor__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(CNA_Class_Type__c,&quot;Clinical/Preceptor&quot;),(Value(TEXT(Hours__c) ) + ( Value(Text(Minutes__c)) / 60)),NULL)</formula>
+    <label>Total Time (Clinical/Preceptor)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

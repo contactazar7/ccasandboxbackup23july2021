@@ -1,0 +1,57 @@
+<aura:component controller="Mark_Attendance" implements="force:appHostable,lightning:isUrlAddressable" access="global">
+    <aura:html tag="style">
+        .slds-template__container
+        {
+        background-color: #FAFAF9;
+        border-radius: 35px;
+        }
+    </aura:html>
+    <aura:attribute name="id" type="String" />
+    <aura:attribute name="classDate" type="string"/> 
+    <aura:attribute name="Message" type="boolean" default="false" description="use for store and display attendance list return from server"/>
+    <aura:attribute name="TotalNumberOfRecord" type="integer" default="0" description="use for display Number of records"/>
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChange}"/>
+    <aura:handler name="dataTableSaveEvent" event="c:dataTableSaveEvent" action="{!c.saveTableRecords}"/>    
+
+    <div class="slds-template__container">
+        <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+        <div class="slds-m-around_medium" style="font-family:verdana;courier">
+            <div>
+                <h1 style="text-align:center;font-stretch:expanded;font-family:Monospace;font-size:30px;">CLASS ATTENDANCE REGISTER</h1>
+            </div>
+        </div>
+        <div style="margin-left:100px;"> 
+            <lightning:layout >
+                <lightning:layoutItem size="4" padding="around-small">
+                    <lightning:input aura:id="DateId" type="date" name="Class Scheduled Date" dateStyle="short" label="Class Scheduled Date" value="{!v.classDate}" onchange="{!c.onChangeVal}"/>
+                </lightning:layoutItem> 
+                <lightning:layoutItem size="4" padding="around-large" flexibility="auto">
+                    <lightning:button onclick="{!c.reset}"
+                                      variant="destructive"
+                                      label="Reset Filter"
+                                      /> 
+                     <lightning:button onclick="{!c.navigate}"
+                                      variant="brand"
+                                      class="slds-button slds-button_brand"
+                                      label="Back to Class"
+                                      /> 
+                </lightning:layoutItem> 
+             </lightning:layout>
+            <lightning:layout>
+                <P style="margin-left:15px;"><b>Count of Records : <lightning:badge label="{!v.TotalNumberOfRecord}"/></b></P>
+            </lightning:layout>
+        </div>
+         <aura:if isTrue="{!v.data.length>0}">
+            <c:Attendance_search aura:id="datatableId" auraId="datatableId" columns="{!v.columns}" data="{!v.data}" showRowNumberColumn="true" />
+        </aura:if>  
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Loading.." variant="brand"/>
+        </aura:if>
+       
+    </div>
+     
+</aura:component>

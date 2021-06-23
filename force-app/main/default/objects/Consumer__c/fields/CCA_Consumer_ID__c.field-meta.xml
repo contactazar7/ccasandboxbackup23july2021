@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCA_Consumer_ID__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>CCA ID for the Consumer</description>
+    <externalId>false</externalId>
+    <label>Empower Consumer ID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

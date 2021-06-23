@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Schedule_days__c</fullName>
+    <externalId>false</externalId>
+    <label>Schedule days</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>CNA_Program_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+                <label>Sunday</label>
+            </value>
+            <value>
+                <fullName>Monday</fullName>
+                <default>false</default>
+                <label>Monday</label>
+            </value>
+            <value>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+                <label>Tuesday</label>
+            </value>
+            <value>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+                <label>Wednesday</label>
+            </value>
+            <value>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+                <label>Thursday</label>
+            </value>
+            <value>
+                <fullName>Friday</fullName>
+                <default>false</default>
+                <label>Friday</label>
+            </value>
+            <value>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+                <label>Saturday</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Full Time</controllingFieldValue>
+            <controllingFieldValue>Part Time</controllingFieldValue>
+            <valueName>Monday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Full Time</controllingFieldValue>
+            <controllingFieldValue>Part Time</controllingFieldValue>
+            <valueName>Tuesday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Full Time</controllingFieldValue>
+            <controllingFieldValue>Part Time</controllingFieldValue>
+            <valueName>Wednesday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Full Time</controllingFieldValue>
+            <controllingFieldValue>Part Time</controllingFieldValue>
+            <valueName>Thursday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Full Time</controllingFieldValue>
+            <controllingFieldValue>Part Time</controllingFieldValue>
+            <valueName>Friday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Weekend</controllingFieldValue>
+            <valueName>Sunday</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Weekend</controllingFieldValue>
+            <valueName>Saturday</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

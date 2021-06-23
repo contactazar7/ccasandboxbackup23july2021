@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Contact_Types__c</fullName>
+    <externalId>false</externalId>
+    <label>Partner Contact Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>Bargainer</fullName>
+                <default>false</default>
+                <label>Bargainer</label>
+            </value>
+            <value>
+                <fullName>Chief Operating Officer</fullName>
+                <default>false</default>
+                <label>Chief Operating Officer</label>
+            </value>
+            <value>
+                <fullName>Corporate Labor Relations Counsel</fullName>
+                <default>false</default>
+                <label>Corporate Labor Relations Counsel</label>
+            </value>
+            <value>
+                <fullName>CPO</fullName>
+                <default>false</default>
+                <label>CPO</label>
+            </value>
+            <value>
+                <fullName>Director of Operations</fullName>
+                <default>false</default>
+                <label>Director of Operations</label>
+            </value>
+            <value>
+                <fullName>Director of Regulatory Affairs and Privacy Officer</fullName>
+                <default>false</default>
+                <label>Director of Regulatory Affairs and Privacy Officer</label>
+            </value>
+            <value>
+                <fullName>Executive Vice President</fullName>
+                <default>false</default>
+                <label>Executive Vice President</label>
+            </value>
+            <value>
+                <fullName>Human Resources Business Partner</fullName>
+                <default>false</default>
+                <label>Human Resources Business Partner</label>
+            </value>
+            <value>
+                <fullName>Human Resources Director</fullName>
+                <default>false</default>
+                <label>Human Resources Director</label>
+            </value>
+            <value>
+                <fullName>Human Resources Manager</fullName>
+                <default>false</default>
+                <label>Human Resources Manager</label>
+            </value>
+            <value>
+                <fullName>Legal Counsel</fullName>
+                <default>false</default>
+                <label>Legal Counsel</label>
+            </value>
+            <value>
+                <fullName>Pending Title</fullName>
+                <default>false</default>
+                <label>Pending Title</label>
+            </value>
+            <value>
+                <fullName>President</fullName>
+                <default>false</default>
+                <label>President</label>
+            </value>
+            <value>
+                <fullName>Regional Director</fullName>
+                <default>false</default>
+                <label>Regional Director</label>
+            </value>
+            <value>
+                <fullName>Regional Director of Operations Bay Area</fullName>
+                <default>false</default>
+                <label>Regional Director of Operations Bay Area</label>
+            </value>
+            <value>
+                <fullName>Regional Manager</fullName>
+                <default>false</default>
+                <label>Regional Manager</label>
+            </value>
+            <value>
+                <fullName>Regional Vice President</fullName>
+                <default>false</default>
+                <label>Regional Vice President</label>
+            </value>
+            <value>
+                <fullName>Regional Vice President of Operations</fullName>
+                <default>false</default>
+                <label>Regional Vice President of Operations</label>
+            </value>
+            <value>
+                <fullName>Sr. VP of Policy &amp;amp; Training Development</fullName>
+                <default>false</default>
+                <label>Sr. VP of Policy &amp;amp; Training Development</label>
+            </value>
+            <value>
+                <fullName>Talent Acquisition Manager</fullName>
+                <default>false</default>
+                <label>Talent Acquisition Manager</label>
+            </value>
+            <value>
+                <fullName>Test Contact Type for Partner v2</fullName>
+                <default>false</default>
+                <label>Test Contact Type for Partner v2</label>
+            </value>
+            <value>
+                <fullName>Vice President</fullName>
+                <default>false</default>
+                <label>Vice President</label>
+            </value>
+            <value>
+                <fullName>Vice President Human Resources</fullName>
+                <default>false</default>
+                <label>Vice President Human Resources</label>
+            </value>
+            <value>
+                <fullName>Vice President of Education and CQI</fullName>
+                <default>false</default>
+                <label>Vice President of Education and CQI</label>
+            </value>
+            <value>
+                <fullName>Vice President Operations North</fullName>
+                <default>false</default>
+                <label>Vice President Operations North</label>
+            </value>
+            <value>
+                <fullName>Administrator[11]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Administrator[11]</label>
+            </value>
+            <value>
+                <fullName>Bargainer[7]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Bargainer[7]</label>
+            </value>
+            <value>
+                <fullName>CPO[22]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CPO[22]</label>
+            </value>
+            <value>
+                <fullName>Chief Operating Officer[9]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Chief Operating Officer[9]</label>
+            </value>
+            <value>
+                <fullName>Corporate Labor Relations Counsel[15]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate Labor Relations Counsel[15]</label>
+            </value>
+            <value>
+                <fullName>Director of Operations[8]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Director of Operations[8]</label>
+            </value>
+            <value>
+                <fullName>Director of Regulatory Affairs and Privacy Officer[6]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Director of Regulatory Affairs and Privacy Officer[6]</label>
+            </value>
+            <value>
+                <fullName>Executive Vice President[13]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Executive Vice President[13]</label>
+            </value>
+            <value>
+                <fullName>Human Resources Business Partner[18]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Human Resources Business Partner[18]</label>
+            </value>
+            <value>
+                <fullName>Human Resources Director[19]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Human Resources Director[19]</label>
+            </value>
+            <value>
+                <fullName>Human Resources Manager[4]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Human Resources Manager[4]</label>
+            </value>
+            <value>
+                <fullName>Legal Counsel[3]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Legal Counsel[3]</label>
+            </value>
+            <value>
+                <fullName>Pending Title[16]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pending Title[16]</label>
+            </value>
+            <value>
+                <fullName>President[1]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>President[1]</label>
+            </value>
+            <value>
+                <fullName>Regional Director of Operations Bay Area [12]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regional Director of Operations Bay Area [12]</label>
+            </value>
+            <value>
+                <fullName>Regional Director[23]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regional Director[23]</label>
+            </value>
+            <value>
+                <fullName>Regional Manager[14]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regional Manager[14]</label>
+            </value>
+            <value>
+                <fullName>Regional Vice President [24]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regional Vice President [24]</label>
+            </value>
+            <value>
+                <fullName>Regional Vice President of Operations[20]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Regional Vice President of Operations[20]</label>
+            </value>
+            <value>
+                <fullName>Sr. VP of Policy &amp; Training Development[17]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sr. VP of Policy &amp; Training Development[17]</label>
+            </value>
+            <value>
+                <fullName>Talent Acquisition Manager[21]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Talent Acquisition Manager[21]</label>
+            </value>
+            <value>
+                <fullName>Test Contact Type for Partner v2[2]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Test Contact Type for Partner v2[2]</label>
+            </value>
+            <value>
+                <fullName>Vice President Human Resources[5]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vice President Human Resources[5]</label>
+            </value>
+            <value>
+                <fullName>Vice President Operations North[10]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vice President Operations North[10]</label>
+            </value>
+            <value>
+                <fullName>Vice President [25]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vice President [25]</label>
+            </value>
+            <value>
+                <fullName>Vice President of Education and CQI[26]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vice President of Education and CQI[26]</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

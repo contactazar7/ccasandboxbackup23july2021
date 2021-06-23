@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Zoom_link_mandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF((ISPICKVAL(Class_Mode__c , &apos;Online : Zoom&apos;)),  (ISBLANK(Zoom_Meeting_Link__c)), FALSE)</errorConditionFormula>
+    <errorDisplayField>Zoom_Meeting_Link__c</errorDisplayField>
+    <errorMessage>Please populate the Zoom meeting link for the class</errorMessage>
+</ValidationRule>

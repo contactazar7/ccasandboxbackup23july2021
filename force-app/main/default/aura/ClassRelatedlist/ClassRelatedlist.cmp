@@ -1,0 +1,153 @@
+<aura:component controller = "ClassRelatedRosterController" implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:appHostable,lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:html tag="style">
+        .slds_size_full
+        {
+        overflow: scroll;
+        height:450px;
+        }
+        .slds-modal__container {
+        margin: 0 auto;
+        width: 60%;
+        max-width: 81rem;
+        min-width: 20rem;
+        }
+    </aura:html>
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="baseURL" type="String" />
+    <aura:attribute name="ClassrelatedroasterList" type="Roaster__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.myAction}"/>
+    <aura:attribute name="showSaveCancelBtn" type="boolean" default="false" description="flag for rendered save and cancel buttons in aura:if "/>
+    
+    <!-- <lightning:card iconName="standard:work_capacity_usage" title="{!v.ClassrelatedroasterList[0].Roasters__r[0].Class_Name__r.Name}">-->
+    <lightning:card iconName="standard:work_capacity_usage">
+        
+        
+        <aura:set attribute="title">
+            <div>
+                <span>{!v.ClassrelatedroasterList[0].Class_Name__r.Name}</span>(
+                
+                <span>{!v.ClassrelatedroasterList[0].Class_Name__r.Start_Date__c}</span>&nbsp;&nbsp;-&nbsp;&nbsp;
+                
+                <span>{!v.ClassrelatedroasterList[0].Class_Name__r.End_Date__c}</span>)
+            </div>
+        </aura:set>
+        <div class="slds-m-left_x-small">
+            <div>
+            <p><b>Language :</b>&nbsp;<span >{!v.ClassrelatedroasterList[0].Class_Name__r.Language__c}</span></p>
+            </div>
+            <div>
+                <p><b>Class Status :</b>&nbsp; <span>{!v.ClassrelatedroasterList[0].Class_Name__r.Class_Status__c}</span></p>
+            </div>
+            <div>
+                <p><b>Students Enrolled :</b>&nbsp; <span>{!v.ClassrelatedroasterList[0].Class_Name__r.Students_Enrolled__c}</span></p>
+            </div>
+        </div>
+        <div class="slds-form-element buttons slds-text-align_center" >
+         <lightning:layout >
+             <lightning:layoutItem size="12" padding="around-large" flexibility="auto"> 
+                    <p style="text-align:right;">
+                        <lightning:button onclick="{!c.backtoClass}" variant="brand"
+                                                                    class="slds-button slds-button_brand"
+                                                                    label="Back to Classs"
+                                                                    />
+                    </p>
+             </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <div class="slds_size_full">
+            <aura:if isTrue="{!not(empty(v.ClassrelatedroasterList))}">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" column-widths-mode="auto">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="last Name">Name</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="last Name">Class Scheduled Date</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="First Name">Module</div>
+                            </th>
+                            
+                            
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="First Name">start Time</div>
+                            </th>
+                            
+                            
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="last Name">End Time</div>
+                            </th>
+                            
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="last Name">Status</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    
+                    <tbody>
+                        <!-- <aura:iteration  items="{!v.ClassrelatedroasterList[0].Roasters__r}" var="con">
+                        <tr class="slds-hint-parent">
+                            
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">
+                                    <a target="_blank" href="{!'/'+con.Id}">{!con.Name}</a>	
+                                </div>  
+                            </td>
+                            
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Class_Scheduled_Date__c}</div>  
+                            </td>
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Module__r.Name}</div>  
+                            </td>
+                             <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.Start_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                 timeZoneName="short" /></div>  
+                            </td>
+                             <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name"><lightning:formattedDateTime value="{!con.End_Time__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                 timeZoneName="short" /></div>  
+                            </td>
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Status__c}</div>  
+                            </td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             
+                        </tr>
+                    </aura:iteration>-->
+                        
+                        
+                        <!-- <aura:iteration items="{!v.ClassrelatedroasterList[0].Roasters__r}" var="acc"	>
+                            <c:inlineEditRowForRoaster singleRec="{!acc}"
+                                                       showSaveCancelBtn="{!v.showSaveCancelBtn}"
+                                                       sNo="{!sNo + 1}" />
+                        </aura:iteration>  -->
+                        <aura:iteration items="{!v.ClassrelatedroasterList}" var="acc"	>
+                            <c:inlineEditRowForRoaster singleRec="{!acc}"
+                                                       showSaveCancelBtn="{!v.showSaveCancelBtn}"
+                                                       sNo="{!sNo + 1}" />
+                        </aura:iteration>
+                        
+                        
+                        
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <div Style="text-align : center"> " There are no related rosters "</div>
+                </aura:set>
+            </aura:if>
+        </div>
+        <br/>
+        <aura:if isTrue="{!v.showSaveCancelBtn}">
+            <!--button for save and cancel Record after Inline Edit-->
+            <center>  <lightning:buttonGroup class="slds-m-around_medium">
+                <lightning:button label="Cancel" onclick="{!c.cancel}"/>
+                <lightning:button label="Save" onclick="{!c.Save}" variant="brand"/>
+                </lightning:buttonGroup></center>
+        </aura:if> 
+    </lightning:card>
+</aura:component>

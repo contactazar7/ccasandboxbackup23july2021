@@ -1,0 +1,17 @@
+<apex:page standardController="SFDC_Class__c">
+    <apex:includeLightning />
+    <div class="slds-table_edit_container slds-is-relative" style="650px;">
+        <div class="slds-grid slds-wrap" id="ClassManagement" />        
+        <script>
+        $Lightning.use("c:ClassManagementApp", function() {
+            $Lightning.createComponent("c:ClassManagementComp",
+                                        {},
+                                      "ClassManagement",
+                                       function(component) {                                           
+                                           component.set("v.classId",'{!$CurrentPage.parameters.id}');
+                                           //console.log('Component created, do something cool here');
+                                       });
+        });
+        </script>
+    </div>       
+</apex:page>

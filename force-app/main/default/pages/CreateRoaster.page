@@ -1,0 +1,3 @@
+<apex:page standardController="SFDC_Class__c" extensions="Roaster_automate" action="{!createRoasterRecs}">
+    <apex:form ><apex:inputHidden value="{!SFDC_Class__c.Id}"/></apex:form>
+</apex:page>

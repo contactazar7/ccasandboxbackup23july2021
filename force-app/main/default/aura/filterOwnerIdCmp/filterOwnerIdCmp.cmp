@@ -1,0 +1,12 @@
+<aura:component>
+    <aura:attribute name="childObjectName" type="String" required="true"/> 
+    <aura:attribute name="fieldNames" type="String" required="true"/> 
+    <aura:attribute name="selectedOwnerId" type="String"/> 
+    <aura:registerEvent name="onSelectEvts" type="c:OwnerLookupselectEvent"/>
+    <lightning:recordEditForm onload="{!c.setselectedOwnerId}" objectApiName="{!v.childObjectName}">
+        <div style="font-style:Sans-serif;Verdana;padding-top:0px;">
+            <lightning:messages/>
+            <lightning:inputField aura:id="lookupField" variant="label-stacked" fieldName="{!v.fieldNames}" onchange="{!c.OnSelect}" />
+        </div>
+    </lightning:recordEditForm>
+</aura:component>

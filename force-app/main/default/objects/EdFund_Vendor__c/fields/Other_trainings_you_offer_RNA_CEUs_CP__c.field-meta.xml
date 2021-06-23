@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_trainings_you_offer_RNA_CEUs_CP__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>(RNA, CEUs, CPR, etc.)</inlineHelpText>
+    <label>Other trainings you offer?</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

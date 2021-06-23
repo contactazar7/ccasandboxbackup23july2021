@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facility_Contact_Type</fullName>
+    <active>true</active>
+    <label>Facility Contact Type</label>
+    <picklistValues>
+        <picklist>Employment_Status_Part_Time__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Facility_Contact_Type_Category__c</picklist>
+        <values>
+            <fullName>Facility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Union</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Facility_Contact_Types__c</picklist>
+        <values>
+            <fullName>Activist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administrator Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Office Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DON</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DSD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DSD Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director of Nursing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director of Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Vice-President</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HCSG Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Human Resources Business Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Infection Preventionist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kitchen Supervisor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintenance Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NPE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nurse Practice Educator %28NPE%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organizer%2FUnion Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payroll Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>President</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Receptionist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regional Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regional Vice President of Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Staff Development Coordinator %28SDC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward AM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward NOC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Steward PM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talent Acquisition Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test Contact Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test Contact Type for Owner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vice President of Human Resources</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_Active__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Receives_Leadership_1_Pager_Letter_BCC__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Receives_Leadership_1_Pager_Letter__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

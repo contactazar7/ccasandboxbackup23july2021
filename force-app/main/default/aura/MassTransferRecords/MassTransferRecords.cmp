@@ -1,0 +1,307 @@
+<aura:component controller="MassTransferProvider_Recs" implements="force:appHostable,lightning:isUrlAddressable" access="global">
+    <aura:html tag="style">
+        .slds-template__container
+        {
+        <!--background-color: #FAFAF9;-->
+        background-color: #FFFFFF;
+        border-radius: 35px;
+        }
+    </aura:html>
+    <aura:attribute name="id" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChange}"/>
+    <aura:attribute name="recLimits" type="string" description="Use to Search the Provider limits" />
+    <aura:attribute name="searchName" type="string" description="Use to Search the Provider Name" />
+    <aura:attribute name="searchProviderID" type="string" description="Use to Search the Provider Name" />
+    <aura:attribute name="searchRolodexID" type="string" description="Use to Search the Provider Name" />
+    <aura:attribute name="searchStudentID" type="string" description="Use to Search the Provider Name" />
+    <aura:attribute name="searchCity" type="String" description="use for store user searchCity input"/>
+    <aura:attribute name="searchPostalCode" type="string" description="use for store user searchPostalCode input"/>
+    <aura:attribute name="searchRecdate" type="string" description="use to store the value in Recruiter Assigned date"/>
+    <aura:attribute name="searchResult" type="Object"/>
+    <aura:attribute name="cloneResult" type="Object" />
+    <aura:attribute name="contactrows" type="List"/>
+    <aura:attribute name="Message" type="boolean" default="false" description="use for store and display attendance list return from server"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="TotalNumberOfRecord" type="Integer" />
+    <aura:attribute name="showModal" type="boolean" default="false"/>
+    <aura:attribute name="rowsToupdate" type="Object" />
+    <aura:handler name="onSelectEvt" event="c:CustomLookupSelectionEvt" action="{!c.getLookUpValues}"/>
+    <aura:handler name="onSelectEvts" event="c:OwnerLookupselectEvent" action="{!c.getfiltervalues}"/>
+    <aura:attribute name="recruiterId" type="string"/>
+    <aura:attribute name="OwnerId" type="Id" />
+    <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide"/>
+    <aura:attribute name="picklistValues" type="Object" description="use for store and display provider list return from server"/>
+    <c:picklistValues sObjectName="Contact" fieldName="Recruitment_Status__c" picklistValues="{!v.picklistValues}" /> 
+    <aura:attribute name="providerAssesmentpicks" type="Object" description="use for store the Provider Langauge and display provider list return from server"/>
+    <c:providerAssesmentpicks sObjectName="Contact" fieldName="Recruitment_Assessment__c" picklistValues="{!v.providerAssesmentpicks}" /> 
+    <aura:attribute name="providerLangPicklistval" type="Object" description="use for store the Provider Langauge and display provider list return from server"/>
+    <c:providerLangPicklistval sObjectName="Contact" fieldName="Choice_of_Class_Language__c" picklistValues="{!v.providerLangPicklistval}" /> 
+    <aura:attribute name="providerRecruitmentProgram" type="Object" description="use for store the Provider Langauge and display provider list return from server"/>
+    <c:providerRecruitmentProgram sObjectName="Contact" fieldName="Recruitment_Program__c" picklistValues="{!v.providerRecruitmentProgram}" /> 
+    <aura:attribute name="providerRecruitmentTypePicklistValues" type="Object" description="use for store and display provider Recruitment Type that's return from server"/>
+    <c:providerRecruitmentTypePicklistValues sObjectName="Contact" fieldName="Recruitment_Type__c" picklistValues="{!v.providerRecruitmentTypePicklistValues}" /> 
+    
+    <aura:attribute name="recruiter_program" type="string" description="use for store the Provider Recruitment_Program that will send to Server"/>
+    <aura:attribute name="recruitment_type" type="string" description="use for store the Provider recruitment_type that will send to Server"/>
+    <aura:attribute name="recruiterW_WO" type="string" description="use for store the Provider Recruiter with and Without that will send to Server"/> 
+    <aura:attribute name="planguage" type="string" description="use for store the Provider language that will send to Server"/>
+    <aura:attribute name="recruiter_Assesment" type="string" description="use for store the Recruiter Assement that will send to Server"/>
+    <aura:attribute name="recruiter_Status" type="string" description="use for store the Provider Status that will send to Server"/>
+    <aura:attribute name="sortDirection" type="String" default="asc" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="sortedBy" type="String" />
+    <div class="slds-template__container">
+        <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+        <div style="margin-left:10px;"> 
+            <center><p>
+                <lightning:layout >
+                    <lightning:layoutItem padding="around-small" size="2" >
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select value="{!v.planguage}" label="Language" aura:id="searchpro_language" onchange="{!c.Search}">    
+                                <option value="">Choose one…</option>
+                                <aura:iteration items="{!v.providerLangPicklistval}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="2" >
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select value="{!v.recruitment_type}" label="Recruitment Type" aura:id="searchpro_RecruitmentType" onchange="{!c.Search}">    
+                                <option value="">Choose one…</option>
+                                <aura:iteration items="{!v.providerRecruitmentTypePicklistValues}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select value="{!v.recruiter_program}" label="Recruitment Program" aura:id="searchpro_Program" onchange="{!c.Search}">    
+                                <option value="">Choose one…</option>
+                                <aura:iteration items="{!v.providerRecruitmentProgram}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select aura:id="recruiterW_WOId" name="recruiterW_WO" label="Recruiter W/WO" required="false" onchange="{!c.Search}">
+                                <option value="">choose one...</option>
+                                <option value="1">All</option>
+                                <option value="2">With Recruiter</option>
+                                <option value="3">Without Recruiter</option>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select value="{!v.recruiter_Status}" label="Recruitment Status" aura:id="searchpro_Status" onchange="{!c.Search}">    
+                                <option value="">Choose one…</option>
+                                <aura:iteration items="{!v.picklistValues}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem> 
+                    <lightning:layoutItem padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:select value="{!v.recruiter_Assesment}" label="Recruitment Assesment" aura:id="searchpro_assesment" onchange="{!c.Search}">    
+                                <option value="">Choose one…</option>
+                                <aura:iteration items="{!v.providerAssesmentpicks}" var="item">
+                                    <option value="{!item.value}">
+                                        {!item}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem> 
+                </lightning:layout> 
+                </p></center>
+            <center><p>
+                <lightning:layout >
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchName}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="name"
+                                             label="Name"
+                                             onchange="{!c.Search}"/> </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchRecdate}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="searchdate"
+                                             type="date"
+                                             dateStyle="short" 
+                                             label="Date"
+                                             onchange="{!c.Search}"/> </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <c:filterOwnerIdCmp selectedOwnerId="{!v.AssignIds}" childObjectName="Contact" fieldNames="Recruiter__c"/>
+                        </div>  
+                    </lightning:layoutItem> 
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchCity}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="searchCity"
+                                             label="Residing City"
+                                             onchange="{!c.Search}"/></div>
+                        
+                    </lightning:layoutItem>
+                    <lightning:layoutItem   padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchPostalCode}"                                                     
+                                             placeholder="Search .."
+                                             aura:id="searchPostalCode"
+                                             label="Residing PostalCode"
+                                             onchange="{!c.Search}"/></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  padding="around-small" size="2">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.recLimits}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="limits"
+                                             label="Choose Size"
+                                             onchange="{!c.Search}"/> </div>
+                    </lightning:layoutItem>
+                    <!--  <lightning:layoutItem  padding="around-small">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchProviderID}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="searchProviderID"
+                                             label="CCA ProviderID"
+                                             onchange="{!c.Search}"/></div>
+                        
+                    </lightning:layoutItem>
+                    <lightning:layoutItem  padding="around-small">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchRolodexID}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="searchRolodexID"
+                                             label="RolodexID"
+                                             onchange="{!c.Search}"/></div>
+                        
+                    </lightning:layoutItem> -->
+                    <!-- <lightning:layoutItem  padding="around-small">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <lightning:input value="{!v.searchStudentID}"                                                     
+                                             placeholder="Search..."
+                                             aura:id="searchStudentID"
+                                             label="Empower Id"
+                                             onchange="{!c.Search}"/></div>
+                        
+                    </lightning:layoutItem> -->
+                </lightning:layout>
+                </p></center>
+            <div class="slds-m-around_x-small">
+                <P style="text-align: left;padding: 10px;">
+                    <span style="float:left;">
+                        <b>Total Number of Records : <lightning:badge label="{!v.TotalNumberOfRecord}"/></b><br/>
+                        <b>Selected Records: <lightning:badge label="{!v.selectedRowsCount }"/></b>
+                    </span>
+                    <span style="float:right;">
+                        <lightning:button onclick="{!c.showModel}" 
+                                          variant="brand"
+                                          label="Assign"
+                                          disabled="{!v.selectedRowsCount == 0}"
+                                          /> 
+                        <lightning:button onclick="{!c.reset}"
+                                          variant="destructive"
+                                          label="Reset"
+                                          /> 
+                        <lightning:button onclick="{!c.navigate}"
+                                          variant="brand"
+                                          class="slds-button slds-button_brand"
+                                          label="Back"
+                                          /> 
+                    </span>
+                </P>
+                <!-- <lightning:layoutItem size="3" flexibility="auto" class="slds-p-top_x-large">
+                        <lightning:button onclick="{!c.showModel}" 
+                                          variant="brand"
+                                          label="Assign"
+                                          disabled="{!v.selectedRowsCount == 0}"
+                                          /> 
+                        <lightning:button onclick="{!c.reset}"
+                                          variant="destructive"
+                                          label="Reset"
+                                          /> 
+                        <lightning:button onclick="{!c.navigate}"
+                                          variant="brand"
+                                          class="slds-button slds-button_brand"
+                                          label="Back"
+                                          /> 
+                    </lightning:layoutItem>  -->    
+            </div>
+            <div class="container" style="padding-top:50px;">
+                <!-- <div class="slds-grid"> -->
+                <!--<div class="slds-col slds-box  slds-size_12-of-12" style="height:425px; overflow:auto !important; margin-left: -210px; width: 151%;"> --> 
+                <!--   <div class="slds-col slds-box  slds-size_7-of-7" style="height:400px; overflow:auto !important;">--> 
+                <div style="height:400px; overflow:auto !important;"> 
+                    <lightning:datatable class="slds-table" data="{!v.searchResult}" columns="{!v.contactrows}" keyField="Id" onrowselection="{! c.updateSelectedRecs }" showRowNumberColumn="false" defaultSortDirection="{!v.defaultSortDirection}" sortedDirection="{!v.sortDirection}" sortedBy="{!v.sortedBy}" onsort="{!c.handleSort}" />
+                </div>
+                <!-- </div>--> 
+            </div>
+            <aura:if isTrue="{!v.Message}">
+                <div class="slds-notify_container slds-is-relative">
+                    <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <div class="slds-notify__content slds-align_absolute-center">
+                            <h5 class="slds-text-heading_small"><b>No Records Found!</b></h5>
+                        </div>
+                    </div>
+                </div> 
+            </aura:if>  
+        </div>
+        <aura:if isTrue="{!v.showModal}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" 
+                     aria-modal="true" aria-describedby="modal-content-id-1" 
+                     class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.hideModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            <p><b>Assign Recruiter to Provider</b></p></h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-m-around_xx-large">
+                            <c:CustomLookupStd selectedRecordId="{!v.AssignId}" childObjectName="Contact" fieldName="Recruiter__c"/>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.hideModel }"/>
+                        <lightning:button variant="brand"
+                                          label="Save"
+                                          title="Save"
+                                          onclick="{!c.saveDetails}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Loading.." variant="brand"/>
+        </aura:if>  
+    </div>
+</aura:component>

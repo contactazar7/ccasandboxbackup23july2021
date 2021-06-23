@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAF_Recruitment_Assessment__c</fullName>
+    <externalId>false</externalId>
+    <label>Recruitment Assessment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Already took CMMI Class</fullName>
+                <default>false</default>
+                <label>Already took CMMI Class</label>
+            </value>
+            <value>
+                <fullName>Bad / Disconnected Number</fullName>
+                <default>false</default>
+                <label>Bad / Disconnected Number</label>
+            </value>
+            <value>
+                <fullName>Bad Address</fullName>
+                <default>false</default>
+                <label>Bad Address</label>
+            </value>
+            <value>
+                <fullName>Caring for family member cannot attend training</fullName>
+                <default>false</default>
+                <label>Caring for family member cannot attend training</label>
+            </value>
+            <value>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+                <label>Do Not Contact</label>
+            </value>
+            <value>
+                <fullName>Follow-Up</fullName>
+                <default>false</default>
+                <label>Follow-Up</label>
+            </value>
+            <value>
+                <fullName>IC Signed / Enrolled</fullName>
+                <default>false</default>
+                <label>IC Signed / Enrolled</label>
+            </value>
+            <value>
+                <fullName>Interested</fullName>
+                <default>false</default>
+                <label>Interested</label>
+            </value>
+            <value>
+                <fullName>Left a Message</fullName>
+                <default>false</default>
+                <label>Left a Message</label>
+            </value>
+            <value>
+                <fullName>No Consumer Care</fullName>
+                <default>false</default>
+                <label>No Consumer Care</label>
+            </value>
+            <value>
+                <fullName>No Longer Provider / Consumer</fullName>
+                <default>false</default>
+                <label>No Longer Provider / Consumer</label>
+            </value>
+            <value>
+                <fullName>No Time (but would not specify)</fullName>
+                <default>false</default>
+                <label>No Time (but would not specify)</label>
+            </value>
+            <value>
+                <fullName>Not Available (at the moment, but for the future)</fullName>
+                <default>false</default>
+                <label>Not Available (at the moment, but for the future)</label>
+            </value>
+            <value>
+                <fullName>Not Home</fullName>
+                <default>false</default>
+                <label>Not Home</label>
+            </value>
+            <value>
+                <fullName>Not Interested / Declined</fullName>
+                <default>false</default>
+                <label>Not Interested / Declined</label>
+            </value>
+            <value>
+                <fullName>Not Member of health plan</fullName>
+                <default>false</default>
+                <label>Not Member of health plan</label>
+            </value>
+            <value>
+                <fullName>On Other Plan / Wants to Switch</fullName>
+                <default>false</default>
+                <label>On Other Plan / Wants to Switch</label>
+            </value>
+            <value>
+                <fullName>Scheduled Appointment</fullName>
+                <default>false</default>
+                <label>Scheduled Appointment</label>
+            </value>
+            <value>
+                <fullName>Special Project</fullName>
+                <default>false</default>
+                <label>Special Project</label>
+            </value>
+            <value>
+                <fullName>Undecided</fullName>
+                <default>false</default>
+                <label>Undecided</label>
+            </value>
+            <value>
+                <fullName>Under 18</fullName>
+                <default>false</default>
+                <label>Under 18</label>
+            </value>
+            <value>
+                <fullName>Verified health plan member</fullName>
+                <default>false</default>
+                <label>Verified health plan member</label>
+            </value>
+            <value>
+                <fullName>Decline to state</fullName>
+                <default>false</default>
+                <label>Decline to state</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

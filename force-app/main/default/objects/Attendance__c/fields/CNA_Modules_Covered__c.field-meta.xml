@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CNA_Modules_Covered__c</fullName>
+    <externalId>false</externalId>
+    <label>CNA Modules Covered</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Module 01: Introduction</fullName>
+                <default>false</default>
+                <label>Module 01: Introduction</label>
+            </value>
+            <value>
+                <fullName>Module 02: Patient’s Rights</fullName>
+                <default>false</default>
+                <label>Module 02: Patient’s Rights</label>
+            </value>
+            <value>
+                <fullName>Module 03: Interpersonal Skills</fullName>
+                <default>false</default>
+                <label>Module 03: Interpersonal Skills</label>
+            </value>
+            <value>
+                <fullName>Module 04: Prevention and Management of Catastrophe</fullName>
+                <default>false</default>
+                <label>Module 04: Prevention and Management of Catastrophe</label>
+            </value>
+            <value>
+                <fullName>Module 05: Body Mechanics</fullName>
+                <default>false</default>
+                <label>Module 05: Body Mechanics</label>
+            </value>
+            <value>
+                <fullName>Module 06: Medical and Surgical Asepsis</fullName>
+                <default>false</default>
+                <label>Module 06: Medical and Surgical Asepsis</label>
+            </value>
+            <value>
+                <fullName>Module 07: Weights and Measures</fullName>
+                <default>false</default>
+                <label>Module 07: Weights and Measures</label>
+            </value>
+            <value>
+                <fullName>Module 08: Patient Care Skills</fullName>
+                <default>false</default>
+                <label>Module 08: Patient Care Skills</label>
+            </value>
+            <value>
+                <fullName>Module 09: Patient Care Procedures</fullName>
+                <default>false</default>
+                <label>Module 09: Patient Care Procedures</label>
+            </value>
+            <value>
+                <fullName>Module 10: Vital Signs</fullName>
+                <default>false</default>
+                <label>Module 10: Vital Signs</label>
+            </value>
+            <value>
+                <fullName>Module 11: Nutrition</fullName>
+                <default>false</default>
+                <label>Module 11: Nutrition</label>
+            </value>
+            <value>
+                <fullName>Module 12: Emergency Procedures</fullName>
+                <default>false</default>
+                <label>Module 12: Emergency Procedures</label>
+            </value>
+            <value>
+                <fullName>Module 13: Long-Term Care</fullName>
+                <default>false</default>
+                <label>Module 13: Long-Term Care</label>
+            </value>
+            <value>
+                <fullName>Module 14: Rehabilitation Nursing</fullName>
+                <default>false</default>
+                <label>Module 14: Rehabilitation Nursing</label>
+            </value>
+            <value>
+                <fullName>Module 15: Observation &amp; Charting</fullName>
+                <default>false</default>
+                <label>Module 15: Observation &amp; Charting</label>
+            </value>
+            <value>
+                <fullName>Module 16: Death &amp; Dying</fullName>
+                <default>false</default>
+                <label>Module 16: Death &amp; Dying</label>
+            </value>
+            <value>
+                <fullName>Module 17: Elder abuse</fullName>
+                <default>false</default>
+                <label>Module 17: Elder abuse</label>
+            </value>
+            <value>
+                <fullName>Module 18: Other: CPR/Fire &amp; Safety Certifications</fullName>
+                <default>false</default>
+                <label>Module 18: Other: CPR/Fire &amp; Safety Certifications</label>
+            </value>
+            <value>
+                <fullName>Module 19: Other: Skills practice/Preparation for State Exam</fullName>
+                <default>false</default>
+                <label>Module 19: Other: Skills practice/Preparation for State Exam</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
